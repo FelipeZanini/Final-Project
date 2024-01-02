@@ -1,0 +1,38 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+    {% block meta %}
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+
+    {% load bootstrap5 %}
+
+    {% block corecss %}
+        <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+    {% bootstrap_css %}
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% block corejs %}
+    {% bootstrap_javascript %}
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
+    
+  <body>
+    {% block content %}
+
+    {% endblock %}
+  </body>
+</html>
