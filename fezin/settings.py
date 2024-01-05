@@ -38,13 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_static_jquery',
     'bootstrap5',
+    'crispy_forms',
+    'crispy_bootstrap4',
+    'fontawesomefree',
     'home',
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +65,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'fezin.urls'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -72,6 +79,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
@@ -85,6 +96,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
