@@ -1,7 +1,21 @@
+@media only screen and (max-width: 530px) {
+    .homepage-text h1 {
+        margin-top: 0px!important;
+    }
+}
 @media only screen and (max-width: 700px) {
     .top-navbar .nav-link{
         font-size: 15px;
         padding: 8px 10px;
+    }
+    .homepage-image {
+        background-position: 16% 7%!important;
+    }
+    .homepage-text p {
+        padding-right: 70px!important;
+    }
+    .homepage-text h1 {
+        padding-right: 70px!important;
     }
 }
 .nav-item .nav-link{
@@ -11,7 +25,7 @@
     color: rgb(14, 164, 101);
 }
 .main-navbar {
-    background-color: #a7c7cd;
+    background-color: rgb(167, 199, 205);
     color: black;
 }
 
@@ -19,3 +33,38 @@
     background-color:  #ddf0e8;
     font-size: 19px;
 }
+
+.homepage-image {
+    background-image: url("/static/media/pexels-gustavo-fring-4173110\ \(1\).jpg");
+    background-color: rgb(9, 0, 55);
+    background-position:left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.homepage-text h1{
+    margin-top: 90px;
+    font-size: 40px;
+}
+
+.homepage-text p{
+    font-size: 17px;
+}
+
+.homepage-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    background-color: black;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .homepage-button:hover {
+    background-color: #212324;
+  }
