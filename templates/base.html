@@ -8,6 +8,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Zanfe, e-commerce website">
+  <!-- Maybe I can add more keywords and get a better description -->
+  <meta name="keywords" content="Zanfe, e-commerce, homeware products, shirts, jeans, essentials, free delivery">
   {% endblock %}
 
   {% block extra_meta %}
@@ -37,7 +40,6 @@
   <header>
     {% block header %}
     <!-- Navigation-->
-
     <nav class="navbar main-navbar">
       <div class="row container-fluid">
         <div class="col-4 col-sm-2 col-md-3 col-lg-7 my-auto justify-content-end">
@@ -48,33 +50,39 @@
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+                aria-expanded="false" aria-label="open a list of user action">
                 <i class="fa fa-user"></i>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
-                <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
-                <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
-                <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
-                <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+                <li><a class="dropdown-item" href="#" aria-label="visit your profile"><i
+                      class="fa fa-user"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="#" aria-label="check your orders"><i
+                      class="fa fa-list"></i> My Orders</a></li>
+                <li><a class="dropdown-item" href="#" aria-label="check your wishlist"><i
+                      class="fa fa-heart"></i> My Wishlist</a></li>
+                <li><a class="dropdown-item" href="#" aria-label="check your cart"><i
+                      class="fa fa-shopping-cart"></i> My Cart</a></li>
+                <li><a class="dropdown-item" href="#" aria-label="logout"><i class="fa fa-sign-out"></i> Logout</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#" aria-label="check your wishlist">
                 <i class="fa fa-heart"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#" aria-label="check your cart">
                 <i class="fa fa-shopping-cart"></i>
               </a>
             </li>
             <li class="nav-item">
-              <span class="nav-link d-lg-none" id="search-icon"> <i class="fa fa-search"></i></span>
+              <a class="nav-link" href="#" aria-label="click to search for a item">
+                <span class="nav-link d-lg-none p-0" id="search-icon"> <i class="fa fa-search"></i></span>
+              </a>
             </li>
           </ul>
         </div>
-        <div class="col-lg-8 my-2 d-none d-lg-block mx-auto" id="search-bar">
+        <div class="col-lg-8 my-2 d-none d-lg-block mx-auto" id="search-bar" aria-label="search" role="searchbox">
           <form role="search">
             <div class="input-group">
               <input type="search" placeholder="Search your product" class="form-control search-input" />
@@ -83,39 +91,6 @@
               </button>
             </div>
           </form>
-        </div>
-      </div>
-    </nav>
-
-    <nav class="navbar navbar-expand-md secondary-navbar">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <i class="fa-solid fa-caret-down"></i>
-        </button>
-        <p class="d-md-none my-auto justify-content-end">Free Develivey Over 60€!</p>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Products</a>
-              <div class="dropdown-menu" aria-labelledby="clothing-link">
-                <a class="dropdown-item">Activewear &amp; Essentials</a>
-                <a class="dropdown-item">Jeans</a>
-                <a class="dropdown-item">Shirts</a>
-                <a class="dropdown-item">All Clothing</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3" href="#">Clohting</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3" href="#">Homeware</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3" href="#">Special Offers</a>
-            </li>
-          </ul>
         </div>
       </div>
     </nav>
