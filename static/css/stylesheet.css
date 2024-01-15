@@ -18,20 +18,42 @@
         padding-right: 70px!important;
     }
 }
+
+#brand-link {
+    text-decoration: none;
+    color: white;
+}
+
 .nav-item .nav-link{
-    color: black;
+    color: rgb(255, 255, 255);
+    font-weight: 650;
 }
 .nav-item .nav-link:hover{
-    color: rgb(14, 164, 101);
+    color: rgb(158, 192, 231);
 }
 .main-navbar {
-    background-color: rgb(167, 199, 205);
-    color: black;
+    background-color: black;
+    color: rgb(255, 255, 255);
 }
 
 .secondary-navbar{
-    background-color:  #ddf0e8;
+    background-color:  #b64545;
     font-size: 19px;
+}
+
+.logout-link {
+    background: none;
+    border: none;
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
 }
 
 .homepage-image {
@@ -66,5 +88,36 @@
   }
   
   .homepage-button:hover {
+    background-color: #212324;
+  }
+
+  .social-links button {
+    background: none;
+    border: none;
+    color: black;
+    font-size: 25px;
+  }
+
+  .signup-link a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .buttons-auth {
+    display: inline-block;
+    padding: 7px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    background-color: black;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttons-auth:hover {
     background-color: #212324;
   }

@@ -17,4 +17,22 @@ window.addEventListener('DOMContentLoaded', event => {
             console.log(elem);
         }
     });
+    // Remove the * in sign up page
+    $(".asteriskField").remove();
+    $("#hint_id_password1").remove();
+    $("#logout-link").on('click', function() {
+        $('#sign-out-link').click();
+        console.log("asdhuasd");
+    });
+
+    // Code to change the attributes depending on screen
+//     $(window).on('resize', function(){
+//         var win = $(this);
+//         if (win.width() < 950) {
+//             $(".login-section").removeClass("login-section");
+//         }
+//     });
+//     if($(window).width() < 950) {
+//         $(".login-section").removeClass("login-section");
+//    } 
     });

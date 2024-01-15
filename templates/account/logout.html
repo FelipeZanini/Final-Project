@@ -4,14 +4,7 @@
 {% block head_title %}{% trans "Log Out" %}{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
-<form action="" method="post">
-  {% csrf_token %}
-  <fieldset>
-    <legend>{% trans "Are you sure you want to logout?" %}</legend>
-      {{ form|crispy }}
-  </fieldset>
-  <input type="submit" value='{% trans "submit" %}'/>
-</form>
+
 {% endblock %}
 
 

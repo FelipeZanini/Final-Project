@@ -3,16 +3,19 @@
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 {% block content %}
-<h2 class="logo-font mb-4">{% trans "Sign Up" %}</h2>
-
+<section class="mt-5 vh-100">
+  <div class="container-fluid">
+<h1 class="logo-font my-2">{% trans "Sign Up" %}</h1>
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form|crispy }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button type="submit">{% trans "Sign Up" %}</button>
+  <input class="buttons-auth my-2" type="submit" value='{% trans "Sign Up" %}'/>
 </form>
 
 <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Log in</a>.{% endblocktrans %}</p>
+</section>
+</div>
 {% endblock %}

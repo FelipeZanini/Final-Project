@@ -43,7 +43,9 @@
     <nav class="navbar main-navbar">
       <div class="row container-fluid">
         <div class="col-4 col-sm-2 col-md-3 col-lg-7 my-auto justify-content-end">
-          <h1 class="brand-name">Zanfe</h1>
+          <a href="{%url 'home'%}" id="brand-link" aria-label="go to homepage">
+            <h1 class="brand-name">Zanfe</h1>
+          </a>
         </div>
         <div class="col-8 col-sm-10 col-md-9 col-lg-5 my-auto sticky-top">
           <ul class="nav justify-content-end top-navbar">
@@ -53,16 +55,25 @@
                 aria-expanded="false" aria-label="open a list of user action">
                 <i class="fa fa-user"></i>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#" aria-label="visit your profile"><i
-                      class="fa fa-user"></i> Profile</a></li>
-                <li><a class="dropdown-item" href="#" aria-label="check your orders"><i
-                      class="fa fa-list"></i> My Orders</a></li>
-                <li><a class="dropdown-item" href="#" aria-label="check your wishlist"><i
-                      class="fa fa-heart"></i> My Wishlist</a></li>
-                <li><a class="dropdown-item" href="#" aria-label="check your cart"><i
-                      class="fa fa-shopping-cart"></i> My Cart</a></li>
-                <li><a class="dropdown-item" href="#" aria-label="logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+                {% if user.is_authenticated %}
+                <li><a class="dropdown-item" href="#" aria-label="visit your profile"><i class="fa fa-user"></i>
+                    Profile</a></li>
+                <li><a class="dropdown-item" href="#" aria-label="check your orders"><i class="fa fa-list"></i> My
+                    Orders</a></li>
+                <li><a class="dropdown-item" href="#" aria-label="check your wishlist"><i class="fa fa-heart"></i> My
+                    Wishlist</a></li>
+                <li><a class="dropdown-item" href="#" aria-label="check your cart"><i class="fa fa-shopping-cart"></i>
+                    My Cart</a></li>
+                <li> <form method="post" action="{% url 'account_logout' %}">
+                  {% csrf_token %}
+                  <button class="logout-link" type="submit"><i class="fa fa-sign-out"></i> Logout</button>
+                </form></li>
+                {% else %}
+                <li><a class="dropdown-item" href="{%url 'account_login'%}" aria-label="go to log in page"><i class="fa-solid fa-right-to-bracket"></i>
+                  Log In</a></li>
+              <li><a class="dropdown-item" href="{%url 'account_signup'%}" aria-label="go to register page"><i class="fa-solid fa-pen-to-square"></i>Register</a></li>
+                {% endif %}
               </ul>
             </li>
             <li class="nav-item">
