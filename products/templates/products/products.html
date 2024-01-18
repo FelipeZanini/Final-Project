@@ -1,40 +1,182 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="text-center container py-5">
-    <h2 class="mt-4 mb-5">Products</h2>
-
+<section class="py-5 container-fluid">
+    <h2 class="mt-4 mb-5 text-center">Products</h2>
     <div class="row">
-        <div class="col-lg-3 col-md-4 col-12 mb-4">
-            <div class="card">
-                <div class="bg-image hover-zoom">
-                    <div class="">
-                        <a href="#"><p class="float-start">Category</p></a>
-                        <a href="#"><i class="fa-regular fa-heart float-end"></i></a>
-                    </div>
-                    <img src="/static/media/0900631B81E48245M.jpg" class="w-100 h-100" />
-                </div>
-                <div class="card-body">
-                    <p>BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA</p>
+        <div class="col-10 offset-1">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="card">
 
-                    <p>XS SM MD LG</p>
-
-                    <div class="row">
-                        <div class="col-6">
-                            <h6 class="">$61.99</h6>
+                        <div class="product-header">
+                            <a href="#">
+                                <p class="product-category"><i class="fa-solid fa-tag"></i> Category</p>
+                            </a>
+                            <a href="#"><i class="wishlist-icon fa-regular fa-heart float-end"></i></a>
                         </div>
-                        <div class="col-6">
-                            <ul class="list-unstyled d-flex ">
-                                <li><span class="fas fa-star"></span></li>
-                                <li><span class="fas fa-star"></span></li>
-                                <li><span class="fas fa-star"></span></li>
-                                <li><span class="fas fa-star"></span></li>
-                                <!-- <li><span class="fas fa-star-half-alt"><span class="ms-2 review">500 reviews</span> </span></li> -->
-                            </ul>
+                        <img src="/static/media/0900631B81E48245M.jpg" class="products-image mx-auto" />
+
+                        <div class="card-body">
+                            <p class="product-description mb-0">BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA
+                                BLA BLA</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled d-flex product-rating justify-content-start m-0">
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <!-- <li><span class="fas fa-star-half-alt"><span class="ms-2 review">500 reviews</span> </span></li> -->
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="product-sizes float-end">S M L XL </p>
+                                    </div>
+                                </div>
+                    
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="mb-0 float-start product-price">61.99 €</p>
+                                </div>
+                                <div class="col-6 mb-0 p-0">
+                                    <span class="add-cart float-end">Add to card</span>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="card">
+
+                        <div class="product-header">
+                            <a href="#">
+                                <p class="product-category"><i class="fa-solid fa-tag"></i> Category</p>
+                            </a>
+                            <a href="#"><i class="wishlist-icon fa-regular fa-heart float-end"></i></a>
+                        </div>
+                        <img src="/static/media/0900631B81E48245M.jpg" class="products-image mx-auto" />
+
+                        <div class="card-body">
+                            <p class="product-description mb-0">BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA
+                                BLA BLA</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled d-flex product-rating justify-content-start m-0">
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <!-- <li><span class="fas fa-star-half-alt"><span class="ms-2 review">500 reviews</span> </span></li> -->
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="product-sizes float-end">S M L XL </p>
+                                    </div>
+                                </div>
+                    
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="mb-0 float-start product-price">61.99 €</p>
+                                </div>
+                                <div class="col-6 mb-0 p-0">
+                                    <span class="add-cart float-end">Add to card</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="card">
+
+                        <div class="product-header">
+                            <a href="#">
+                                <p class="product-category"><i class="fa-solid fa-tag"></i> Category</p>
+                            </a>
+                            <a href="#"><i class="wishlist-icon fa-regular fa-heart float-end"></i></a>
+                        </div>
+                        <img src="/static/media/0900631B81E48245M.jpg" class="products-image mx-auto" />
+
+                        <div class="card-body">
+                            <p class="product-description mb-0">BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA
+                                BLA BLA</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled d-flex product-rating justify-content-start m-0">
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <!-- <li><span class="fas fa-star-half-alt"><span class="ms-2 review">500 reviews</span> </span></li> -->
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="product-sizes float-end">S M L XL </p>
+                                    </div>
+                                </div>
+                    
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="mb-0 float-start product-price">61.99 €</p>
+                                </div>
+                                <div class="col-6 mb-0 p-0">
+                                    <span class="add-cart float-end">Add to card</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="card">
+
+                        <div class="product-header">
+                            <a href="#">
+                                <p class="product-category"><i class="fa-solid fa-tag"></i> Category</p>
+                            </a>
+                            <a href="#"><i class="wishlist-icon fa-regular fa-heart float-end"></i></a>
+                        </div>
+                        <img src="/static/media/0900631B81E48245M.jpg" class="products-image mx-auto" />
+
+                        <div class="card-body">
+                            <p class="product-description mb-0">BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA
+                                BLA BLA</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled d-flex product-rating justify-content-start m-0">
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <li><span class="fas fa-star"></span></li>
+                                            <!-- <li><span class="fas fa-star-half-alt"><span class="ms-2 review">500 reviews</span> </span></li> -->
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="product-sizes float-end">S M L XL </p>
+                                    </div>
+                                </div>
+                    
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="mb-0 float-start product-price">61.99 €</p>
+                                </div>
+                                <div class="col-6 mb-0 p-0">
+                                    <span class="add-cart float-end">Add to card</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
 
+        </div>
     </div>
-    {% endblock %}
+</section>
+{% endblock %}
