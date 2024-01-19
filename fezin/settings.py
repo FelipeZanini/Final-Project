@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'fontawesomefree',
     'home',
     'products',
-
+    
+    'mathfilters',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
