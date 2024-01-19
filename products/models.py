@@ -5,7 +5,6 @@ class Category(models.Model):
     name = models.CharField(max_length=255)
     friendly_name = models.CharField(max_length=255, null=True, blank=True)
 
-       
     def __str__(self):
         return self.friendly_name
 
@@ -23,6 +22,6 @@ class Product(models.Model):
     def half_start(self):
         if self.rating -int(self.rating) >= 0.5:
             return True
- 
+
     def __str__(self):
         return self.name
