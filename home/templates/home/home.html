@@ -13,23 +13,36 @@
       <p class="d-md-none my-auto justify-content-end text-white">Free Develivey Over 60€!</p>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
+          <li class="nav-item">
+            <a class="nav-link px-3" role="button" href="{% url 'products' %}" aria-label="open a list of all products">All Products</a>
+          </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="open a list of products">All Products</a>
+            <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="open a list of clothings" aria-label="explore clothing">Clothing</a>
             <div class="dropdown-menu" aria-labelledby="clothing-link">
-              <a class="dropdown-item" aria-label="explore activewear and essentials">Activewear &amp; Essentials</a>
-              <a class="dropdown-item" aria-label="explore jeans">Jeans</a>
-              <a class="dropdown-item" aria-label="explore shirts">Shirts</a>
-              <a class="dropdown-item" aria-label="explore all clothing">All Clothing</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=activewear,essentials" aria-label="explore activewear and essentials">Activewear &amp; Essentials</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=jeans" aria-label="explore jeans">Jeans</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=shirts" aria-label="explore shirts">Shirts</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=jeans,shirts,activewear,essentials" aria-label="explore all clothing">All Clothing</a>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="#" aria-label="explore clothing">Clohting</a>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="open a list of homeware" aria-label="explore homeware">Homeware</a>
+            <div class="dropdown-menu" aria-labelledby="clothing-link">
+              <a class="dropdown-item" href="{% url 'products' %}?category=bed_bath" aria-label="explore bed and bath">Bed &amp; Bath</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=kitchen_dining" aria-label="explore kitchen and dining">Kitchen &amp; Dining</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=bed_bath,kitchen_dining" aria-label="explore all homeware">All Homeware</a>
+            </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="#" aria-label="explore homeware">Homeware</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="#" aria-label="check special offers">Special Offers</a>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="check special offers">Special Offers</a>
+            <div class="dropdown-menu" aria-labelledby="clothing-link">
+              <a class="dropdown-item" href="{% url 'products' %}?category=new_arrivals" aria-label="explore new arrivals">New Arrivals</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=deals" aria-label="explore deals">Deals</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=clearance" aria-label="explore clearance">Clearance</a>
+              <a class="dropdown-item" href="{% url 'products' %}?category=clearance,deals,new_arrivals" aria-label="explore all specials">All Specials</a>
+            </div>
           </li>
         </ul>
       </div>

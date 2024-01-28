@@ -25,6 +25,14 @@ window.addEventListener('DOMContentLoaded', event => {
         console.log("asdhuasd");
     });
 
+    $(".overlay").mouseover(function() {
+        $(this).css('opacity', '1'); 
+     });
+  
+     $(".overlay").mouseleave(function() {
+        $(this).css('opacity', '0'); 
+     });
+
     // Code to change the attributes depending on screen
 //     $(window).on('resize', function(){
 //         var win = $(this);
