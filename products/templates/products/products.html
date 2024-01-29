@@ -2,7 +2,22 @@
 {% load mathfilters %}
 {% block content %}
 <section class="py-5 container-fluid">
-    <h2 class="mt-4 mb-5 text-center">Products</h2>
+    <h2 class="mt-4 mb-1 text-center">Products</h2>
+    
+    <li class="nav-item dropdown dropdown-menu-end mb-4" style="list-style: none;">
+        <a class="nav-link dropdown-toggle px-3 text-dark text-end" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="sort items by price, rating, category and name" aria-label="explore clothing">Sort by</a>
+        <div class="dropdown-menu" aria-labelledby="clothing-link">
+          <a class="dropdown-item" href="{% url 'products' %}?sort=price_asc" aria-label="sort price, lower to higher">Price: Low to high</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=price_des" aria-label="sort price, higher to lower">Price: Hight to low</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=rating_asc" aria-label="sort rating, higher to lower">Rating: High to low</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=rating_des" aria-label="sort rating, lower to higher">Rating: Low to high</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=name_asc" aria-label="sort name by alphabetical order, a to z">Name: A-Z</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=name_des" aria-label="sort name by alphabetical order, z to a">Name: Z-A</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=category_asc" aria-label="sort category by alphabetical order, a to z">Category: A-Z</a>
+          <a class="dropdown-item" href="{% url 'products' %}?sort=category_des" aria-label="sort category by alphabetical order, z to a">Category: Z-A</a>
+        </div>
+      </li>
+    
     <div class="row">
         <div class="col-10 offset-1">
             <div class="row">
@@ -37,7 +52,9 @@
                                     </ul>
                                 </div>
                                 <div class="col-6">
+                                    {% if product.size %}
                                     <p class="product-sizes float-end">S M L XL </p>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="row">

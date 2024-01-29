@@ -18,7 +18,7 @@ class Product(models.Model):
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.CharField(max_length=255, null=True, blank=True)
     image =  models.CharField(max_length=255, null=True, blank=True)
-
+    size = models.BooleanField(default=False, null=True, blank=True)
     def half_start(self):
         if self.rating -int(self.rating) >= 0.5:
             return True

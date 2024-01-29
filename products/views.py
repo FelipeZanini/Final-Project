@@ -17,6 +17,29 @@ def products(request):
         search_input = request.GET.get("search-input")
         products = Product.objects.filter(Q(name__icontains=search_input) |Q(description__icontains=search_input)).all()
 
+    if 'sort' in request.GET:
+        sort_method = request.GET['sort'].split('_')
+        if 'price' in sort_method:
+            if 'asc' in sort_method:
+                products = products.order_by('price').all()
+            else:
+                products = products.order_by('-price').all()
+        if 'rating' in sort_method:
+            if 'asc' in sort_method:
+                products = products.order_by('-rating').all()
+            else:
+                products = products.order_by('rating').all()
+        if 'name' in sort_method:
+            if 'asc' in sort_method:
+                products = products.order_by('name').all()
+            else:
+                products = products.order_by('-name').all()
+        if 'category' in sort_method:
+            if 'asc' in sort_method:
+                products = products.order_by('category').all()
+            else:
+                products = products.order_by('-category').all()
+
     context = {"products": products,
                'range': range(1, 6)}
     return render(request, 'products/products.html', context)
