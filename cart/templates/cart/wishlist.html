@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load mathfilters %}
+{% block content %}
+<section class="py-5 container-fluid">
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <h2 class="logo-font mb-4">Wishlist</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {% if items %}
+
+                {% for item in items %}
+                <div class="d-block d-md-none">
+                    <div class="row">
+                        <div class="col">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-2">
+                            <img class="img-fluid rounded" src="/static/media/{{item.image}}" alt="{{ item.name }}">
+                        </div>
+                        <div class="col-12 col-sm-6 mb-2">
+                            <p class="my-0"><strong>{{ item.name }}</strong></p>
+                            <p class="my-0 small text-muted">SKU: {{ item.sku|upper }}</p>
+                        </div>
+                        <div class="col-12 col-sm-6 order-sm-last">
+                            <p class="my-0">Price: ${{ item.price }}
+                                <a href="{% url 'wishlist' %}" data-product="{{item.id}}" data-action="removeWishlist"
+                                    class="updateBttns"><i class="fa-regular fa-trash-can"></i></a>
+                            </p>
+                            </p>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                        </div>
+                    </div>
+
+                </div>
+                {% endfor %}
+
+                <div class="table-responsive rounded d-none d-md-block">
+                    <table class="table table-sm table-borderless">
+                        <thead class="text-black">
+                            <tr>
+                                <th scope="col">Product Info</th>
+                                <th scope="col"></th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+
+                        {% for item in items %}
+                        {{item.image.url}}
+                        <tr>
+                            <td class="p-3 w-25">
+                                <img class="img-fluid rounded" src="/static/media/{{item.image}}" alt="{{ item.name }}">
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0"><strong>{{ item.name }}</strong></p>
+                                <p class="my-0 small text-muted">SKU: {{ item.sku|upper }}</p>
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0">{{ item.price }}
+                                    <a href="{% url 'wishlist' %}" data-product="{{item.id}}"
+                                        data-action="removeWishlist" class="updateBttns"><i
+                                            class="fa-regular fa-trash-can"></i></a>
+                                </p>
+                                </p>
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0">
+                        </tr>
+                        {% endfor %}
+
+                        <tr>
+                            <td colspan="5" class="pt-5 text-right">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="text-right">
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {% else %}
+                <p class="lead mb-5">Your Whilist is empty.</p>
+                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
