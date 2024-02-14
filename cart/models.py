@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from ..products import models
+from products.models import Product
 
 
 class Order(models.Model):
@@ -10,10 +10,16 @@ class Order(models.Model):
 
     def __str__(self):
         return str(self.date_ordered)
+ 
+    @property
+    def get_cart_items(self):
+        orderitems = self.orderitem_set.all()
+        total = sum([item.quantity for item in orderitems])
+        return total 
 
 
 class OrderItem(models.Model):
-    product = models.ForeignKey(models.Product, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)

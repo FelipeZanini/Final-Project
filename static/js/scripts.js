@@ -27,47 +27,30 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
     // Cookie Script
-    var addBttns = document.getElementsByClassName('addBttns')
+    var updateBttns = document.getElementsByClassName('updateBttns')
 
-    for (i = 0; i < addBttns.length; i++) {
-        addBttns[i].addEventListener('click', function () {
+    for (i = 0; i < updateBttns.length; i++) {
+        updateBttns[i].addEventListener('click', function () {
             var productId = this.dataset.product
             var action = this.dataset.action
             console.log('productId:', productId, 'Action:', action)
             console.log('USER:', user)
-
-            if (user == 'AnonymousUser') {
+            
+            if (action == 'addWishlist') {
+                addWishlist(productId, action)
+            }
+            if (action == 'removeWishlist') {
+                removeWishlist(productId, action)
+            }
+            if (action == 'add') {
                 addCookieItem(productId, action)
             } else {
-                updateUserOrder(productId, action)
+                updateCookieItem(productId, action)
             }
         })
     }
 
-    function updateUserOrder(productId, action) {
-        console.log('User is authenticated, sending data...')
-
-        var url = '/update_item/'
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrftoken,
-            },
-            body: JSON.stringify({ 'productId': productId, 'action': action })
-        })
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                location.reload()
-            });
-    }
-
     function addCookieItem(productId, action) {
-        console.log('User is not authenticated')
-
         if (action == 'add') {
             if (cart[productId] == undefined) {
                 cart[productId] = { 'quantity': 1 }
@@ -76,18 +59,42 @@ window.addEventListener('DOMContentLoaded', event => {
                 cart[productId]['quantity'] += 1
             }
         }
+        document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+    }
 
-        if (action == 'remove') {
+    function updateCookieItem(productId, action) {
+
+        if (action == 'delete') {
+            delete cart[productId];
+        }
+
+        if (action == 'increase') {
+            cart[productId]['quantity'] += 1
+        }
+
+        if (action == 'degrease') {
             cart[productId]['quantity'] -= 1
 
             if (cart[productId]['quantity'] <= 0) {
-                console.log('Item should be deleted')
                 delete cart[productId];
             }
         }
-        console.log('CART:', cart)
         document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+    }
 
-        // location.reload()
+    function addWishlist(productId, action) {
+        if (action == 'addWishlist') {
+            if (wishlist[productId] == undefined) {
+                wishlist[productId] =  productId 
+
+            } 
+        }
+        document.cookie = 'wishlist=' + JSON.stringify(wishlist) + ";domain=;path=/"
+    }
+    function removeWishlist(productId, action) {
+        if (action == 'removeWishlist') {
+            delete wishlist[productId];
+        }
+        document.cookie = 'wishlist=' + JSON.stringify(wishlist) + ";domain=;path=/"
     }
 });

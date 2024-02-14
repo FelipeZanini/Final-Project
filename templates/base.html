@@ -63,7 +63,7 @@
                     Orders</a></li>
                 <li><a class="dropdown-item" href="#" aria-label="check your wishlist"><i class="fa fa-heart"></i> My
                     Wishlist</a></li>
-                <li><a class="dropdown-item" href="#" aria-label="check your cart"><i class="fa fa-shopping-cart"></i>
+                <li><a class="dropdown-item" href="{% url 'cart' %}" aria-label="check your cart"><i class="fa fa-shopping-cart"></i>
                     My Cart</a></li>
                 <li> <form method="post" action="{% url 'account_logout' %}">
                   {% csrf_token %}
@@ -77,13 +77,18 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" aria-label="check your wishlist">
+              <a class="nav-link" href="{%url 'wishlist'%}" aria-label="check your wishlist">
                 <i class="fa fa-heart"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" aria-label="check your cart">
+              <a class="nav-link" href="{% url 'cart' %}" aria-label="check your cart">
                 <i class="fa fa-shopping-cart"></i>
+            {% if grand_total %}
+                ${{ grand_total|floatformat:2 }}
+            {% else %}
+                $0.00
+            {% endif %}
               </a>
             </li>
             <li class="nav-item">
@@ -120,7 +125,6 @@
 
   <script type="text/javascript">
 		var user = '{{request.user}}'
-    console.log(user)
 		function getToken(name) {
 		    var cookieValue = null;
 		    if (document.cookie && document.cookie !== '') {
@@ -151,14 +155,17 @@
 		    return null;
 		}
 		var cart = JSON.parse(getCookie('cart'))
+    var wishlist = JSON.parse(getCookie('wishlist'))
 
 		if (cart == undefined){
 			cart = {}
-			console.log('Cart Created!', cart)
 			document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
 		}
-		console.log('Cart:', cart)
-	
+
+    if (wishlist == undefined){
+			wishlist = {}
+			document.cookie ='wishlist=' + JSON.stringify(wishlist) + ";domain=;path=/"
+		}
 	</script>
 
 
