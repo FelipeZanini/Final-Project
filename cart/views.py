@@ -1,12 +1,11 @@
+import json
+from . import models
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import ShippingAddressForm
-from fezin import settings
-
 import stripe
-import json
-from .models import *
 from products.models import Product
+from fezin import settings
+from .forms import ShippingAddressForm
 from .utils import cartData
 
 
@@ -37,8 +36,6 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     context['form'] = form
     context['stripe_public_key'] = stripe_public_key
-    context['stripe_secret_key'] = stripe_secret_key
-
     if request.method == 'POST':
         form = ShippingAddressForm(request.POST)
         if form.is_valid():
@@ -46,10 +43,26 @@ def checkout(request):
             city = form.cleaned_data['city']
             county = form.cleaned_data['county']
             eircode = form.cleaned_data['eircode']
+            # ShippingAddress =  ShippingAddress(
+            # )
+            for item in context['items']:
+                # print(context['cart'][item.id]['quantity'])
+                try:
+                    OrderItem = models.OrderItem(
+                        product=item,
+                        quantity=context['cart'][str(item.id)]['quantity']
+                        )
+                    OrderItem.save()
+                except:
+                    print("error, redirect to other page")
+                    pass
+
     else:
         stripe_total = round(context['grand_total'] * 100)
+        stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
+        context['client_secret'] = intent.client_secret
     return render(request, 'cart/checkout.html', context)
