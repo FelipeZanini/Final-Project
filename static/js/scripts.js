@@ -93,6 +93,7 @@ window.addEventListener('DOMContentLoaded', event => {
     }
     function removeWishlist(productId, action) {
         if (action == 'removeWishlist') {
+            console.log(wishlist[productId])
             delete wishlist[productId];
         }
         document.cookie = 'wishlist=' + JSON.stringify(wishlist) + ";domain=;path=/"

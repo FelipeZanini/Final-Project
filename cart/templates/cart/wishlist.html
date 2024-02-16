@@ -11,9 +11,9 @@
 
         <div class="row">
             <div class="col">
-                {% if items %}
+                {% if wishlistItems %}
 
-                {% for item in items %}
+                {% for item in wishlistItems %}
                 <div class="d-block d-md-none">
                     <div class="row">
                         <div class="col">
@@ -55,7 +55,7 @@
                             </tr>
                         </thead>
 
-                        {% for item in items %}
+                        {% for item in wishlistItems %}
                         {{item.image.url}}
                         <tr>
                             <td class="p-3 w-25">
