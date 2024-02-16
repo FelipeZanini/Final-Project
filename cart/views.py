@@ -1,6 +1,6 @@
 import json
 from . import models
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 import stripe
 from products.models import Product
@@ -43,20 +43,38 @@ def checkout(request):
             city = form.cleaned_data['city']
             county = form.cleaned_data['county']
             eircode = form.cleaned_data['eircode']
-            # ShippingAddress =  ShippingAddress(
-            # )
+            try:
+                Order = models.Order(
+                    user=request.user,
+                        )
+                ShippingAddress = models.ShippingAddress(
+                        user=request.user,
+                        order=Order,
+                        address=address,
+                        city=city,
+                        county=county,
+                        eircode=eircode,
+                        )
+            except:
+                # Message
+                return redirect('checkout')
+
+            Order.save()
+            ShippingAddress.save()
+
             for item in context['items']:
-                # print(context['cart'][item.id]['quantity'])
                 try:
                     OrderItem = models.OrderItem(
                         product=item,
-                        quantity=context['cart'][str(item.id)]['quantity']
+                        quantity=context['cart'][str(item.id)]['quantity'],
+                        order=Order
                         )
                     OrderItem.save()
                 except:
-                    print("error, redirect to other page")
-                    pass
+                    # Message
+                    return redirect('checkout')
 
+                OrderItem.save()       
     else:
         stripe_total = round(context['grand_total'] * 100)
         stripe.api_key = stripe_secret_key
