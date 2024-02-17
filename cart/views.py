@@ -1,6 +1,8 @@
 import json
+import uuid
 from . import models
-from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 import stripe
 from products.models import Product
@@ -31,6 +33,7 @@ def wishlist(request):
 @login_required
 def checkout(request):
     context = cartData(request)
+    print(context)
     form = ShippingAddressForm()
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -43,9 +46,17 @@ def checkout(request):
             city = form.cleaned_data['city']
             county = form.cleaned_data['county']
             eircode = form.cleaned_data['eircode']
+            pid = request.POST.get('client_secret').split('_secret')[0]
             try:
                 Order = models.Order(
                     user=request.user,
+                    email=request.user.email,
+                    order_number=uuid.uuid4().hex.upper(),
+                    complete=True,
+                    delivery_cost=context['delivery_cost'],
+                    order_total=context['order_total'],
+                    grand_total=context['grand_total'],
+                    stripe_pid=pid,
                         )
                 ShippingAddress = models.ShippingAddress(
                         user=request.user,
@@ -56,7 +67,6 @@ def checkout(request):
                         eircode=eircode,
                         )
             except:
-                # Message
                 return redirect('checkout')
 
             Order.save()
@@ -74,9 +84,11 @@ def checkout(request):
                     # Message
                     return redirect('checkout')
 
-                OrderItem.save()       
+                OrderItem.save()
+                return redirect(
+                    reverse('checkout_success', args=[Order.order_number]))
     else:
-        stripe_total = round(context['grand_total'] * 100)
+        stripe_total = round(100*context['grand_total'])
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
@@ -84,3 +96,14 @@ def checkout(request):
         )
         context['client_secret'] = intent.client_secret
     return render(request, 'cart/checkout.html', context)
+
+
+def checkout_success(request, order_number):
+    order = get_object_or_404(models.Order, order_number=order_number)
+    shipping_address = get_object_or_404(models.ShippingAddress,
+                                         order__order_number=order_number)
+    order_item = models.OrderItem.objects.filter(order=order).all()
+    order_total = False
+    context = {'order': order, 'shipping_address': shipping_address,
+               'order_item': order_item, 'order_total': order_total}
+    return render(request, 'cart/checkout_success.html', context)

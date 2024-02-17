@@ -20,7 +20,7 @@
           <div class="row justify-content-center">
             <div class="col-12 text-center signup-link my-2"><a href="{% url 'account_signup' %}">Sign Up</a></div>
             <div class="col-4 text-center social-links">
-              <form action="{% provider_login_url 'google' %}" method="post">
+              <form action="" method="post">
                 {% csrf_token %}
                 <button type="submit"><i class="fa-brands fa-google"></i></button>
               </form>

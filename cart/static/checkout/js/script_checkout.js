@@ -73,6 +73,9 @@ form.addEventListener('submit', function (ev) {
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
                     form.submit();
+                    // var expiry = 'expires=Thu, 18 Dec 2013 12:00:00 UTC'
+                    // console.log(expiry)
+			        // document.cookie ='cart=' + JSON.stringify(cart) + expiry + ";domain=;path=/"
                 }
             }
         });
