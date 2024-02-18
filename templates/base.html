@@ -58,11 +58,11 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> 
                 {% if user.is_authenticated %}
-                <li><a class="dropdown-item" href="#" aria-label="visit your profile"><i class="fa fa-user"></i>
+                <li><a class="dropdown-item" href="{% url 'profile' %}" aria-label="visit your profile"><i class="fa fa-user"></i>
                     Profile</a></li>
-                <li><a class="dropdown-item" href="#" aria-label="check your orders"><i class="fa fa-list"></i> My
-                    Orders</a></li>
-                <li><a class="dropdown-item" href="#" aria-label="check your wishlist"><i class="fa fa-heart"></i> My
+                <!-- <li><a class="dropdown-item" href="#" aria-label="check your orders"><i class="fa fa-list"></i> My
+                    Orders</a></li> -->
+                <li><a class="dropdown-item" href="{% url 'wishlist' %}" aria-label="check your wishlist"><i class="fa fa-heart"></i> My
                     Wishlist</a></li>
                 <li><a class="dropdown-item" href="{% url 'cart' %}" aria-label="check your cart"><i class="fa fa-shopping-cart"></i>
                     My Cart</a></li>

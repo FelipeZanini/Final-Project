@@ -4,7 +4,7 @@ from products.models import Product
 
 
 class Order(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, 
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              related_name="order_user_profile",
                              on_delete=models.SET_NULL, null=True, blank=True)
     email = models.CharField(max_length=50, null=False, blank=False)

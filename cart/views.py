@@ -121,3 +121,6 @@ def checkout_success(request, order_number):
                'order_item': order_item, 'order_total': order_total}
 
     return render(request, 'cart/checkout_success.html', context)
+
+
+def 
