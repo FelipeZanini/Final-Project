@@ -1,42 +1,59 @@
 import json
 import uuid
-from . import models
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 import stripe
+
 from products.models import Product
 from fezin import settings
+from . import models
 from .forms import ShippingAddressForm
-from .utils import cartData
+from .utils import cart_data
+
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        data = cart_data(request)
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'data': json.dumps(data['cart']),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except TypeError:
+        return HttpResponse(TypeError, status=400)
 
 
 def cart(request):
-    context = cartData(request)
+    context = cart_data(request)
     return render(request, 'cart/cart.html', context)
+
 
 def wishlist(request):
     context = {}
     try:
-        wishlist = json.loads(request.COOKIES['wishlist'])
-    except:
-        wishlist = {}
+        wishlist_data = json.loads(request.COOKIES['wishlist'])
+    except TypeError:
+        wishlist_data = {}
 
-    wishlistItems = []
-    for items_id in wishlist:
+    wishlist_items = []
+    for items_id in wishlist_data:
         unit_price = get_object_or_404(Product, id=items_id).price
-        wishlistItems += Product.objects.filter(id=items_id).all()
-        context = {'wishlistItems': wishlistItems, 'unit_price': unit_price}
+        wishlist_items += Product.objects.filter(id=items_id).all()
+        context = {'wishlist_items': wishlist_items, 'unit_price': unit_price}
     return render(request, 'cart/wishlist.html', context)
 
 
 @login_required
 def checkout(request):
-    context = cartData(request)
-    print(context)
-    form = ShippingAddressForm()
+    context = cart_data(request)
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+    form = ShippingAddressForm()
     context['form'] = form
     context['stripe_public_key'] = stripe_public_key
     if request.method == 'POST':
@@ -48,7 +65,7 @@ def checkout(request):
             eircode = form.cleaned_data['eircode']
             pid = request.POST.get('client_secret').split('_secret')[0]
             try:
-                Order = models.Order(
+                order = models.Order(
                     user=request.user,
                     email=request.user.email,
                     order_number=uuid.uuid4().hex.upper(),
@@ -58,35 +75,31 @@ def checkout(request):
                     grand_total=context['grand_total'],
                     stripe_pid=pid,
                         )
-                ShippingAddress = models.ShippingAddress(
+
+                shipping_address = models.ShippingAddress(
                         user=request.user,
-                        order=Order,
+                        order=order,
                         address=address,
                         city=city,
                         county=county,
                         eircode=eircode,
                         )
-            except:
-                return redirect('checkout')
-
-            Order.save()
-            ShippingAddress.save()
-
-            for item in context['items']:
-                try:
-                    OrderItem = models.OrderItem(
+                order.save()
+                shipping_address.save()
+                for item in context['items']:
+                    order_item = models.OrderItem(
                         product=item,
                         quantity=context['cart'][str(item.id)]['quantity'],
-                        order=Order
+                        order=order
                         )
-                    OrderItem.save()
-                except:
-                    # Message
-                    return redirect('checkout')
+                    order_item.save()
 
-                OrderItem.save()
-                return redirect(
-                    reverse('checkout_success', args=[Order.order_number]))
+            except TypeError:
+                return redirect('checkout')
+
+            return redirect(
+                reverse('checkout_success', args=[order.order_number]))
+
     else:
         stripe_total = round(100*context['grand_total'])
         stripe.api_key = stripe_secret_key
@@ -106,4 +119,5 @@ def checkout_success(request, order_number):
     order_total = False
     context = {'order': order, 'shipping_address': shipping_address,
                'order_item': order_item, 'order_total': order_total}
+
     return render(request, 'cart/checkout_success.html', context)

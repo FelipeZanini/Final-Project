@@ -4,7 +4,9 @@ from products.models import Product
 
 
 class Order(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="order_user_profile", on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, 
+                             related_name="order_user_profile",
+                             on_delete=models.SET_NULL, null=True, blank=True)
     email = models.CharField(max_length=50, null=False, blank=False)
     order_number = models.CharField(max_length=32, null=False, editable=False)
     date_ordered = models.DateTimeField(auto_now_add=True)
@@ -26,7 +28,9 @@ class OrderItem(models.Model):
 
 
 class ShippingAddress(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,related_name="shipping_address_user_profile", on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             related_name="shipping_address_user_profile",
+                             on_delete=models.SET_NULL, null=True, blank=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     address = models.CharField(max_length=200, null=False)
     city = models.CharField(max_length=200, null=False)

@@ -10,5 +10,6 @@ class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderItemAdminInline,)
 
 
+admin.site.register(OrderItem)
 admin.site.register(ShippingAddress)
 admin.site.register(Order, OrderAdmin)

@@ -50,9 +50,11 @@ form.addEventListener('submit', function (ev) {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
     };
-
-    stripe
-        .confirmCardPayment(clientSecret, {
+    
+    var url = '/cart/cache_checkout_data/';
+    console.log(url)
+    $.post(url, postData).done(function () {
+    stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
             },
@@ -77,5 +79,5 @@ form.addEventListener('submit', function (ev) {
             }
         });
 }).fail(function () {
-    location.reload();
-});
+    // location.reload();
+})});

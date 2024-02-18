@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'home',
     'products',
     'cart',
-    
+    'myprofile',
+
     'mathfilters',
     'allauth',
     'allauth.account',
@@ -83,7 +84,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'cart.utils.cartData'
+                'cart.utils.cart_data'
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -173,3 +174,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET')
