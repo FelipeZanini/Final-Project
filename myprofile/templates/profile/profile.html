@@ -12,42 +12,17 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <p class="text-muted">Order History</p>
-                <div class="order-history table-responsive">
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <th>Order Details</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for order in orders %}
-                                <tr>
-                                    <td>
-                                        <a href="{% url 'checkout_success' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                             {{ order.order_number|truncatechars:6 }}
-                                        </a>
-                                    </td>
-                                    <td>{{ order.date_ordered }}</td> 
-                                    <td>
-                                        <ul class="list-unstyled">
-                                            {% for item in order.orderitem_set.all %}
-                                                <li class="small">
-                                                    {{item.product}},
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </td>
-                                    <td>${{ order.grand_total }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+                <p class="">Personal Info:</p>
             </div>
+            <div class="col-lg-4 col-md-12">User</div>
+            <div class="col-lg-4 col-md-12">Email</div>
+            {% if products %}
+            {% for item in products %}
+            <div class="col-lg-4 col-md-12">
+                 <p>Reviews: {{item.product}}, <a href="{% url 'edit_testimonial' item.product_id %}">Testimonial</a> <a href="{% url 'edit_rating' item.product_id %}">Rating</a></p>
+            </div>
+            {% endfor %}
+            {% endif %}
         </div>
+    </div>
 {% endblock %}

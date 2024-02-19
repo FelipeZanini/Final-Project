@@ -88,6 +88,7 @@ def checkout(request):
                 shipping_address.save()
                 for item in context['items']:
                     order_item = models.OrderItem(
+                        user=request.user,
                         product=item,
                         quantity=context['cart'][str(item.id)]['quantity'],
                         order=order
@@ -121,6 +122,3 @@ def checkout_success(request, order_number):
                'order_item': order_item, 'order_total': order_total}
 
     return render(request, 'cart/checkout_success.html', context)
-
-
-def 

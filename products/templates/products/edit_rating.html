@@ -4,6 +4,26 @@
 <section class="py-5 container-fluid">
     <!-- <h2 class="mt-4 mb-5 text-center">Products</h2> -->
     <div class="row">
+        <h2>Edit your product rating</h2>
+
+        <form method="post" action="{% url 'edit_rating' product.id %}" method="post" name="edit_rating"
+            id="edit_rating">
+            {% csrf_token %}
+            <div class="rate">
+                <input required type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="text">5 stars</label>
+                <input required type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="text">4 stars</label>
+                <input required type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="text">3 stars</label>
+                <input required type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="text">2 stars</label>
+                <input required type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="text">1 star</label>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+        
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
 
@@ -68,34 +88,6 @@
             </div>
         </div>
         {% endfor %}
-        {% if review_permission %}
-
-        <h2>Share Your Testimonial</h2>
-
-        <form method="post" action="{% url 'testimonial' product.id %}" method="post" name="testimonial_form"
-            id="testimonial_form">
-            {% csrf_token %}
-            <label for="testimonial">Testimonial:</label><br>
-            <textarea id="testimonial" name="testimonial" rows="4" cols="50" required
-                maxlength="100"></textarea><br><br>
-
-            <div class="rate">
-                <input required type="radio" id="star5" name="rate" value="5" />
-                <label for="star5" title="text">5 stars</label>
-                <input required type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">4 stars</label>
-                <input required type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">3 stars</label>
-                <input required type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">2 stars</label>
-                <input required type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">1 star</label>
-            </div>
-            <input type="submit" value="Submit">
-        </form>
-        {% else %}
-        <p class="text-muted">Just user that already bought the product are allowed to review!</p>
-        {% endif %}
 
 </section>
 {% endblock %}
