@@ -88,7 +88,7 @@ def testimonial(request, product_id):
 
 
 def edit_testimonial(request, product_id):
-    """ Function to render the product detail"""
+    """ Function to render the edit testimonial"""
     product = get_object_or_404(Product, id=product_id)
     testimonials = Testimonial.objects.filter(product_id=product_id).all()
     if request.method == 'POST':
@@ -105,7 +105,7 @@ def edit_testimonial(request, product_id):
 
 
 def edit_rating(request, product_id):
-    """ Function to render the product detail"""
+    """ Function to render the edit rating page"""
     product = get_object_or_404(Product, id=product_id)
     testimonials = Testimonial.objects.filter(product_id=product_id).all()
 
