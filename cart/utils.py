@@ -7,8 +7,7 @@ def cart_data(request):
     bag_data = {}
     try:
         cart = json.loads(request.COOKIES['cart'])
-    except TypeError:
-        print(TypeError)
+    except:
         cart = {}
 
     items = []

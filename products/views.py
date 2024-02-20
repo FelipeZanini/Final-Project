@@ -57,8 +57,6 @@ def product_detail(request, product_id):
                'testimonials': testimonials,
                'review_permission': review_permission,
                'range': range(1, 6)}
-    for n in testimonials:
-        print(n.user_rating)
     return render(request, 'products/product_detail.html', context)
 
 @login_required
@@ -69,6 +67,7 @@ def testimonial(request, product_id):
         user_testimonial = request.POST['testimonial']
         user_rate_exs = UserRate.objects.filter(user=request.user).filter(product_id=product_id).exists()
         testimonial_exs = Testimonial.objects.filter(user=request.user).filter(product_id=product_id).exists()
+        prevs_user_rate = UserRate.objects.filter(product_id=product_id).all()
 
         if not user_rate_exs:
             user_rate = UserRate(
@@ -76,7 +75,7 @@ def testimonial(request, product_id):
                         rating=user_rating,
                         product=product)
             user_rate.save()
-            Product.update_rating(product, user_rating)
+            Product.update_rating(product, prevs_user_rate)
 
         if not testimonial_exs:
             inst_user_rate = UserRate.objects.filter(product_id=product_id).filter(user=request.user).get()
@@ -90,7 +89,7 @@ def testimonial(request, product_id):
                 user_rate = UserRate.objects.filter(user=request.user).filter(product_id=product_id).get()
                 user_rate.rating=user_rating
                 user_rate.save()
-            Product.update_rating(product, user_rating)
+                Product.update_rating(product, prevs_user_rate)
 
         return redirect("product_detail", product_id)
 
@@ -120,12 +119,14 @@ def edit_rating(request, product_id):
     """ Function to render the edit rating page"""
     product = get_object_or_404(Product, id=product_id)
     testimonials = Testimonial.objects.filter(product_id=product_id).all()
+    prevs_user_rate = UserRate.objects.filter(product_id=product_id).all()
 
     if request.method == 'POST':
         user_rating = Decimal(request.POST['rate'])
         user_rate = UserRate.objects.filter(product_id=product_id).filter(user=request.user).get()
         user_rate.rating = user_rating
-        Product.update_rating(product, user_rating)
+        user_rate.save()
+        Product.update_rating(product, prevs_user_rate)
         user_rate.save()
         return redirect("product_detail", product_id)
 

@@ -17,7 +17,6 @@ def profile(request):
 
     except TypeError:
         print("No products")
-    print(context)
     return render(request, 'profile/profile.html', context)
 
 

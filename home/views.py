@@ -21,3 +21,8 @@ def contact_us(request):
         )
         contact.save()
     return render(request, 'home/contact_us.html')
+
+
+# custom 404 view
+def error_404(request, exception):
+    return render(request, 'home/404.html')

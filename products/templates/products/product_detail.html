@@ -56,7 +56,6 @@
             <h2 class="mb-4">Reviews</h2>
         </div>
         {% for text in testimonials %}
-
         <div class="row g-2 mb-5">
             <div class="col-md-4">
                 <div class="card p-3 text-center px-4">
@@ -68,20 +67,16 @@
                         <p>{{text.testimonial_text}}</p>
                         <ul class="list-unstyled d-flex product-rating justify-content-center m-0">
                             {% for n in range %}
-                            {% if product.rating|sub:n >= 0 %}
+                            {% if text.user_rating.rating|sub:n >= 0 %}
                             <li><span class="fas fa-star"></span></li>
                             {% endif %}
                             {% endfor %}
-                            {% if product.half_start == True %}
-                            <li><span class="fa fa-star-half-alt"></span></li>
-                            {% endif %}
-                            <p class="mx-1">{{product.rating}}</p>
+                            <p class="mx-1">{{text.user_rating.rating}}</p>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-
         {% endfor %}
         {% if review_permission %}
 

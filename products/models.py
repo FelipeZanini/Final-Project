@@ -20,8 +20,13 @@ class Product(models.Model):
     image_url = models.CharField(max_length=255, null=True, blank=True)
     image = models.CharField(max_length=255, null=True, blank=True)
 
-    def update_rating(self, user_rating):
-        self.rating = (self.rating + user_rating)/2
+    def update_rating(self, prevs_user_rate):
+        avr = 0
+        count = 0
+        for value in prevs_user_rate:
+            avr += int(value.rating)
+            count += 1
+        self.rating = (avr/count)
         self.save()
 
     def half_start(self):

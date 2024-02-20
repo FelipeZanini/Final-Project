@@ -326,5 +326,8 @@ textarea {
     resize: none;
 }
 
-
+.edit-products-reviews{
+    font-size: 1.8rem;
+    font-weight: 200;
+}
 

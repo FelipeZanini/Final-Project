@@ -4,7 +4,7 @@
 <section class="py-5 container-fluid">
     <!-- <h2 class="mt-4 mb-5 text-center">Products</h2> -->
     <div class="row">
-        <h2>Edit your product rating</h2>
+        <p id="edit-product-raing">Edit your product rating</p>
 
         <form method="post" action="{% url 'edit_rating' product.id %}" method="post" name="edit_rating"
             id="edit_rating">
@@ -21,7 +21,7 @@
                 <input required type="radio" id="star1" name="rate" value="1" />
                 <label for="star1" title="text">1 star</label>
             </div>
-            <input type="submit" value="Submit">
+            <input class="shop-link" type="submit" value="Submit">
         </form>
         
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
@@ -69,25 +69,29 @@
         </div>
 
     </div>
-
-    <div class="row">
-        <div class="col-12">
-            <h2 class="mb-4">Reviews</h2>
-        </div>
-        {% for text in testimonials %}
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-1 mb-4">
-            <div class="row">
-                <div class="col-2 bg-dark"><img class="card-img-top img-fluid" src="/static/media/user1.png"
-                        alt="generic User photo"></div>
-                <div class="col-8 bg-danger">
-                    <div class="row">
-                        <div class="col-12">{{text.user}}</div>
-                        <div class="col-12">{{text.testimonial_text}}</div>
-                    </div>
+    {% for text in testimonials %}
+    <div class="row g-2 mb-5">
+        <div class="col-md-4">
+            <div class="card p-3 text-center px-4">
+                <div class="user-image">
+                    <img src="/static/media/user1.png" class="rounded-circle" width="80">
+                </div>
+                <div class="user-content">
+                    <h5 class="mb-0">{{text.user}}</h5>
+                    <p>{{text.testimonial_text}}</p>
+                    <ul class="list-unstyled d-flex product-rating justify-content-center m-0">
+                        {% for n in range %}
+                        {% if text.user_rating.rating|sub:n >= 0 %}
+                        <li><span class="fas fa-star"></span></li>
+                        {% endif %}
+                        {% endfor %}
+                        <p class="mx-1">{{text.user_rating.rating}}</p>
+                    </ul>
                 </div>
             </div>
         </div>
-        {% endfor %}
+    </div>
+    {% endfor %}
 
 </section>
 {% endblock %}
