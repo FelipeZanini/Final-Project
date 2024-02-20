@@ -2,10 +2,8 @@
 {% load mathfilters %}
 {% block content %}
 <section class="py-5 container-fluid">
-    <!-- <h2 class="mt-4 mb-5 text-center">Products</h2> -->
     <div class="row">
-        <p id="edit-product-raing">Edit your product rating</p>
-
+        <p id="edit-product-rating">Edit Your Product Rating</p>
         <form method="post" action="{% url 'edit_rating' product.id %}" method="post" name="edit_rating"
             id="edit_rating">
             {% csrf_token %}
@@ -23,13 +21,10 @@
             </div>
             <input class="shop-link" type="submit" value="Submit">
         </form>
-        
+
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
-
-                <a href="">
-                    <img class="card-img-top img-fluid" src="/static/media/{{product.image}}" alt="{{ product.name }}">
-                </a>
+                <img class="card-img-top img-fluid" src="/static/media/{{product.image}}" alt="{{ product.name }}">
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -57,10 +52,13 @@
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
-                    <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                    <a href="/products/" data-product="2" data-action="add" class="updateBttns"
+                        aria-label="click to add product to bag">
+                        <span class="btn btn-black rounded-0 text-uppercase mt-5 add-cart">Add to card</span>
+                    </a>
                     <a href="{% url 'product_detail' product.id %}" data-product="{{product.id}}"
-                        data-action="addWishlist" class="updateBttns" aria-label="Add to your wishlist"><i
-                            class="fa-regular fa-heart"></i>
+                        data-action="addWishlist" class="btn btn-outline-black rounded-0 mt-5 updateBttns p-0"
+                        aria-label="Add to your wishlist"><i class="fa-regular fa-heart "></i>
                     </a>
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -69,25 +67,27 @@
         </div>
 
     </div>
-    {% for text in testimonials %}
+    <div class="col-12">
+        <h2 class="mb-4 edit-products-reviews">Reviews</h2>
+    </div>
     <div class="row g-2 mb-5">
-        <div class="col-md-4">
-            <div class="card p-3 text-center px-4">
-                <div class="user-image">
-                    <img src="/static/media/user1.png" class="rounded-circle" width="80">
-                </div>
-                <div class="user-content">
-                    <h5 class="mb-0">{{text.user}}</h5>
-                    <p>{{text.testimonial_text}}</p>
-                    <ul class="list-unstyled d-flex product-rating justify-content-center m-0">
-                        {% for n in range %}
-                        {% if text.user_rating.rating|sub:n >= 0 %}
-                        <li><span class="fas fa-star"></span></li>
-                        {% endif %}
-                        {% endfor %}
-                        <p class="mx-1">{{text.user_rating.rating}}</p>
-                    </ul>
-                </div>
+    {% for text in testimonials %}
+    <div class="col-md-4">
+        <div class="card p-3 text-center px-4">
+            <div class="user-image">
+                <img src="/static/media/user1.png" class="rounded-circle" width="80">
+            </div>
+            <div class="user-content">
+                <h5 class="mb-0">{{text.user}}</h5>
+                <p>{{text.testimonial_text}}</p>
+                <ul class="list-unstyled d-flex product-rating justify-content-center m-0">
+                    {% for n in range %}
+                    {% if text.user_rating.rating|sub:n >= 0 %}
+                    <li><span class="fas fa-star"></span></li>
+                    {% endif %}
+                    {% endfor %}
+                    <p class="mx-1">{{text.user_rating.rating}}</p>
+                </ul>
             </div>
         </div>
     </div>

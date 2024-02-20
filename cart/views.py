@@ -15,6 +15,7 @@ from .utils import cart_data
 
 @require_POST
 def cache_checkout_data(request):
+    """ View for cache checkout data  """
     try:
         data = cart_data(request)
         pid = request.POST.get('client_secret').split('_secret')[0]
@@ -29,11 +30,13 @@ def cache_checkout_data(request):
 
 
 def cart(request):
+    """ View to render cart template  """
     context = cart_data(request)
     return render(request, 'cart/cart.html', context)
 
 
 def wishlist(request):
+    """ View to render wishlist template  """
     context = {}
     try:
         wishlist_data = json.loads(request.COOKIES['wishlist'])
@@ -50,12 +53,14 @@ def wishlist(request):
 
 @login_required
 def checkout(request):
+    """ View to render checkout template  """
     context = cart_data(request)
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     form = ShippingAddressForm()
     context['form'] = form
     context['stripe_public_key'] = stripe_public_key
+
     if request.method == 'POST':
         form = ShippingAddressForm(request.POST)
         if form.is_valid():
@@ -64,6 +69,7 @@ def checkout(request):
             county = form.cleaned_data['county']
             eircode = form.cleaned_data['eircode']
             pid = request.POST.get('client_secret').split('_secret')[0]
+
             try:
                 order = models.Order(
                     user=request.user,
@@ -86,6 +92,7 @@ def checkout(request):
                         )
                 order.save()
                 shipping_address.save()
+
                 for item in context['items']:
                     order_item = models.OrderItem(
                         user=request.user,
@@ -109,10 +116,13 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
         context['client_secret'] = intent.client_secret
+
     return render(request, 'cart/checkout.html', context)
 
 
+@login_required
 def checkout_success(request, order_number):
+    """ View to render checkout success template  """
     order = get_object_or_404(models.Order, order_number=order_number)
     shipping_address = get_object_or_404(models.ShippingAddress,
                                          order__order_number=order_number)

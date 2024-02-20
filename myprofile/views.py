@@ -1,14 +1,17 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from products.models import Testimonial, UserRate
 from cart import models
 
 
+@login_required
 def profile(request):
+    """ Function to render the profile page """
     context = {}
     try:
         products = models.OrderItem.objects.filter(user=request.user).all()
         context = {'products': products}
-        testimonials =Testimonial.objects.filter(user=request.user).all()
+        testimonials = Testimonial.objects.filter(user=request.user).all()
         user_rates = UserRate.objects.filter(user=request.user).all()
 
         context = {'products': products,
@@ -17,10 +20,13 @@ def profile(request):
 
     except TypeError:
         print("No products")
+
     return render(request, 'profile/profile.html', context)
 
 
+@login_required
 def orders_history(request):
+    """ Function to render the orders history page """
     context = {}
     unique_email = request.user.email
     try:
@@ -28,4 +34,5 @@ def orders_history(request):
         context = {'orders': orders}
     except TypeError:
         print("No orders")
+
     return render(request, 'profile/orders_history.html', context)

@@ -1,15 +1,15 @@
 {% load static %}
+
 <!doctype html>
 <html lang="en">
-
 <head>
 
   {% block meta %}
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Zanfe</title>
   <meta name="description" content="Zanfe, e-commerce website">
-  <!-- Maybe I can add more keywords and get a better description -->
   <meta name="keywords" content="Zanfe, e-commerce, homeware products, shirts, jeans, essentials">
   {% endblock %}
 
@@ -28,9 +28,7 @@
   {% endblock %}
 
   {% block corejs %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="{% static 'js/scripts.js' %}"></script>
-  <script src="https://js.stripe.com/v3/"></script>
+
   {% bootstrap_javascript %}
   {% endblock %}
 
@@ -40,64 +38,121 @@
 <body>
   <header>
     {% block header %}
-    <!-- Navigation-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript">
+      var user = '{{request.user}}'
+      function getToken(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      }
+      var csrftoken = getToken('csrftoken')
+
+      function getCookie(name) {
+        var cookieArr = document.cookie.split(";");
+
+        for (var i = 0; i < cookieArr.length; i++) {
+          var cookiePair = cookieArr[i].split("=");
+
+          if (name == cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
+          }
+        }
+
+        return null;
+      }
+      var cart = JSON.parse(getCookie('cart'))
+      var wishlist = JSON.parse(getCookie('wishlist'))
+
+      if (cart == undefined) {
+        cart = {}
+        var date = new Date();
+        date.setTime(date.getTime() + (5 * 1000));
+        var expiry = ';expires=' + date.toUTCString();
+        console.log(expiry)
+        document.cookie = 'cart=' + JSON.stringify(cart) + expiry + ";domain=;path=/"
+      }
+
+      if (wishlist == undefined) {
+        wishlist = {}
+        document.cookie = 'wishlist=' + JSON.stringify(wishlist) + ";domain=;path=/"
+      }
+    </script>
     <nav class="navbar main-navbar">
       <div class="row container-fluid">
-        <div class="col-4 col-sm-2 col-md-3 col-lg-7 my-auto justify-content-end">
+        <div class="col-3 col-sm-2 col-md-3 col-lg-7 my-auto justify-content-end">
           <a href="{%url 'home'%}" id="brand-link" aria-label="go to homepage">
             <h1 class="brand-name">Zanfe</h1>
           </a>
         </div>
-        <div class="col-8 col-sm-10 col-md-9 col-lg-5 my-auto sticky-top">
+        <div class="col-9 col-sm-10 col-md-9 col-lg-5 my-auto sticky-top">
           <ul class="nav justify-content-end top-navbar">
-
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false" aria-label="open a list of user action">
                 <i class="fa fa-user"></i>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 {% if user.is_authenticated %}
-                <li><a class="dropdown-item" href="{% url 'profile' %}" aria-label="visit your profile"><i class="fa fa-user"></i>
-                    Profile</a></li>
-                <li><a class="dropdown-item" href="{% url 'orders_history' %}" aria-label="check your orders"><i class="fa fa-list"></i> My
-                    Orders</a></li>
-                <li><a class="dropdown-item" href="{% url 'wishlist' %}" aria-label="check your wishlist"><i class="fa fa-heart"></i> My
-                    Wishlist</a></li>
-                <li><a class="dropdown-item" href="{% url 'cart' %}" aria-label="check your cart"><i class="fa fa-shopping-cart"></i>
-                    My Cart</a></li>
-                    <li><a class="dropdown-item" href="{% url 'contact_us' %}" aria-label="contact us"><i class="fa-solid fa-envelope-open"></i>
-                      Contact Us</a></li>
-                <li> <form method="post" action="{% url 'account_logout' %}">
-                  {% csrf_token %}
-                  <button class="logout-link" type="submit"><i class="fa fa-sign-out"></i> Logout</button>
-                </form></li>
+                <li><a class="dropdown-item" href="{% url 'profile' %}" aria-label="visit your profile"><i
+                      class="fa fa-user"></i>Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'orders_history' %}" aria-label="check your orders"><i
+                      class="fa fa-list"></i> My Orders</a></li>
+                <li><a class="dropdown-item" href="{% url 'wishlist' %}" aria-label="check your wishlist"><i
+                      class="fa fa-heart"></i> My Wishlist</a></li>
+                <li><a class="dropdown-item" href="{% url 'cart' %}" aria-label="check your cart"><i
+                      class="fa fa-shopping-cart"></i>My Cart</a></li>
+                <li><a class="dropdown-item" href="{% url 'contact_us' %}" aria-label="contact us"><i
+                      class="fa-solid fa-envelope-open"></i>Contact Us</a></li>
+                <li>
+                  <form method="post" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+                    <button class="logout-link" type="submit"><i class="fa fa-sign-out"></i> Logout</button>
+                  </form>
+                </li>
                 {% else %}
-                <li><a class="dropdown-item" href="{%url 'account_login'%}" aria-label="go to log in page"><i class="fa-solid fa-right-to-bracket"></i>
-                  Log In</a></li>
-              <li><a class="dropdown-item" href="{%url 'account_signup'%}" aria-label="go to register page"><i class="fa-solid fa-pen-to-square"></i>Register</a></li>
-              <li><a class="dropdown-item" href="{% url 'contact_us' %}" aria-label="contact us"><i class="fa-solid fa-envelope-open"></i>
-                Contact Us</a></li>
+                <li><a class="dropdown-item" href="{%url 'account_login'%}" aria-label="go to log in page"><i
+                      class="fa-solid fa-right-to-bracket"></i>Log In</a></li>
+                <li><a class="dropdown-item" href="{%url 'account_signup'%}" aria-label="go to register page"><i
+                      class="fa-solid fa-pen-to-square"></i>Register</a></li>
+                <li><a class="dropdown-item" href="{% url 'contact_us' %}" aria-label="contact us"><i
+                      class="fa-solid fa-envelope-open"></i>Contact Us</a></li>
                 {% endif %}
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{%url 'wishlist'%}" aria-label="check your wishlist">
+              <a class="nav-link" href="{%url 'wishlist' %}" aria-label="check your wishlist">
                 <i class="fa fa-heart"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'cart' %}" aria-label="check your cart">
+
+              <a class="nav-link position-relative" href="{% url 'cart' %}" aria-label="check your cart">
                 <i class="fa fa-shopping-cart"></i>
-            {% if order_total %}
-                ${{ order_total|floatformat:2 }}
-            {% else %}
-                $0.00
-            {% endif %}
+                <span class="badge position-absolute top-0  
+                         start-100 translate-middle rounded-pill  
+                         text-white">
+                  {% if order_total %}
+                  ${{ order_total|floatformat:2 }}
+                  {% else %}
+                  $0.00
+                  {% endif %}
+                </span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" aria-label="click to search for a item">
+              <a class="nav-link" aria-label="click to search for a item">
                 <span class="nav-link d-lg-none p-0" id="search-icon"> <i class="fa fa-search"></i></span>
               </a>
             </li>
@@ -106,7 +161,8 @@
         <div class="col-lg-8 my-2 d-none d-lg-block mx-auto" id="search-bar" aria-label="search" role="searchbox">
           <form role="search" action="{% url 'products' %}" method="get" name="search-input">
             <div class="input-group">
-              <input type="search" name="search-input" placeholder="Search your product" class="form-control search-input" />
+              <input type="search" name="search-input" placeholder="Search your product"
+                class="form-control search-input" />
               <button class="btn bg-white" type="submit" id="search-button">
                 <i class="fa fa-search"></i>
               </button>
@@ -115,69 +171,10 @@
         </div>
       </div>
     </nav>
-
     {% endblock %}
   </header>
   {% block content %}
-
   {% endblock %}
-  <!-- Footer-->
-  <!-- <footer class="py-5 bg-black">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
-    </div>
-  </footer> -->
-
-  <script type="text/javascript">
-		var user = '{{request.user}}'
-		function getToken(name) {
-		    var cookieValue = null;
-		    if (document.cookie && document.cookie !== '') {
-		        var cookies = document.cookie.split(';');
-		        for (var i = 0; i < cookies.length; i++) {
-		            var cookie = cookies[i].trim();
-		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-		                break;
-		            }
-		        }
-		    }
-		    return cookieValue;
-		}
-		var csrftoken = getToken('csrftoken')
-
-		function getCookie(name) {
-		    var cookieArr = document.cookie.split(";");
-
-		    for(var i = 0; i < cookieArr.length; i++) {
-		        var cookiePair = cookieArr[i].split("=");
-
-		        if(name == cookiePair[0].trim()) {
-		            return decodeURIComponent(cookiePair[1]);
-		        }
-		    }
-
-		    return null;
-		}
-		var cart = JSON.parse(getCookie('cart'))
-    var wishlist = JSON.parse(getCookie('wishlist'))
-
-		if (cart == undefined){
-			cart = {}
-      var date = new Date();
-      date.setTime(date.getTime()+(5*1000));
-      var expiry = ';expires=' + date.toUTCString();
-      console.log(expiry)
-			document.cookie ='cart=' + JSON.stringify(cart) + expiry + ";domain=;path=/"
-		}
-
-    if (wishlist == undefined){
-			wishlist = {}
-			document.cookie ='wishlist=' + JSON.stringify(wishlist) + ";domain=;path=/"
-		}
-	</script>
-
-
 </body>
 
 </html>

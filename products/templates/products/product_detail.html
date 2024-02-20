@@ -2,7 +2,6 @@
 {% load mathfilters %}
 {% block content %}
 <section class="py-5 container-fluid">
-    <!-- <h2 class="mt-4 mb-5 text-center">Products</h2> -->
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
@@ -37,8 +36,11 @@
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
-                    <a href="{% url 'products' %}" data-product="{{product.id}}" data-action="add" class="add-cart text-white"
-                        aria-label="click to add product to bag">Add to cart</a>
+
+                    <a href="/products/" data-product="2" data-action="add" class="updateBttns" aria-label="click to add product to bag">
+                        <span class="btn btn-black rounded-0 text-uppercase  add-cart">Add to card</span>
+                    </a>
+
                     <a href="{% url 'product_detail' product.id %}" data-product="{{product.id}}"
                         data-action="addWishlist" class="updateBttns" aria-label="Add to your wishlist"><i
                             class="fa-regular fa-heart"></i>
@@ -53,10 +55,10 @@
 
     <div class="row">
         <div class="col-12">
-            <h2 class="mb-4">Reviews</h2>
+            <h2 class="mb-4 edit-products-reviews">Reviews</h2>
         </div>
-        {% for text in testimonials %}
         <div class="row g-2 mb-5">
+            {% for text in testimonials %}
             <div class="col-md-4">
                 <div class="card p-3 text-center px-4">
                     <div class="user-image">
@@ -76,16 +78,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
+
         {% if review_permission %}
 
-        <h3>Leave your feeback</h3>
+        <h3 class="edit-products-reviews">Leave Your Feeback</h3>
 
         <form method="post" action="{% url 'testimonial' product.id %}" method="post" name="testimonial_form"
             id="testimonial_form">
             {% csrf_token %}
-            <label for="testimonial">feedback:</label><br>
+            <label for="testimonial">Feedback:</label><br>
             <textarea id="testimonial" name="testimonial" rows="4" cols="50" required
                 maxlength="100"></textarea><br><br>
 
@@ -104,9 +106,7 @@
             <input type="submit" class="shop-link" value="Submit">
         </form>
         {% else %}
-        <p class="text-muted">Just user that already bought the product are allowed to review!</p>
+        <p class="text-muted mx-2">Just user that already bought the product are allowed to review!</p>
         {% endif %}
-
 </section>
-
 {% endblock %}

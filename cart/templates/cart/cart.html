@@ -74,13 +74,15 @@
                     </a>
                 </div>
                 {% else %}
-                <a href="{% url 'account_login'%}" class="btn btn-black rounded-0 btn-lg">
-                    <span class="text-uppercase text-muted">Secure Checkout</span> <i class="fas fa-lock"></i>
-                    <br>
-                    <span>Login Required, Click Here to login</span>
-                    <span class="icon">
-                    </span>
-                </a>
+                <div class="d-md-none">
+                    <a href="{% url 'account_login'%}" class="btn btn-black rounded-0 btn-lg">
+                        <span class="text-uppercase text-muted">Secure Checkout</span> <i class="fas fa-lock"></i>
+                        <br>  
+                        <p class="text-muted text-start">Login Required!</p>
+                        <span class="icon">
+                        </span>
+                    </a>
+                </div>
                 {% endif%}
 
                 <div class="table-responsive rounded d-none d-md-block">

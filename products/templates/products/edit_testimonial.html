@@ -2,14 +2,10 @@
 {% load mathfilters %}
 {% block content %}
 <section class="py-5 container-fluid">
-    <!-- <h2 class="mt-4 mb-5 text-center">Products</h2> -->
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
-
-                <a href="">
-                    <img class="card-img-top img-fluid" src="/static/media/{{product.image}}" alt="{{ product.name }}">
-                </a>
+                <img class="card-img-top img-fluid" src="/static/media/{{product.image}}" alt="{{ product.name }}">
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -37,10 +33,14 @@
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
-                    <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                    <a href="/products/" data-product="2" data-action="add" class="updateBttns"
+                        aria-label="click to add product to bag">
+                        <span class="btn btn-black rounded-0 text-uppercase mt-5 add-cart">Add to card</span>
+                    </a>
+
                     <a href="{% url 'product_detail' product.id %}" data-product="{{product.id}}"
-                        data-action="addWishlist" class="updateBttns" aria-label="Add to your wishlist"><i
-                            class="fa-regular fa-heart"></i>
+                        data-action="addWishlist" class="btn btn-black rounded-0 text-uppercase mt-5 updateBttns p-0"
+                        aria-label="Add to your wishlist"><i class="fa-regular fa-heart"></i>
                     </a>
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -51,8 +51,7 @@
     </div>
 
     <div class="row">
-        <p class="edit-products-reviews">Share Your Testimonial</p>
-
+        <p class="edit-products-reviews">Edit Your Testimonial</p>
         <form method="post" action="{% url 'edit_testimonial' product.id %}" method="post" name="edit_testimonial"
             id="edit_testimonial">
             {% csrf_token %}
@@ -65,8 +64,9 @@
         <div class="col-12">
             <h2 class="mb-2 mt-4 edit-products-reviews">Reviews</h2>
         </div>
-        {% for text in testimonials %}
+
         <div class="row g-2 mb-5">
+            {% for text in testimonials %}
             <div class="col-md-4">
                 <div class="card p-3 text-center px-4">
                     <div class="user-image">
@@ -86,8 +86,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        {% endfor %}
-
+            {% endfor %}
 </section>
 {% endblock %}

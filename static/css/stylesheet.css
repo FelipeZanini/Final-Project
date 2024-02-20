@@ -152,7 +152,6 @@ a:focus {
     background-color: #212324;
 }
 
-/* products */
 .card {
     border: none !important;
 }
@@ -331,3 +330,7 @@ textarea {
     font-weight: 200;
 }
 
+#edit-product-rating {
+    font-size: 1.8rem;
+    font-weight: 200;
+}

@@ -11,7 +11,6 @@ window.addEventListener('DOMContentLoaded', event => {
         }
     });
     
-    // Remove the * in sign up page
     $(".asteriskField").remove();
     $("#hint_id_password1").remove();
     $("#logout-link").on('click', function () {
@@ -27,7 +26,6 @@ window.addEventListener('DOMContentLoaded', event => {
         $(this).css('opacity', '0');
     });
 
-    // Cookie Script
     var updateBttns = document.getElementsByClassName('updateBttns')
 
     for (i = 0; i < updateBttns.length; i++) {
@@ -92,6 +90,7 @@ window.addEventListener('DOMContentLoaded', event => {
         }
         document.cookie = 'wishlist=' + JSON.stringify(wishlist) + ";domain=;path=/"
     }
+    
     function removeWishlist(productId, action) {
         if (action == 'removeWishlist') {
             console.log(wishlist[productId])

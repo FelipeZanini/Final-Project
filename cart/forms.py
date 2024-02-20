@@ -3,6 +3,7 @@ from .models import ShippingAddress
 
 
 class ShippingAddressForm(forms.ModelForm):
+    """ Forms for shipping address """
 
     class Meta:
         model = ShippingAddress

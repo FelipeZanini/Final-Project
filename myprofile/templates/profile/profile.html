@@ -5,13 +5,12 @@
 <section class="py-5 container-fluid vh-100">
     <div class="row">
         <div class="col">
-            <h2 class="logo-font mb-3">Welcome {{ request.user}},</h2>
-            <p class="mb-5"><strong>See bellow your reviews!</strong></p>
+            <h2 class="logo-font mb-3 mx-2">Welcome {{ request.user}},</h2>
         </div>
     </div>
+    {% if products %}
+    <p class="mb-5"><strong>See bellow your reviews!</strong></p>
     <div class="row">
-        {% if products %}
-
         {% for item in products %}
         <div class="row  mt-3">
             <div class="col-md-2 mb-2">
@@ -24,34 +23,40 @@
                 <p class="my-0 small text-muted">
                     {% for testimonial in testimonials %}
                     {% if testimonial.product_id == item.product.id %}
-                        {{ testimonial.testimonial_text }}
-                        <a href="{% url 'remove_review' item.product_id %}?obj=testimonial"
+                    {{ testimonial.testimonial_text }}
+                    <a href="{% url 'remove_review' item.product_id %}?obj=testimonial"
                         aria-label="remove user testimonial"><i class="fa-solid fa-xmark"></i></a>
-                        <a href="{% url 'edit_testimonial' item.product_id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="{% url 'edit_testimonial' item.product_id %}"><i class="fa-solid fa-pen-to-square"></i></a>
                     {% endif %}
                     {% endfor %}
-                    
                 </p>
             </div>
             <div class="col-md-3 text-right">
                 <p class="my-0 small text-muted">
                     {% for user_rate in user_rates %}
                     {% if user_rate.product_id == item.product.id %}
-                        {% if user_rate.rating %}
-                            {{ user_rate.rating }}
-                            <a href="{% url 'edit_rating' item.product_id %}"><i class="fa-solid fa-pen-to-square"></i></a>
-                        {% endif %}
+                    {% if user_rate.rating %}
+                    {{ user_rate.rating }}
+                    <a href="{% url 'edit_rating' item.product_id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                    {% endif %}
                     {% endif %}
                     {% endfor %}
 
                     {% if not user_rates %}
-                        <p class="text-muted">Not rated yet</p>
-                    {% endif %}
+                <p class="text-muted">Not rated yet</p>
+                {% endif %}
                 </p>
             </div>
         </div>
         {% endfor %}
-
+        {% else %}
+        <p class="lead mx-2">Your don't have any testimonails.</p>
+        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+            <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="text-uppercase">Keep Shopping</span>
+        </a>
         {% endif %}
     </div>
 </section>

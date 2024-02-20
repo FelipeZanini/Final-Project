@@ -7,7 +7,6 @@ def home(request):
     return render(request, 'home/home.html')
 
 
-
 def contact_us(request):
     """ Function to render the contact us page"""
     if request.method == 'POST':
@@ -23,6 +22,6 @@ def contact_us(request):
     return render(request, 'home/contact_us.html')
 
 
-# custom 404 view
 def error_404(request, exception):
+    """ Function to render the 404 page"""
     return render(request, 'home/404.html')

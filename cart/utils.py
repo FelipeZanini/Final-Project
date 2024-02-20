@@ -16,6 +16,7 @@ def cart_data(request):
     delivery_cost = 0
     grand_total = 0
     total_items = 0
+
     for items_id in cart:
         items += Product.objects.filter(id=items_id).all()
         unit_price = get_object_or_404(Product, id=items_id).price
