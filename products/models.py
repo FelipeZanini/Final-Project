@@ -25,7 +25,7 @@ class Product(models.Model):
         count = 0
         for value in prevs_user_rate:
             avr += int(value.rating)
-            count += 1
+            
         self.rating = (avr/count)
         self.save()
 
