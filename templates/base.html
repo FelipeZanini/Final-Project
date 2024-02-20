@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Zanfe, e-commerce website">
   <!-- Maybe I can add more keywords and get a better description -->
-  <meta name="keywords" content="Zanfe, e-commerce, homeware products, shirts, jeans, essentials, free delivery">
+  <meta name="keywords" content="Zanfe, e-commerce, homeware products, shirts, jeans, essentials">
   {% endblock %}
 
   {% block extra_meta %}
@@ -66,6 +66,8 @@
                     Wishlist</a></li>
                 <li><a class="dropdown-item" href="{% url 'cart' %}" aria-label="check your cart"><i class="fa fa-shopping-cart"></i>
                     My Cart</a></li>
+                    <li><a class="dropdown-item" href="{% url 'contact_us' %}" aria-label="contact us"><i class="fa-solid fa-envelope-open"></i>
+                      Contact Us</a></li>
                 <li> <form method="post" action="{% url 'account_logout' %}">
                   {% csrf_token %}
                   <button class="logout-link" type="submit"><i class="fa fa-sign-out"></i> Logout</button>
@@ -74,6 +76,8 @@
                 <li><a class="dropdown-item" href="{%url 'account_login'%}" aria-label="go to log in page"><i class="fa-solid fa-right-to-bracket"></i>
                   Log In</a></li>
               <li><a class="dropdown-item" href="{%url 'account_signup'%}" aria-label="go to register page"><i class="fa-solid fa-pen-to-square"></i>Register</a></li>
+              <li><a class="dropdown-item" href="{% url 'contact_us' %}" aria-label="contact us"><i class="fa-solid fa-envelope-open"></i>
+                Contact Us</a></li>
                 {% endif %}
               </ul>
             </li>
@@ -118,11 +122,11 @@
 
   {% endblock %}
   <!-- Footer-->
-  <footer class="py-5 bg-black">
+  <!-- <footer class="py-5 bg-black">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
     </div>
-  </footer>
+  </footer> -->
 
   <script type="text/javascript">
 		var user = '{{request.user}}'

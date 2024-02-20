@@ -36,7 +36,7 @@
                             {% for key, value in quantity.items %}
                             {% if forloop.counter == forloop.parentloop.counter %}
                             <div class="row">
-                                <div class="col-10">Quantity: {{ value }}</div>
+                                <div class="col-5">Quantity: {{ value }}</div>
                                 <div class="col-2">
                                     <div class="row">
                                         <div class="col-12"><a href="{% url 'cart' %}" data-product="{{item.id}}"
@@ -55,26 +55,33 @@
                             {% endif %}
                             {% endfor %}
                         </div>
-                        {% if user.is_authenticated %}
-                        <a href="{% url 'checkout'%}" class="btn btn-black rounded-0 btn-lg">
-                            <span class="text-uppercase">Secure Checkout</span>
-                            <span class="icon">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </a>
-                        {% else %}
-                        <a href="{% url 'account_login'%}" class="btn btn-black rounded-0 btn-lg">
-                            <span class="text-uppercase text-muted">Secure Checkout</span> <i class="fas fa-lock"></i>
-                            <br>
-                            <span>Login Required, Click Here to login</span>
-                            <span class="icon">
-                            </span>
-                        </a>
-                        {% endif%}
                     </div>
-
                 </div>
                 {% endfor %}
+                {% if user.is_authenticated %}
+                <div class="d-md-none">
+                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
+                    <a href="{% url 'checkout'%}" class="btn btn-black rounded-0 btn-lg">
+                        <span class="text-uppercase">Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+                </div>
+                {% else %}
+                <a href="{% url 'account_login'%}" class="btn btn-black rounded-0 btn-lg">
+                    <span class="text-uppercase text-muted">Secure Checkout</span> <i class="fas fa-lock"></i>
+                    <br>
+                    <span>Login Required, Click Here to login</span>
+                    <span class="icon">
+                    </span>
+                </a>
+                {% endif%}
 
                 <div class="table-responsive rounded d-none d-md-block">
                     <table class="table table-sm table-borderless">
@@ -107,7 +114,7 @@
                                     {% if forloop.counter == forloop.parentloop.counter %}
                                 <div class="row">
                                     <div class="col-3">{{ value }}</div>
-                                    <div class="col-9">
+                                    <div class="col-8">
                                         <div class="row">
                                             <div class="col-12"><a href="{% url 'cart' %}" data-product="{{item.id}}"
                                                     data-action="increase" class="updateBttns"><i

@@ -33,7 +33,7 @@
                         
                         <img src="/static/media/{{product.image}}" class="products-image mx-auto" />
                         <a class="overlay" href="{% url 'product_detail' product.id %}" aria-label="click to check the products details">
-                            <span class="inspec-item">Inspect Item <i class="fa-solid fa-magnifying-glass"></i></span>
+                            <span class="inspec-item text-white">Inspect Item <i class="fa-solid fa-magnifying-glass"></i></span>
                         </a>
 
                         <div class="card-body">
@@ -50,11 +50,6 @@
                                         {% endif %}
                                         <p class="mx-1">{{product.rating}}</p>
                                     </ul>
-                                </div>
-                                <div class="col-6">
-                                    {% if product.size %}
-                                    <p class="product-sizes float-end">S M L XL </p>
-                                    {% endif %}
                                 </div>
                             </div>
                             <div class="row">

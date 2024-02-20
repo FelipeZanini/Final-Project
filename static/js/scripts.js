@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', event => {
             $('#search-icon').removeClass('d-none');
         }
     });
+    
     // Remove the * in sign up page
     $(".asteriskField").remove();
     $("#hint_id_password1").remove();

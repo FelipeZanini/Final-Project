@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <h1 class="text-center mt-5">Contact Us</h1>
+    <form method="post" action="{% url 'contact_us' %}" method="post" name="contact_us_form">
+        {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label" for="name">Name</label>
+        <input class="form-control" id="name" name="name" type="text" placeholder="Name" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="emailAddress">Email Address</label>
+        <input class="form-control" name="email-address" id="email-address" type="email" placeholder="Email Address" />
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label" for="message">Message</label>
+        <textarea class="form-control" name="message" id="message" type="text" placeholder="Message" style="height: 10rem;"></textarea>
+      </div>
+  
+      <div class="d-grid">
+        <button class="shop-link" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
