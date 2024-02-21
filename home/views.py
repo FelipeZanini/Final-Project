@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 from .models import ContactUs
 
 
@@ -19,6 +20,7 @@ def contact_us(request):
             message=message
         )
         contact.save()
+        messages.info(request, "Your form was successfully submitted")
     return render(request, 'home/contact_us.html')
 
 

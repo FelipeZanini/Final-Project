@@ -173,6 +173,13 @@
     </nav>
     {% endblock %}
   </header>
+  {% for message in messages %}
+  <div classs="container p-1">
+    <div class="alert {{ message.tags }}" role="alert">
+      {{ message }}
+    </div>
+  </div>
+{% endfor %}
   {% block content %}
   {% endblock %}
 </body>

@@ -2,6 +2,7 @@ from decimal import Decimal
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from cart.models import OrderItem
 from .models import Product, UserRate, Testimonial
 
@@ -104,9 +105,10 @@ def testimonial(request, product_id):
                 user_rate.rating=user_rating
                 user_rate.save()
                 Product.update_rating(product, prevs_user_rate)
-
+        messages.info(request, "Your testimonial was submitted")
         return redirect("product_detail", product_id)
 
+    messages.info(request, "Your testimonial was submitted")
     return redirect("product_detail", product_id)
 
 
@@ -121,6 +123,7 @@ def edit_testimonial(request, product_id):
         new_testimonial = request.POST['edit_testimonial_text']
         testimonial_obj.testimonial_text = new_testimonial
         testimonial_obj.save()
+        messages.info(request, "You edited your testimonial")
         return redirect("product_detail", product_id)
 
     context = {"product": product,
@@ -144,6 +147,7 @@ def edit_rating(request, product_id):
         user_rate.save()
         Product.update_rating(product, prevs_user_rate)
         user_rate.save()
+        messages.info(request, "You edited your rating")
         return redirect("product_detail", product_id)
 
     context = {"product": product,
@@ -166,5 +170,5 @@ def remove_review(request, product_id):
                 testimonial_obj.delete()
             else:
                 pass
-
+    messages.error(request, "You removed your testimonial")
     return redirect("product_detail", product_id)
