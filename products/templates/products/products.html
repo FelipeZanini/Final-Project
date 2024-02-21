@@ -31,7 +31,7 @@
                                     class="wishlist-icon fa-solid fa-heart float-end"></i></a>
                         </div>
                         
-                        <img src="/static/media/{{product.image}}" class="products-image mx-auto" />
+                        <img src="{{ product.image.url }}" class="products-image mx-auto" />
                         <a class="overlay" href="{% url 'product_detail' product.id %}" aria-label="click to check the products details">
                             <span class="inspec-item text-white">Inspect Item <i class="fa-solid fa-magnifying-glass"></i></span>
                         </a>
