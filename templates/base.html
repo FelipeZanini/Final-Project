@@ -92,7 +92,6 @@
         document.cookie = 'wishlist=' + JSON.stringify(wishlist) + ";domain=;path=/"
       }
     </script>
-    {% message block %}
     {% for message in messages %}
     <div classs="container p-1">
       <div class="alert m-0 {{ message.tags }}" role="alert">
@@ -100,7 +99,6 @@
       </div>
     </div>
     {% endfor %}
-    {% endblock %}
     <nav class="navbar main-navbar">
       <div class="row container-fluid">
         <div class="col-3 col-sm-2 col-md-3 col-lg-7 my-auto justify-content-end">

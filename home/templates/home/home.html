@@ -1,15 +1,5 @@
 {% extends "base.html" %}
 
-{% message block %}
-{% for message in messages %}
-<div classs="container p-1">
-  <div class="alert m-0 {{ message.tags }}" role="alert">
-    {{ message }}
-  </div>
-</div>
-{% endfor %}
-{% endblock %}
-
 {% block content %}
 <nav class="navbar navbar-expand-md secondary-navbar">
     <div class="container-fluid">
