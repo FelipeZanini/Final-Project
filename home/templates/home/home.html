@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 
+{% message block %}
+{% for message in messages %}
+<div classs="container p-1">
+  <div class="alert m-0 {{ message.tags }}" role="alert">
+    {{ message }}
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
+
 {% block content %}
 <nav class="navbar navbar-expand-md secondary-navbar">
     <div class="container-fluid">
@@ -16,7 +26,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="open a list of clothings" aria-label="explore clothing">Clothing</a>
-            <div class="dropdown-menu" aria-labelledby="clothing-link">
+            <div class="dropdown-menu" aria-label="clothing-link">
               <a class="dropdown-item" href="{% url 'products' %}?category=activewear,essentials" aria-label="explore activewear and essentials">Activewear &amp; Essentials</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=jeans" aria-label="explore jeans">Jeans</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=shirts" aria-label="explore shirts">Shirts</a>
@@ -26,7 +36,7 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="open a list of homeware" aria-label="explore homeware">Homeware</a>
-            <div class="dropdown-menu" aria-labelledby="clothing-link">
+            <div class="dropdown-menu" aria-label="homeware link">
               <a class="dropdown-item" href="{% url 'products' %}?category=bed_bath" aria-label="explore bed and bath">Bed &amp; Bath</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=kitchen_dining" aria-label="explore kitchen and dining">Kitchen &amp; Dining</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=bed_bath,kitchen_dining" aria-label="explore all homeware">All Homeware</a>
@@ -35,7 +45,7 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="check special offers">Special Offers</a>
-            <div class="dropdown-menu" aria-labelledby="clothing-link">
+            <div class="dropdown-menu" aria-label="Special offers link">
               <a class="dropdown-item" href="{% url 'products' %}?category=new_arrivals" aria-label="explore new arrivals">New Arrivals</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=deals" aria-label="explore deals">Deals</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=clearance" aria-label="explore clearance">Clearance</a>
@@ -46,15 +56,6 @@
       </div>
     </div>
   </nav>
-  {% message block %}
-  {% for message in messages %}
-  <div classs="container p-1">
-    <div class="alert m-0 {{ message.tags }}" role="alert">
-      {{ message }}
-    </div>
-  </div>
-  {% endfor %}
-  {% endblock %}
 <!-- Introduction section   -->
 <section class="py-5 vh-100 homepage-image">
     <div class="container-fluid">

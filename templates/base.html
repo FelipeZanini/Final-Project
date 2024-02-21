@@ -44,7 +44,7 @@
     <script src="{% static 'js/scripts.js' %}"></script>
     <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <script type="text/javascript">
+    <script>
       var user = '{{request.user}}'
       function getToken(name) {
         var cookieValue = null;
@@ -92,7 +92,15 @@
         document.cookie = 'wishlist=' + JSON.stringify(wishlist) + ";domain=;path=/"
       }
     </script>
-  c
+    {% message block %}
+    {% for message in messages %}
+    <div classs="container p-1">
+      <div class="alert m-0 {{ message.tags }}" role="alert">
+        {{ message }}
+      </div>
+    </div>
+    {% endfor %}
+    {% endblock %}
     <nav class="navbar main-navbar">
       <div class="row container-fluid">
         <div class="col-3 col-sm-2 col-md-3 col-lg-7 my-auto justify-content-end">
@@ -165,8 +173,7 @@
         <div class="col-lg-8 my-2 d-none d-lg-block mx-auto" id="search-bar" aria-label="search" role="searchbox">
           <form role="search" action="{% url 'products' %}" method="get" name="search-input">
             <div class="input-group">
-              <input type="search" name="search-input" placeholder="Search your product"
-                class="form-control search-input" />
+              <input type="search" name="search-input" placeholder="Search your product" class="form-control search-input"/>
               <button class="btn bg-white" type="submit" id="search-button">
                 <i class="fa fa-search"></i>
               </button>
