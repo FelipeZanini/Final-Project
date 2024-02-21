@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-u*%d4inae)b_yuh2((e&=mbi#=y@n--o%h6+6e11v$zso#au4j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zanfe.heroku.app.com', '8000-felipezanini-zanfe-c8smzrcels5.ws-eu108.gitpod.io']
+ALLOWED_HOSTS = ['zanfe-009510b2eec0.herokuapp.com']
 
 
 # Application definition
