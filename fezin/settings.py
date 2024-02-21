@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'myprofile',
-
+    
+    'storages',
     'mathfilters',
     'allauth',
     'allauth.account',
@@ -74,7 +75,6 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'fezin.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-'storages',
 
 TEMPLATES = [
     {
