@@ -175,15 +175,15 @@
     </nav>
     {% endblock %}
   </header>
+  {% block content %}
+  {% endblock %}
   {% for message in messages %}
   <div classs="container p-1">
-    <div class="alert {{ message.tags }}" role="alert">
+    <div class="alert m-0 {{ message.tags }}" role="alert">
       {{ message }}
     </div>
   </div>
 {% endfor %}
-  {% block content %}
-  {% endblock %}
 </body>
 
 </html>
