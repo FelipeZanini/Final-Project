@@ -24,7 +24,7 @@
 
                     <div class="row">
                         <div class="col-12 col-sm-6 mb-2">
-                            <img class="img-fluid rounded" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}" alt="{{ item.name }}">
+                            <img class="img-fluid rounded" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{item.image.url}}" alt="{{ item.name }}">
                         </div>
                         <div class="col-12 col-sm-6 mb-2">
                             <p class="my-0"><strong>{{ item.name }}</strong></p>
@@ -33,7 +33,7 @@
                         <div class="col-12 col-sm-6 order-sm-last">
                             <p class="my-0">Price: ${{ item.price }}
                                 <a href="{% url 'wishlist' %}" data-product="{{item.id}}" data-action="removeWishlist"
-                                    class="updateBttns"><i class="fa-regular fa-trash-can"></i></a>
+                                    class="updateBttns"><i class="fa fa-trash"></i></a>
                             </p>
                             </p>
                         </div>
@@ -58,7 +58,7 @@
                         {{item.image.url}}
                         <tr>
                             <td class="p-3 w-25">
-                                <img class="img-fluid rounded" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}" alt="{{ item.name }}">
+                                <img class="img-fluid rounded" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{item.image.url}}" alt="{{ item.name }}">
                             </td>
                             <td class="py-3">
                                 <p class="my-0"><strong>{{ item.name }}</strong></p>
@@ -68,7 +68,7 @@
                                 <p class="my-0">{{ item.price }}
                                     <a href="{% url 'wishlist' %}" data-product="{{item.id}}"
                                         data-action="removeWishlist" class="updateBttns"><i
-                                            class="fa-regular fa-trash-can"></i></a>
+                                            class="fa fa-trash"></i></a>
                                 </p>
                                 </p>
                             </td>
