@@ -130,7 +130,7 @@ WSGI_APPLICATION = 'fezin.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse('postgres://vfkdlnlb:S6ztu9lD3EY_yU7fmyxCP5_3QjYQMlLv@trumpet.db.elephantsql.com/vfkdlnlb')
     }
 
 
