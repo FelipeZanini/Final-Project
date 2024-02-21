@@ -173,15 +173,15 @@ AWS_STORAGE_BUCKET_NAME = 'zanfe'
 AWS_S3_REGION_NAME = 'eu-north-1'
 AWS_ACCESS_KEY_ID = 'AKIA5FTZDWLIIHE7CB7A'
 AWS_SECRET_ACCESS_KEY = '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'
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.eu-north-1.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_DEFAULT_ACL = 'public-read'
+
 
 # expires
 AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000',
     }
-
-AWS_DEFAULT_ACL = None
 
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 STATICFILES_LOCATION = 'static'
