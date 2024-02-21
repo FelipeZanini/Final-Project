@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'crispy_forms',
     'crispy_bootstrap4',
+    'fontawesomefree',
     'home',
     'products',
     'cart',
@@ -175,7 +176,7 @@ AWS_ACCESS_KEY_ID = 'AKIA5FTZDWLIIHE7CB7A'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-# new line
+new line
 AWS_DEFAULT_ACL = None
 
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
