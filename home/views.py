@@ -14,7 +14,7 @@ def newsletter_signup(request):
         name = request.POST['name']
         email = request.POST['email-address']
         message = request.POST['message']
-        contact = ContactUs(
+        contact = NewsletterSignup(
             name=name,
             email=email,
             message=message
