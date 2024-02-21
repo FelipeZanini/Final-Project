@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class NewsletterSignup(models.Model):
+class ContactUs(models.Model):
     name = models.CharField(max_length=254, null=False, blank=False)
     email = models.CharField(max_length=50, null=False, blank=False)
     message = models.CharField(max_length=254, null=False, blank=False)

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import NewsletterSignup
+from .models import ContactUs
 
 
 def home(request):
@@ -14,7 +14,7 @@ def newsletter_signup(request):
         name = request.POST['name']
         email = request.POST['email-address']
         message = request.POST['message']
-        contact = NewsletterSignup(
+        contact = ContactUs(
             name=name,
             email=email,
             message=message
