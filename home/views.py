@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import ContactUs
+from .models import NewsletterSignup
 
 
 def home(request):
@@ -8,8 +8,8 @@ def home(request):
     return render(request, 'home/home.html')
 
 
-def contact_us(request):
-    """ Function to render the contact us page"""
+def newsletter_signup(request):
+    """ Function to render the newsletter signup page"""
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email-address']
@@ -21,7 +21,7 @@ def contact_us(request):
         )
         contact.save()
         messages.info(request, "Your form was successfully submitted")
-    return render(request, 'home/contact_us.html')
+    return render(request, 'home/newsletter_signup.html')
 
 
 def error_404(request, exception):
