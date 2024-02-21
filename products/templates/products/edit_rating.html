@@ -24,7 +24,7 @@
 
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
-                <img class="card-img-top img-fluid" src="/static/media/{{product.image}}" alt="{{ product.name }}">
+                <img class="card-img-top img-fluid" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}" alt="{{ product.name }}">
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -58,7 +58,7 @@
                     </a>
                     <a href="{% url 'product_detail' product.id %}" data-product="{{product.id}}"
                         data-action="addWishlist" class="btn btn-outline-black rounded-0 mt-5 updateBttns p-0"
-                        aria-label="Add to your wishlist"><i class="fa-regular fa-heart "></i>
+                        aria-label="Add to your wishlist"><i class="fa fa-heart "></i>
                     </a>
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -75,7 +75,7 @@
     <div class="col-md-4">
         <div class="card p-3 text-center px-4">
             <div class="user-image">
-                <img src="/static/media/user1.png" class="rounded-circle" width="80">
+                <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/user1.png" class="rounded-circle" width="80">
             </div>
             <div class="user-content">
                 <h5 class="mb-0">{{text.user}}</h5>
