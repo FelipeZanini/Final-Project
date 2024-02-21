@@ -2,6 +2,7 @@
 
 <!doctype html>
 <html lang="en">
+
 <head>
 
   {% block meta %}
@@ -21,7 +22,7 @@
   {% block corecss %}
   <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
   <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-  
+
   {% bootstrap_css %}
   {% endblock %}
 
@@ -91,6 +92,7 @@
         document.cookie = 'wishlist=' + JSON.stringify(wishlist) + ";domain=;path=/"
       }
     </script>
+  c
     <nav class="navbar main-navbar">
       <div class="row container-fluid">
         <div class="col-3 col-sm-2 col-md-3 col-lg-7 my-auto justify-content-end">
@@ -177,13 +179,6 @@
   </header>
   {% block content %}
   {% endblock %}
-  {% for message in messages %}
-  <div classs="container p-1">
-    <div class="alert m-0 {{ message.tags }}" role="alert">
-      {{ message }}
-    </div>
-  </div>
-{% endfor %}
 </body>
 
 </html>

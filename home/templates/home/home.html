@@ -46,6 +46,15 @@
       </div>
     </div>
   </nav>
+  {% message block %}
+  {% for message in messages %}
+  <div classs="container p-1">
+    <div class="alert m-0 {{ message.tags }}" role="alert">
+      {{ message }}
+    </div>
+  </div>
+  {% endfor %}
+  {% endblock %}
 <!-- Introduction section   -->
 <section class="py-5 vh-100 homepage-image">
     <div class="container-fluid">
