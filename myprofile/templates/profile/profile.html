@@ -9,7 +9,7 @@
         </div>
     </div>
     {% if products %}
-    <p class="mb-5"><strong>See bellow your reviews!</strong></p>
+    <p class="mb-5 mx-2"><strong>Edit or leave a review bellow!</strong></p>
     <div class="row">
         {% for item in products %}
         <div class="row  mt-3">
@@ -20,13 +20,13 @@
             </div>
             <div class="col-md-7">
                 <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                <p class="my-0 small text-muted">
+                <p class="my-0">
                     {% for testimonial in testimonials %}
                     {% if testimonial.product_id == item.product.id %}
                     {{ testimonial.testimonial_text }}
                     <a href="{% url 'remove_review' item.product_id %}?obj=testimonial"
-                        aria-label="remove user testimonial"><i class="fa fa-trash"></i></a>
-                    <a href="{% url 'edit_testimonial' item.product_id %}"><i class="fa fa-pen"></i></a>
+                        aria-label="remove user testimonial"> <i class="fa fa-trash"></i></a>
+                    <a href="{% url 'edit_testimonial' item.product_id %}"> <i class="fa fa-pen"></i></a>
                     {% endif %}
                     {% endfor %}
                 </p>
@@ -37,7 +37,7 @@
                     {% if user_rate.product_id == item.product.id %}
                     {% if user_rate.rating %}
                     {{ user_rate.rating }}
-                    <a href="{% url 'edit_rating' item.product_id %}"><i class="fa fa-pen"></i></a>
+                    <a href="{% url 'edit_rating' item.product_id %}"> <i class="fa fa-pen"></i></a>
                     {% endif %}
                     {% endif %}
                     {% endfor %}

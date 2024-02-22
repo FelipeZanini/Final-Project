@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% load mathfilters %}
+{% block title %} <title>Products page </title> {% endblock %}
 {% block content %}
 <section class="py-5 container-fluid">
     <h2 class="mt-4 mb-1 text-center">Products</h2>
     
     <li class="nav-item dropdown dropdown-menu-end mb-4" style="list-style: none;">
-        <a class="nav-link dropdown-toggle px-3 text-dark text-end" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="sort items by price, rating, category and name" aria-label="explore clothing">Sort by</a>
+        <a class="nav-link dropdown-toggle px-3 text-dark text-end sort-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="sort items by price, rating, category and name" aria-label="explore clothing">Sort by</a>
         <div class="dropdown-menu" aria-labelledby="clothing-link">
           <a class="dropdown-item" href="{% url 'products' %}?sort=price_asc" aria-label="sort price, lower to higher">Price: Low to high</a>
           <a class="dropdown-item" href="{% url 'products' %}?sort=price_des" aria-label="sort price, higher to lower">Price: Hight to low</a>

@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Zanfe</title>
+  {% block title %} <title>Zanfe base template </title> {% endblock %}
   <meta name="description" content="Zanfe, e-commerce website">
   <meta name="keywords" content="Zanfe, e-commerce, homeware products, shirts, jeans, essentials">
   {% endblock %}
@@ -124,7 +124,7 @@
                 <li><a class="dropdown-item" href="{% url 'cart' %}" aria-label="check your cart"><i
                       class="fa fa-shopping-cart"></i>My Cart</a></li>
                 <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}" aria-label="newsletter_signup"><i
-                      class="fa fa-envelope-open"></i>Newsletter Signup</a></li>
+                      class="fa fa-envelope-open"></i>Newsletters Signup</a></li>
                 <li>
                   <form method="post" action="{% url 'account_logout' %}">
                     {% csrf_token %}
@@ -137,7 +137,7 @@
                 <li><a class="dropdown-item" href="{%url 'account_signup'%}" aria-label="go to register page"><i
                       class="fa-solid fa-pen-to-square"></i>Register</a></li>
                 <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}" aria-label="newsletter signup"><i
-                      class="fa fa-envelope-open"></i>Newsletter Signup</a></li>
+                      class="fa fa-envelope-open"></i>Newsletters Signup</a></li>
                 {% endif %}
               </ul>
             </li>

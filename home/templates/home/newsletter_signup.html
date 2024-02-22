@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-
+{% block title %} <title>Newsletters Signup </title> {% endblock %}
 {% block content %}
 <!-- form newsletters  -->
 <div class="container py-4">
-    <h1 class="text-center mt-5">Newsletter Signup</h1>
+    <h1 class="text-center mt-5">Newsletters Signup</h1>
     <form method="post" action="{% url 'newsletter_signup' %}" method="post" name="contact_us_form">
         {% csrf_token %}
       <div class="mb-3">

@@ -334,3 +334,7 @@ textarea {
     font-size: 1.8rem;
     font-weight: 200;
 }
+
+.sort-toggle {
+    color: #000000!important;
+}
