@@ -4,7 +4,7 @@ This e-commerce platform is a haven for fashion enthusiasts and home decor afici
 
 
 
-  ![Mock Up](/img/mockup.png){:target="_blank"}
+  ![Mock Up](/img/mockup.png)
 
   - The live link can be found here: [Zanfe](https://zanfe-009510b2eec0.herokuapp.com/)
 
@@ -21,32 +21,34 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
 **Customer Goals:**
 - Desired Products: Customers want to find the goods or services they are looking to buy easily, this entails effective category navigation, filters, and sorting choices.
 
-- Products Description: Customers can easily find product details, such as specifications, photos, other customers testimonial and full descriptions. Making planned purchasing decisions having access to complete and accurate information.
+- Products Description: Customers can easily find product details, such as specifications, photos, other customers testimonial and full descriptions. Making planned purchasing 
+  decisions having access to complete and accurate information.
   
 - Secure Checkout Process: A smooth and safe checkout experience is our priority for customers. This entails safe payment methods, and personal data security.
-Order tracking: In order to keep track of their purchases, customers want to have access to order tracking information's. Keeping them informed and in control by providing updates on order processing, shipping, and delivery.
+  Order tracking: In order to keep track of their purchases, customers want to have access to order tracking information's. Keeping them informed and in control by providing updates on order processing, shipping, and delivery.
 
 **Business Goals:**
-- ⁤Customer Satisfaction: Offering professional styling guidance demonstrates our dedication to making sure customers are happy with the clothes we choose, making them feel and look their best. ⁤
+- ⁤Customer Satisfaction: Offering professional styling guidance demonstrates our dedication to making sure customers are happy with the clothes we choose, making them feel and look 
+  their best. ⁤
 
 - ⁤Loyal Customers: We are compromised with customer loyalty, always offering the best user experience making our customer wish to buy again. ⁤
 
-- ⁤Safety: We place a high priority on protecting the financial and personal data of our clients. ⁤⁤The following safety precautions are in place to guarantee a secure purchasing experience: ⁤
+- ⁤Safety: We place a high priority on protecting the financial and personal data of our clients. ⁤⁤The following safety precautions are in place to guarantee a secure purchasing  
+  experience: ⁤
 
-1. **User Experience:**
+**User Experience:**
 
-⁤- Design a user-friendly, aesthetically pleasing website that makes it simple for customers to browse and locate the products. ⁤
+- Design a user-friendly, aesthetically pleasing website that makes it simple for customers to browse and locate the products. ⁤
    
-⁤- Create a user-friendly search and filtering system that makes it easy for customers to find particular supplements depending on their dietary preferences and fitness objectives. ⁤
+- Create a user-friendly search and filtering system that makes it easy for customers to find particular supplements depending on their dietary preferences and fitness objectives. ⁤
 
-⁤- Optimise the website for quick loading times and flawless cross-platform operation to boost user happiness and promote return visits. ⁤
+- Optimise the website for quick loading times and flawless cross-platform operation to boost user happiness and promote return visits. ⁤
 
-3. **Segure Checkout Process:**
+**Segure Checkout Process:**
 
 - Put security measures in place to safeguard consumer information, guarantee a secure online shopping environment, and encourage customers to make transactions.
 
 - Simplify the checkout process with quick order processing and user-friendly payment options to deliver a flawless shopping experience.
-  
 </details>
 <hr>
 
@@ -69,13 +71,14 @@ Order tracking: In order to keep track of their purchases, customers want to hav
 <hr>
 
 ## Scope
-
+<details>
+<summary>Scope Details</summary>
 1. **Products Page:** Well-structured product page, allowing users to see each product rating category and price, and functions to add to card or wishlist.
 2. **User Accounts:** This application provides account registration, to secure a checkout and visualize order history.
 3. **Shopping Bag & Wishlist:** Shoppers will be able to add and see bags and wishlists, this feature is implemented using cookies via JavaScript.
 4. **Product Reviews:** A review page will be implemented, enabling customers to provide feedback and ratings for products they have purchased and full CRUD operations for their testimonials.
 5. **User-Friendly & Responsive Design:** The website will be optimized for various devices, ensuring a consistent and user-friendly experience for both desktop and mobile users.
-
+</details>
 ## Design Choices
 <details>
 <summary>Design Choices Details</summary>
@@ -163,7 +166,7 @@ Order tracking: In order to keep track of their purchases, customers want to hav
    - Date added(DateTimeField): The date and time when the order item was added.
 
   
-8. **Testimonial
+8. **Testimonial**
    - User(Foreingkey to AUTH_USER): The user associated with the order.
    - Testimonial Text(TextField): Indicates the testimonial text of the product associeted with the user.
    - Rating(DecimalField): Indicates the rating of the product, and its evaluated after each user review by update rating function.
@@ -184,35 +187,34 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 - **Bag:**
   
-- Inscrease item quantity
-- [Product Backlog](/readme/in-bag.png)
+- Increase item quantity
+- ![image](/readme/in-bag.png)
 
 - Decrease item quantity
-- [Product Backlog](/readme/ds-bag.png)
+- ![image](/readme/ds-bag.png)
 
 - Remove item from bag
-- [Product Backlog](/readme/ex-bag.png)
+- ![image](/readme/ex-bag.png)
 
 
 - **Wishlist:**
   
 - Remove item from wishlist
-- [Product Backlog](/readme/ex-wishlist.png)
+- ![image](/readme/ex-wishlist.png)
 
 - **Testimonial:**
   
-- Edit only text testimonial
-- [Product Backlog](/readme/ed-testimonal.png)
+- Edit testimonial
+- ![image](/readme/ed-testimonal.png)
 
 - Remove text testimonial 
-- [Product Backlog](/readme/ex-testimonal.png)
+- ![image](/readme/ex-testimonal.png)
 
 - **Rating:**
   
 - Edit product rating
-- [Product Backlog](/readme//ed-review.png)
+- ![image](/readme//ed-review.png)
 
-  
 </details>
 <hr>
 
@@ -381,13 +383,13 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 - **(Authorized User - Update)**
 
 ![image](/readme/ed-testimonal.png)
-![image](/readme/ex-testimonal.png)
+![image](/readme/ed-review.png)
 
 <hr>
 
 - **(Authorized User - Delete)**
 
-![image](/readme/ed-review.png)
+![image](/readme/ex-testimonal.png)
 
 <hr>
 
@@ -399,44 +401,39 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 </details>
 <hr>
 
-<hr>
-
 **Messages Notifications:**
 <details>
 <summary>Messages Notifications Details</summary>
 
 <hr>
 
+- There's a succes message if the user logged in. 
 ![image](/readme/signin-msg.png)
 
-- There's a succes message if the user logged in. 
-
+- There's a succes message if the user logged out. 
 ![image](/readme/signout-msg.png)
 
-- There's a success message if the user update their bag. 
-
 <hr>
 
+- There's a info message when a testimonial is submitted. 
 ![image](/readme/test-sub-msg.png)
 
-- There's an alert message if the superuser/admin edit a product. 
+<hr>
+
+- There's a info message if the user edit a product rating.
+![image](/readme/edt-rating-msg.png) 
 
 <hr>
 
-![image](/readme/edt-rating-msg.png)
-
-- There's a success message if the user remove the product from their bag. 
-
-<hr>
-
+- There's a danger message if the user remove a testimonial.
 ![image](/readme/ex-testimonial-msg.png)
 
-- There's a success message if the user like the blog (only authorized user). 
 
 <hr>
+
+- There's a success message if the user submit a newsletters forms. 
 ![image](/readme/form-sub-msg.png)
 
-- There's a success message if the user like the blog (only authorized user). 
 <hr>
 
 </details>
@@ -462,7 +459,7 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 ## Testing
 
-Please refer to the [TESTING.MD](TESTING.md) file for all testing performed 
+BLA BLA BLA
 
 
 ## E-commerce Business Model
@@ -558,10 +555,6 @@ Several technologies have been used to enable this website works:
 - AmIResponsive
 - Favicon
 - Gitpod
-
-
-## Deployment
-
 
 ## Stripe Payments 
 
