@@ -448,7 +448,7 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 - **404 Error Page:**
   
-  ![image]()
+  ![image](/readme/page404.png)
 
 <hr>
 
@@ -473,20 +473,8 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 ## Validator Testing
 
-  - No errors were returned when passing through the official [PEP8](https://pep8ci.herokuapp.com/) validator, used just in tested in all files, but just 
-    uploaded the models and views for simplicity purpose.
+  - No errors were returned when passing through the official [PEP8](https://pep8ci.herokuapp.com/)
   
-  - PEP8 Views.py.
-
-  ![PEP8 Views](/img/viewpep.png)
-
-  - PEP8 Model.py.
-
-  ![PEP8 Model](/img/modelpep.png)
-
- - No errors were returned in Django built tests.
-
-  ![Django Test](/img/testdajngo.png)
 
 
 

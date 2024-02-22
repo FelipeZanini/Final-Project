@@ -5,4 +5,4 @@ Disallow: /profile/orders_history
 Disallow: /cart/checkout/
 Disallow: /cart/checkout_success/
 
-Sitemap: https://50qgtvhk-8000.uks1.devtunnels.ms/sitemap.xml HEROKU SITE
+Sitemap: https://zanfe-009510b2eec0.herokuapp.com/sitemap.xml
