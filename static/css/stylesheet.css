@@ -335,6 +335,6 @@ textarea {
     font-weight: 200;
 }
 
-.sort-toggle {
+.nav-item .nav-link .sort-toggle {
     color: #000000!important;
 }
