@@ -450,7 +450,6 @@ I used PostgreSQL as the database for this project. Hosting the application on H
   
   ![image](/readme/page404.png)
 
-<hr>
 
 </details>
 <hr>
@@ -465,18 +464,15 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 ## Testing
 
-- I have tested the code by the following methods:
-  - Passed on the Django test built in function, no issues found.
+I have tested the code by the following methods:
+  - Passed on the Django test built-in function, no issues found.
   - Passed on the validator code PEPE8, no issues found.
-  - I manually tested the code, attempting to submit invalid inputs and reserve tables without prior registration, and double bookings as well.
-  - The site was tested on Heroku terminal and on the local terminal.
-
-## Validator Testing
-
-  - No errors were returned when passing through the official [PEP8](https://pep8ci.herokuapp.com/)
-  
-
-
+  - I manually tested the code, attempting to visit pages forbidden for non-registered users.
+  - I added a login required decorator in each function that just registered users can access.
+  - I tested each button individually in different screen sizes, and no problems were found.
+  - I inserted url to try to hack the site, but my code seems to be safe.
+  - I started the secret variables in the protected virtual environment. 
+  - The site was tested on the Heroku terminal and the local terminal.
 
 ## E-commerce Business Model
 ### Facebook Business Page
@@ -635,4 +631,3 @@ e.g.
 - [Font Awesome](https://fontawesome.com/) - The icons was taken from Font Awesome.
 
 
-[Back to the beginning](#table-of-contents)
