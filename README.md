@@ -1,158 +1,672 @@
-# _Zanini-Pizzeria_
+# _Zanfe_
 
-The objective of my Zanini-Pizzeria restaurant website is to engage customers to our italian cusine, aiming actions such as reservations, menu information, and also the address and contact information. The site is made to be friendly user and enticing customers to choose the restaurant for culinary experiences.
-
-The User can enjoy a fully responsive website, easily navigated that allow them, to manage their booking, canceling it or updating the date, that requires a account, but don't worry, the process to register and login is pretty straight foward, focusing in what matters, the beloved italian food.
-
-
-
-
+This e-commerce platform is a haven for fashion enthusiasts and home decor aficionados alike, with a primary focus on clothing, particularly jeans and t-shirts, it provides a diverse array of styles, fits, and designs to suit every taste and occasion, from classic denim staples to trendy graphic tees, customers can explore an extensive selection of apparel that combines comfort, quality, and style.
 
 
 
   ![Mock Up](/img/mockup.png)
 
-## Features
+  - The live link can be found here: [Zanini Pizzeria](https://zanini-pizzeria-0279eae282e5.herokuapp.com/](https://zanfe-009510b2eec0.herokuapp.com/)
 
-### Existing Features
+# UX
+Welcome to Zanfe e-commerce, a site made for all needs, clothing and home goods! Our user experience (UX) design offers customers a smooth purchasing experience for apparel and home decoration. Our platform is made to fit your demands, whether you're renovating your living area or changing your wardrobe.
 
-- __Restaurant Land Page__
- 
-  - The initial web page is a eye catch to visitors, having the purpose to quickly capture the attention and instigate the curisioty, that could result in a reservation, or a quick look at the menu. It is well-designed including visually appealing images of the food and a great atmosphere, with an easy navigation to key sections like the menu, reservation system, and user section. The goal is to provide a positive and engaging first impression that motivates visitors to further explore the restaurant, the page contains a link to the reservation section.
+## Target Audience
+The target audience for our e-commerce that offers home goods. Convenience, quality, and style are important to our customers when it comes to personal style and home decoration. Usually young to middle-aged adults who enjoy the comfort of online shopping. This market seeks products that effortlessly combine fashionable design with useful and fashionable clothing's homeware items.
+
+## Goals
+<details>
+<summary>Goals Details</summary>
+  
+**Customer Goals:**
+- Desired Products: Customers want to find the goods or services they are looking to buy easily, this entails effective category navigation, filters, and sorting choices.
+
+- Products Description: Customers can easily find product details, such as specifications, photos, other customers testimonial and full descriptions. Making planned purchasing decisions having access to complete and accurate information.
+  
+- Secure Checkout Process: A smooth and safe checkout experience is our priority for customers. This entails safe payment methods, and personal data security.
+Order tracking: In order to keep track of their purchases, customers want to have access to order tracking information's. Keeping them informed and in control by providing updates on order processing, shipping, and delivery.
+
+**Business Goals:**
+- ⁤Customer Satisfaction: Offering professional styling guidance demonstrates our dedication to making sure customers are happy with the clothes we choose, making them feel and look their best. ⁤
+
+- ⁤Loyal Customers: We are compromised with customer loyalty, always offering the best user experience making our customer wish to buy again. ⁤
+
+- ⁤Safety: We place a high priority on protecting the financial and personal data of our clients. ⁤⁤The following safety precautions are in place to guarantee a secure purchasing experience: ⁤
+
+1. **User Experience:**
+
+⁤- Design a user-friendly, aesthetically pleasing website that makes it simple for customers to browse and locate the products. ⁤
+   
+⁤- Create a user-friendly search and filtering system that makes it easy for customers to find particular supplements depending on their dietary preferences and fitness objectives. ⁤
+
+⁤- Optimise the website for quick loading times and flawless cross-platform operation to boost user happiness and promote return visits. ⁤
+
+3. **Segure Checkout Process:**
+
+- Put security measures in place to safeguard consumer information, guarantee a secure online shopping environment, and encourage customers to make transactions.
+
+- Simplify the checkout process with quick order processing and user-friendly payment options to deliver a flawless shopping experience.
+  
+</details>
+<hr>
+
+## User Stories
+<details>
+<summary>User Stories Details</summary>
+
+- As a User I want to easily login and logout so I can better manage my personal information.
+- As a Guest I want to easily create an account using my email or social media credentials.
+- As a Guest I want to browse products without creating an account.
+- As a Shopper I want to select the product quantity so I can easily choose how many items I want to buy.
+- As a Shopper I want to browse products by name or description.
+- As a Guest I want to add products to my bag and wish list without creating an account.
+- As a Guest I want to add products to my bag and wish list without creating an account.
+- As a User I want to view my order history to see my previous purchases.
+- As a User I want to update my personal information like shipping address and password(future feature).
+- As a User I want to receive email notifications about my orders and personal information update(future feature).
+- As a Shopper I want to select product size so I can easily get the correct size(future feature).
+</details>
+<hr>
+
+## Scope
+
+1. **Products Page:** Well-structured product page, allowing users to see each product rating category and price, and functions to add to card or wishlist.
+2. **User Accounts:** This application provides account registration, to secure a checkout and visualize order history.
+3. **Shopping Bag & Wishlist:** Shoppers will be able to add and see bags and wishlists, this feature is implemented using cookies via JavaScript.
+4. **Product Reviews:** A review page will be implemented, enabling customers to provide feedback and ratings for products they have purchased and full CRUD operations for their testimonials.
+5. **User-Friendly & Responsive Design:** The website will be optimized for various devices, ensuring a consistent and user-friendly experience for both desktop and mobile users.
+
+## Design Choices
+<details>
+<summary>Design Choices Details</summary>
+  
+### Colors
+
+![image]()
+
+- The color palette chosen for Zanfe e-commerce is to have a visually appealing and unified brand identity, simple and minimalistic. 
+- **(Black):** This color is presented in the main nav and buttons.
+- **(White):** White is used as a background color for all the pages of the application.
+- **#b64545(Red):** This colour is just presented in the secondary nav bar.
+
+### Images
+- **Hero image:** Leaving the boutique with her purchase in hand, the happiness of the woman expressions as she navigates the shopping experience. Here's why each element contributes to imprinting a sense of joy.
+
+![image]()
+
+</details>
+
+<hr>
+
+### Frameworks
+- I decided to utilise Bootstrap for my website because it made it simple and quick for me to construct a responsive design that functions well across a range of devices. 
+
+### Custom Javascript
+- Cookies are used in this project to store wishlist and bag items, storing product id and quantity values in a dictionary.
+- Decrement and increment buttons are presented on the bag page.
+- Remove product button is also presented, deleting the desired product from the dictionary.
+  
+## Information Architecture
+<details>
+<summary>Information Architecture Details</summary>
+  
+1. **Order:**
+   - User(Foreingkey to AUTH_USER): The user associated with the order.
+   - Date Ordered(DateTimeField): The date and time when the order was made.
+   - Email(EmailField): The email address of the user.
+   - Order Number(IntegerField): Indicates unique indentifier for the order.
+   - Complete(BooleanField): Indicates whether the order has been approved.
+   - Delivery Cost(DecimalField): Indicates the delivery cost.
+   - Order total(DecimalField): Indicates the order total.
+   - Grand Total(DecimalField): Indicates the grand total.
+   - Stripe Pid(CharField): Indicates the stripe pid.
+
+2. **Order Item:**
+   - User(Foreingkey to AUTH_USER): The user associated with the order item.
+   - Product(Foreingkey to Product Model): The product associated with the order item.
+   - Order(Foreingkey to Product Model): The order associated with the order item.
+   - Quantity(IntergerField): Indicates the product quantity.
+   - Date added(DateTimeField): The date and time when the order item was added.
+
+3. **Shipping Address:**
+   - User(Foreingkey to AUTH_USER): The user associated with the order.
+   - Order(Foreingkey to Product Model): The order associated with the order item.
+   - Address(CharField): Indicates the address line one.
+   - City(CharField): Indicates the city of shipping.
+   - County(CharField): Indicates the county of shipping.
+   - Eircode(CharField): Indicates the eircode of shipping.
+   - Date added(DateTimeField): The date and time when the order item was added.
+
+4. **Contact Us:**
+   - Name(CharField): Indicates the name for the newsletters sign up.
+   - Email(CharField): Indicates the email for the newsletters sign up.
+   - Message(CharField): Indicates the message for the newsletters sign up.
+   - Date added(DateTimeField): The date and time when the order item was added.
+
+5. **Category:**
+   - name(CharField): Indicates the name of the category.
+   - Friendly Name(CharField): Indicates the friendly name of the category.
+
+6. **Product:**
+   - SKU(CharField): Indicates the SKU of the product.
+   - Name(CharField): Indicates the name of the product.
+   - Description(TextField): Indicates the description of the product.
+   - Price(DecimalField): Indicates the price of the product.
+   - Category(Foreingkey to Category Model): The category associated with the product.
+   - Rating(DecimalField): Indicates the rating of the product, and its evaluated after each user review by update rating function.
+   - Image Url(CharField): Indicates the image url of the product.
+  
+7. **User Rate:**
+   - User(Foreingkey to AUTH_USER): The user associated with the order.
+   - Rating(DecimalField): Indicates the rating of the product, and its evaluated after each user review by update rating function.
+   - Product(Foreingkey to Product Model): The product associated with the order item.
+   - Date added(DateTimeField): The date and time when the order item was added.
+
+  
+8. **Testimonial
+   - User(Foreingkey to AUTH_USER): The user associated with the order.
+   - Testimonial Text(TextField): Indicates the testimonial text of the product associeted with the user.
+   - Rating(DecimalField): Indicates the rating of the product, and its evaluated after each user review by update rating function.
+   - Product(Foreingkey to Product Model): The product associated with the order item.
+   - Date added(DateTimeField): The date and time when the order item was added.
+
+</details>
+<hr>
+
+## Database Choice
+I used PostgreSQL as the database for this project. Hosting the application on Heroku allows for easy deployment and scalability, and PostgreSQL is one of the supported and recommemdede databases on the Heroku platform.
+
+<hr>
+
+### CRUD
+<details>
+<summary>CRUD Details</summary>
+
+- **Bag:**
+  
+- Inscrease item quantity
+- [Product Backlog]()
+
+- Decrease item quantity
+- [Product Backlog]()
+
+- Remove item from bag
+- [Product Backlog]()
+
+- **Wishlist:**
+  
+- Remove item from wishlist
+- [Product Backlog]()
+
+- **Testimonial:**
+  
+- Edit only text testimonial
+- [Product Backlog]()
+
+- Remove text testimonial 
+- [Product Backlog]()
+
+- **Rating:**
+  
+- Edit product rating
+- [Product Backlog]()
+
+  
+</details>
+<hr>
+
+# Agile Process
+## User Story Templates
+
+![image]()
 
 
-  ![Land Page](/img/land-page.png)
+- [**LINK TO THE TEMPLATE**]()
+  
+## Implemented Features 
+### Features
+**Navigation:**
+<details>
+<summary>Navigation Details</summary>
 
-- __Benvenuti Section__
- 
-  - The Benvenuti section contributes to a positive user experience by presenting information in a user-friendly manner, indroducing the customer to what would be their expericiences in the restaurant, providing information about our cusine and our way to take care of our customers, the page contains a link to the menu section.
+- **Desktop**
+  
+  ![image]()
 
-  ![Benvenuti Section](/img/b-section.png)
+<hr>
+  
+- **Tablet**
+  
+  ![image]()
 
-- __Menu Section__
+<hr> 
 
-  - The menu section objective is to instigate customers with a visually appealing and informative presentation of our food and drinks options, facilitating the decision-making and enhancing the willing for our food, that section divede our menu in six categories, starters, main course, pizzas, desserts, drinks and beverages, hover over this caterogies to see the text information about the menu.
+- **Mobile**
 
-  ![Menu Section](/img/menu.png)
+![image]()
 
-- __Menu Items Section__
- 
-  - The menu item describes in a concise way about key details, like it's prince, ingredients, and flavors to inform and attract customers, it is simple and straightforward.
+<hr>
 
-  ![Menu Items Section](/img/m-i.png)
+![image]()
 
-  - __Reservation Section__
- 
-    - The reservation area is designated to book tables for two, four or six persons, allowing user to choose from a range of time and dates, convenient experience, it's not an explicit mention at first, but is worth to coment, that user can just book one table per time.
+<hr>
 
-  ![Reservation Section](/img/reservation.png)
+- **Logged in as regular user**
 
-- __User Page Section__
- 
-  - The user page Section is made to manage bookings and the user account itself, allowing the user to log out or even unregister from the site.
-    
-  ![User Page Section](/img/account.png)
-    
-  - The user also capable of delete the reservation, with one day before it and update the reservation at any time.
-    
-  ![User Page Section](/img/u-booking.png)
+![image]()
 
-  - __Log In/ Register__
- 
-    - The login and register section is user-friendly and straightforward, allowing user to register and log in, once the user register he is log automatically.
+<hr>
 
-  ![Log In/ Register](/img/login.png)
+- Our website incorporates a user-friendly navigation system to enhance the browsing experience and ensure easy access to important actions and content.
+- Fixed Navigation: The navigation bar remain visible at the top of the page even as users scroll down.
+- Standard Burguer Menu for Mobile: On mobile devices, we utilize a "burguer" menu, simplifying navigation and providing a consistent interface for user accessing the site on smaller screens. 
 
-  ![Log In/ Register](/img/register.png)
+</details>
+<hr>
 
-  - __Models__
- 
-    - For this project only a single model has been made up, that is the Reservation model. This model is responsible for associating each booking with a specific customer. Additionally, it prevents double bookings and includes functionality to check if a table of a given size and at a specific time on a particular date is available(the restaurant just has two table of each size).
-      - user, a one-to-one relationship with the built-in User model, it establishes a link between a reservation and a specific user.
-      - date, a datefield to store the reservation date.
-      - booking_time, representing the selected booking time from the choices provided in BOOKING_TIME(2pm, 3pm, 4pm, ..., 8pm).
-      - table_size, representing the selected table size from the choices provided in TABLE_SIZE(2, 4 or 6 persons).
-      - check_table_availability method, which queries the database to check if a table in a specific time and date is avaliable, if two reservations already exist for the same table, it returns false, indicating that the table is not available; otherwise, it returns true.
-      -  str method provides a string representation of a reservation, displaying booking time, date, and table size.
+**Sign in/ Sign up:**
+<details>
+<summary>Sign in/ Sign up Details</summary>
+  
+![image]()
 
-  ![Log In/ Register](/img/modelss.png)
+<hr>
 
-### Features Left to Implement
+![image]()
 
-  - Allow the site admin to receive an email when a customer book a table.
-  - Allow the customer to buy his food online, with.
-    - Containing a payment methods.
-    - Ways to check the delivery time and location.
-  - Exclude the old data every two weeks.
-  - A direct channel to contact the restaurant owner.
-    
+<hr>
+
+- Our website offers a streamline and user-centric sign-in and sign-up process that prioritizes convenience and accessibility.
+- Easy Password Recovery: On the sign-in page, users can easily find a link to the "Forgot Password" feature, allowing them to reset their password without unnecessary hassle.
+- Sign-in: Users can log in via name or email. For new users who aren't registered yet, the sign-in page provides a prominent link to the sign-up process.
+- Sign-up: Sign up page has link to sign in page in case user is already registered, clear error messages if user name or email is already in system, username and emails are unique to the system, so a user cannot hack another user's identity or impersonate another user
+  
+</details>
+<hr>
+
+**Products Page:**
+<details>
+<summary>Products Page Details</summary>
+
+![image]()
+
+<hr>
+
+![image]()
+
+<hr>
+
+- Our Products Page provides users with a hassle-free shopping experience, enhancing their journey from browsing to purchasing.
+- Quick Buy Buttons: The product list page showcases "Quick Buy" buttons bellow  each product, allowing users to swiftly add items to their cart without navigations through multiple pages.
+- Product Information: Users can make informed decisions with easily digestible and essential details about each product, ensuring they have the necessary information at a glance.
+- Quantities & Descriptions: The product detail page provides clear information of the product, such as name, prices, rating, category. User can easily select the desired amount of products they want in the quantity section.
+
+</details>
+<hr>
+
+**Bag, Wishlist & Checkout:**
+<details>
+<summary>Bag & Checkout Details</summary>
+
+![image]()
+
+<hr>
+
+![image]()
+
+<hr>
+
+- Our Bag & Checkout functionality streamlines the purchase process, ensuring a smooth and efficient transaction for users.
+- Bag Page: On the bag page, users can easily manage their selected products. Each product is displayed with image, name, price, SKU. The user has the convenience of a quantity button to adjust the quantity of items or remove products from the bag, ensuring total control over the order.
+- Checkout Page: Our checkout page is designed for simplicity and security. An easy-to-use checkout form collects essential information, including shipping details and payment card information. The checkout page also features an order summary where users can review their order. This summary increases transparency by helping users confirm their selection before completing their purchase.
+
+</details>
+<hr>
+
+**Profile:**
+<details>
+<summary>Profile Details</summary>
+
+![image]()
+
+<hr>
+
+![image]()
+
+<hr>
+
+- Our profile feature provides users with a personalized hub to manage their account details and track their order history.
+- My Profile Page: In "My Profile Page", users can easily view and modify their default delivery information. This convenient option ensures that users can easily keep their shipping details up to date, eliminating potential hassles during the checkout process.
+- Order History: Users can access a comprehensive list of their past orders, conveniently organized by order number. With a simple click on the order number, the user can revisit the details of their previous purchases, facilitating reordering or tracking.
+
+</details>
+<hr>
+
+**Order Detail:**
+<details>
+<summary>Order Detail</summary>
+
+![image]()
+
+<hr>
+
+![image]()
+
+<hr>
+
+- Our blog feature offers users a wealth of insightful content related to health, wellness, recipes and more.
+- Informative Content: The blog page serves to help the user with health tips, wellness advice and delicious recipes. The user can easily navigate through the blog post and access a wide range of informative articles that cater to their interests and needs.
+- Post Details: Clicking on a post title opens the post detail view. Here, users can read the entire post, interacting with the content in a focused and immersive way. They can also interact with the post by liking it.
+- Related Products: To provide users with a seamless experience that unites content and commerce, I have integrated related products at the end of the blog post (if applicable). These products are carefully selected to complement the blog theme.
+
+</details>
+<hr>
+
+**News Letters SignUp:**
+<details>
+<summary>News Letters SignUp</summary>
+
+![image]()
+
+<hr>
+
+![image]()
+
+<hr>
+
+- Our Contact Nutritionist Page is designed to connect users with professional nutritionist from our partner website, [iHealthy](https://ihealthy.herokuapp.com/). This features offer user personalized guidance and expert advice on their dietary and nutritional needs.
+- Personalized Nutritional Advice: Through a form, users can easily submit their questions and concerns to an experienced nutritionist.
+- Book an Appointment: For users looking for a more in-depth consultation, the "Schedule Now" button provides an easy way to schedule an appointment with the iHealthy nutritionist. Upon clicking the button, users are redirected to the iHealthy website.
+- Appointment Process: For added transparency and clarity, I've included a GIF video on the page that demonstrates the process of booking an appointment with an iHealthy nutritionist. This video provides a visual guide, making the appointment booking process user-friendly and efficient.
+
+</details>
+
+<hr>
+
+**Reviews:**
+<details>
+<summary>Reviews Details</summary>
+
+![image]()
+
+<hr>
+
+- **(Authorized User - Update)**
+
+![image]()
+![image]()
+
+<hr>
+
+- **(Authorized User - Delete)**
+
+![image]()
+
+<hr>
+
+- The reviews page feature allows users to engage with our products and services by sharing their feedback. This feature serves as platform for users to express their thoughts about our products, company and overall experience.
+- User-generated Reviews: This feature lies in the ability for logged-in users to leave reviews. Whether it's about a specific product, our customer service or the overall experience, user can provide detailed feedback to help us improve and assist other potential customers in making informed decisions.
+- Editing and Deletign Reviews: We value autheticity, and to ensure that users have control over their feedback, we allow them to edit or delete their reviews. This user-friendly approach empowers users to modify their reviews if their opinions change over the time.
+- Responsive Design: The reviews page is designed to provide a seamless experience across all devies. Whether users access it from their desktop, tablet or smartphone the page maintains its functionality and readability, ensuring that users can engage with review conveniently.
+
+</details>
+<hr>
+
+<hr>
+
+**Messages Notifications:**
+<details>
+<summary>Messages Notifications Details</summary>
+
+<hr>
+
+![image]()
+
+- There's a succes message if the user logged in. 
+
+<hr>
+
+![image]()
+
+- There's a succes message if the user added a product to their bag. 
+
+<hr>
+
+![image]()
+
+- There's a success message if the user update their bag. 
+
+<hr>
+
+![image]()
+
+- There's an alert message if the superuser/admin edit a product. 
+
+<hr>
+
+![image]()
+
+- There's a success message if the user remove the product from their bag. 
+
+<hr>
+
+![image]()
+
+- There's a success message if the user like the blog (only authorized user). 
+
+<hr>
+
+<hr>
+
+</details>
+<hr>
+
+
+### Error 404
+<details>
+<summary>Error Page Details</summary>
+
+- **404 Error Page:**
+  
+  ![image]()
+
+<hr>
+
+</details>
+<hr>
+
+## Future Features
+
+- BLA BLA BLA BLA
 
 ## Testing
 
-  - I have tested the code by the following methods:
-  - Passed on the Django test built in function, no issues found.
-  - Passed on the validator code PEPE8, no issues found.
-  - I manually tested the code, attempting to submit invalid inputs and reserve tables without prior registration, and double bookings as well.
-  - The site was tested on Heroku terminal and on the local terminal.
+Please refer to the [TESTING.MD](TESTING.md) file for all testing performed 
 
-## Validator Testing
 
-  - No errors were returned when passing through the official [PEP8](https://pep8ci.herokuapp.com/) validator, used just in tested in all files, but just uploaded the models and views for simplicity purpose.
-  
-  - PEP8 Views.py.
+## E-commerce Business Model
+### Facebook Business Page
 
-  ![PEP8 Views](/img/viewpep.png)
+![image]()
 
-  - PEP8 Model.py.
+<hr>
 
-  ![PEP8 Model](/img/modelpep.png)
+![image]()
 
- - No errors were returned in Django built tests.
 
-  ![Django Test](/img/testdajngo.png)
+- **Audience Engagement:** The Facebook Page serves as a platform to engage with our audience directly.
+- **Products Updates:** Keeping our followers informed about new product launches, restocks and upcoming collections.
+- **Educational Content:** Sharing informative and educational content related to our products or industry establishes our brand as an authority in the field.
+- **Feedback & Insights:** The Facebook page can be a valuable source of feedback, understanding what customers like and dislike helps us improve our products and services.
 
-## Bugs
+### Newsletter Signup
 
-### Solved Bugs
+![image]()
 
-  - At the beginning of my journey through this project I was very unused to the Django language, I had to learn more topics while I was doing the project, relying with a lot of help in web forum, but since I got  hang of, it was easy to write my code, the biggest problem is this project was the deployment to Heroku, it took me more than 4 days to solve all the errors that I was facing, such as bad requests, broken links etc, but I decided to user Cloudnary for my page images and White Sound for my static files, since I made that decision everytinh flowed as expected.
+- **Audience Expansion:** The Newsletter Signup feature expands our reach beyond existing customers and allows us to engage with a wider audience.
+- **Direct Communication:** Subscribers who sign up for the newsletter have explicity shown in our brand. Provide us with a direct and targeted communication channel to becomes a valuable asset for future marketing efforts. 
+- **Product & Updates:** Subscribers stay informed about the latest product releases, company news and updates.
+- **Relationship Building:** Regular newsletter provide an opportunity to establish a relationship with subscribers.
 
-### Reaming Bugs
-  
-  - No bugs reaming
+
+## SEO Strategy
+In our SEO strategy, I worked on optimizing our website to increase its visibility in search engines. I took specific steps to refine our keyword selection, optimize descriptions and titles, and intentionally incorporate keywords into our content.
+
+### Keywords
+- I dug deep into our industry to identify the key themes, products, and services that "match" our target audience. 
+- Through a comprehensive analysis of our competitors' websites, we gained insight into the keywords they target, which helped me refine our own keyword list.
+- Our approach covered both short-tailed and long-tailed keywords to cater to varios search queries.
+
+### Description
+I paid special attention to the description meta tag. These descriptions serve as a concise introduction to our content, incorporating the identified keywords. Additionally, I remain flexible in updating these descriptions whenever the content on a particular page changes.
+
+### Title
+Our website's base.html template houses the title tag, allowing us to customize titles for each page. This dynamic approach to titles enhances our SEO efforts.
+
+
+### Sitemap
+I've created a sitemap for the website, ensuring that when it's fully prepared, search engines like Google can efficiently crawl and index its content.
+- [sitemap.xml file]()
+
+### Robots.txt
+To restrict pages that are should be searched by google, authentication and others are blocked to only allow relevant pages to be searched by google.
+- [robots.txt file]() 
+
+## Technologies Used
+Several technologies have been used to enable this website works:
+| Technology               | Description                                                                                                                                          |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Django                   | Django is the framework that has been used in the project, enables efficient development, database interactions and secure authentication.           |
+| Python                   | Python is the core programming language that was used to write all of the code in this application, to make it fully functional.                     |
+| JavaScript               | JavaScript was used to provide dynamic interactivity to the messages and enhancing the functionality of the  timepicker.                             |
+| Bootstrap                | Bootstrap was utilized to ensure a responsive design.                                                                                                |
+| Git                      | Git was utilized as the version control system for tracking changes, and maintaining the project's codebase.                                         |
+| PostgreSQL               | PostgreSQL was employed as the relational database management system to store and manage the project's data.                                         |
+| GitHub                   | Github was used as development environment, code management and tracking of changes.                                                                 |
+| Font Awesome             | Font Awesome was used to obtain the icons of the website, enhancing the overall design.                                                              |
+| Google Developer Tools   | DevTools was the primary toll for bug detection, testing the responsiveness and resolving issues across the website.                                 |
+| Heroku                   | Heroku was used to deploy the website.                                                                                                               |
+| CI's pep8                | CI's pep8 tool was used to validate all the python code.                                                                                             |
+| Jigsaw                   | Jigsaw was used to validate CSS code.                                                                                                                |
+| W3 HTML                  | W3 HTML was used to validate HTML code.                                                                                                              |
+| Jshint                   | Jshint was used to validate JavaScript Code.                                                                                                         |
+| Coloors                  | Coloors was utilized to generate color palette for the website design.                                                                               |
+| AWS Amazon               | AWS Amazon was utilized to store all of my static files and images.                                                                                  |
+| Stripe                   | Stripe payments was used to host/receive all the payments on the website.                                                                            |
+| Lighthouse               | Lighthouse was used to test the accessibility of the website.                                                                                        |
+| Balsamiq                 | Balsamiq was utilized as a tool for creating wireframes, providing a visual representation of the website layout and structure.                      |
+| AmIResponsive            | AmIResponsive was used to generate screenshots of the website in various device sizes, allowing for a quick visual assessment of its responsiveness. |
+| Markdown Table Generator | Markdown Table Generator was utilized as a tool to create tables in Markdown format.                                                                 |
+| Gitpod                   | Gitpod was used to write and edit the project code.                                                                                                  |
+| Mermaid                  | Mermaid was used to create all the diagrams.                                                                                                         |                                                                                                                                                                                                 |                                                                                           
+### Languages
+- HTML
+- CSS
+- Python
+- JavaScript 
+
+### Frameworks, Libraries & Programs Used
+- Django
+- Bootstrap
+- Git 
+- PostgreSQL
+- GitHub
+- Font Awesome
+- Google Developer Tools
+- Heroku
+- W3 HTML
+- AWS Amazon
+- AmIResponsive
+- Favicon
+- Gitpod
+
 
 ## Deployment
 
-  - This project was deployed at Heroku, steps for deploy are listed bellow:
-    - Fork or clone the repository.
-    - Creat a new Heroku app.
-    - Set up the configs for the deployment.
-    - Set up the connection with PostgresSQL
-    - Link the Heroku app to the repository, then Deploy.
 
-    - The live link can be found here: [Zanini Pizzeria](https://zanini-pizzeria-0279eae282e5.herokuapp.com/)
+## Stripe Payments 
 
-## Credits:
+- The Stripe Payments is set up as the online payment processing and credit card processing platform for the purchases.
+You will need a stripe account which you can sign up for [here](https://dashboard.stripe.com/register)
 
-  - The pictures in this document are sourced from open-access platforms and are provided below..
-    - [Karolina Grabowska](https://www.pexels.com/photo/raw-garlic-on-white-marble-table-4197494/)
-    - [Antoni Shkraba](https://www.pexels.com/photo/plants-with-green-leaves-against-white-background-5852289/)
-    - [Karolina Grabowska](https://www.pexels.com/photo/delicious-fresh-ingredients-5386708/)
-    - [Lisa Fotios](https://www.pexels.com/photo/selective-focus-photography-of-food-on-table-1126728/)
-    - [Ofir Eliav](https://www.pexels.com/photo/set-of-various-delicious-desserts-served-in-plastic-container-7783241/)
-    - [Valeria Boltneva](https://www.pexels.com/photo/close-up-photography-of-wine-glasses-1123260/)
-    - [Eneida Nieves](https://www.pexels.com/photo/baked-pizza-on-pizza-peel-in-oven-905847/)
-    - [Engin Akyurt](https://www.pexels.com/photo/food-photography-of-pasta-1438672/)
-    - [Susanne Jutzeler](https://www.pexels.com/photo/assorted-juice-on-glass-bottles-1234079/)
-    - [Julia Filirovska](https://www.pexels.com/photo/slices-of-meat-item-with-green-leaves-8251572/)
-  
-  - I obtained the code for my datepicker from a solution on Stack Overflow.
-    - [Stackoverflow code](https://stackoverflow.com/questions/14646008/jquery-datepicker-min-max-dates)
-  - I got the source code of the template from open-source Bootstrap themes.
-    - [bootstrap-theme](https://startbootstrap.com/theme/creative)
-  - I also searched for solutions of the problems that occurred during the project development on the following websites:
-    - [Stackoverflow](https://stackoverflow.com/)
-    - [Geeksforgeeks](https://www.geeksforgeeks.org/)
-    - [Freecodecamp](https://www.freecodecamp.org/news)
-    - [Medium](https://medium.com/)
-  - The Code Institute for the deployment terminal
+### Payments
+- To set up stripe payments you can follow their guid [here](https://stripe.com/ie/guides)
+
+### API Keys
+1. Click on 'Developers' in the navbar-side.
+2. Beside 'Overview' click on the API Keys and you will see your 'Publishable key' & 'Secret key'.
+
+
+## Production Deployment
+To deploy your application on Heroku, follow the steps bellow:
+
+1. **Create a Heroku Account:**
+- Visit the [Heroku](https://signup.heroku.com/login) website.
+- Sign up for a free account or log in if you already have one.
+
+2. **Create a New Heroku App:**
+- Once you are logged in to your Heroku account, click on the "New" button and select "Create new app".
+- Choose a unique name for your app. This name will be used in the App's URL.
+- Select the region closest to your location for better performance.
+
+3. **Connect the App to Your Git Repository:**
+- After creating the app, go to the "Deploy" tab in your app's dashboard.
+- Choose the deployment method based on your Git repository: (e.g. GitHub).
+- Connect your app to the appropriate repository and branch.
+
+4. **Configure Environment Variables:**
+- In the "Settings" tab of your heroku app's dashboard, locate the "Config Vars" section.
+- Set the necessary enviroment variables required for your aplication. 
+- Click on the "Reveal Config Vars" button to add the key-value pairs for your enviroment variables:
+
+![image]()
+
+e.g.
+
+| **KEY**               | **VALUE**    |
+|-----------------------|--------------|
+| DATABASE_URL,         | <YOUR_VALUE> |
+| AWS_SECRET_ACCESS_KEY | <YOUR_VALUE> |
+| AWS_ACCESS_KEY_ID     | <YOUR_VALUE> |
+| USE_AWS               | <YOUR_VALUE> |
+| EMAIL_HOST_PASS       | <YOUR_VALUE> |
+| EMAIL_HOST_USER       | <YOUR_VALUE> |
+| SECRET_KEY            | <YOUR_VALUE> |
+| USE_AWS               | <YOUR_VALUE> |
+| STRIPE_PUBLIC_KEY     | <YOUR_VALUE> |
+| STRIPE_SECRET_KEY     | <YOUR_VALUE> |
+| STRIPE_WH_SECRET      | <YOUR_VALUE> |
+| COLLECT_STATIC        | 1            |
+
+
+## Credits
+Throughout the process of building the PowerProtein website, I would like to acknowledge the following:
+
+**Online Sources:**
+- [Code Institue Template](https://github.com/Code-Institute-Org/ci-full-template)
+- [Stack Overflow](https://stackoverflow.co/)
+- [Django Documentation](https://docs.djangoproject.com/en/4.2/)
+
+**Modules and Libraries:**
+- [Django](https://www.djangoproject.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [JavaScript](https://www.javascript.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [jQuery](https://jquery.com/)
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+- [Django allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+- [AWS](https://aws.amazon.com/)
+- [Stripe](https://stripe.com/ie)
+- [Git](https://git-scm.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+
+## Content
+
+- I took some inspiration from the [My Protein](https://www.myprotein.ie/) website.
+
+## Media
+- [Google Fonts](https://fonts.google.com/) - The fonts were sourced using Google Fonts.
+- [Font Awesome](https://fontawesome.com/) - The icons was taken from Font Awesome.
+
+
+[Back to the beginning](#table-of-contents)
