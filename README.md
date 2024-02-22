@@ -476,14 +476,18 @@ I used PostgreSQL as the database for this project. Hosting the application on H
   - I inserted url to try to hack the site, but my code seems to be safe.
   - I started the secret variables in the protected virtual environment. 
   - The site was tested on the Heroku terminal and the local terminal.
-  
+
+  - Css validator
+  ![image](/readme/css-test-validator.png)
+
   - HTML Validator
   ![image](/readme/html-base.png)
 
 - Products
-  ![image](/readme/html-base.png)
+  ![image](/readme/html-products.png)
 
-- 
+- Newsletters
+  ![image](/readme/html-products.png)
 
 
 </details>
