@@ -6,7 +6,7 @@ This e-commerce platform is a haven for fashion enthusiasts and home decor afici
 
   ![Mock Up](/img/mockup.png)
 
-  - The live link can be found here: [Zanini Pizzeria](https://zanini-pizzeria-0279eae282e5.herokuapp.com/](https://zanfe-009510b2eec0.herokuapp.com/)
+  - The live link can be found here: [Zanfe](https://zanfe-009510b2eec0.herokuapp.com/)
 
 # UX
 Welcome to Zanfe e-commerce, a site made for all needs, clothing and home goods! Our user experience (UX) design offers customers a smooth purchasing experience for apparel and home decoration. Our platform is made to fit your demands, whether you're renovating your living area or changing your wardrobe.
@@ -82,7 +82,7 @@ Order tracking: In order to keep track of their purchases, customers want to hav
   
 ### Colors
 
-![image]()
+![image](/readme/colors.png)
 
 - The color palette chosen for Zanfe e-commerce is to have a visually appealing and unified brand identity, simple and minimalistic. 
 - **(Black):** This color is presented in the main nav and buttons.
@@ -92,7 +92,7 @@ Order tracking: In order to keep track of their purchases, customers want to hav
 ### Images
 - **Hero image:** Leaving the boutique with her purchase in hand, the happiness of the woman expressions as she navigates the shopping experience. Here's why each element contributes to imprinting a sense of joy.
 
-![image]()
+![image](/readme/hero-image.png)
 
 </details>
 
@@ -185,31 +185,32 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 - **Bag:**
   
 - Inscrease item quantity
-- [Product Backlog]()
+- [Product Backlog](/readme/in-bag.png)
 
 - Decrease item quantity
-- [Product Backlog]()
+- [Product Backlog](/readme/ds-bag.png)
 
 - Remove item from bag
-- [Product Backlog]()
+- [Product Backlog](/readme/ex-bag.png)
+
 
 - **Wishlist:**
   
 - Remove item from wishlist
-- [Product Backlog]()
+- [Product Backlog](/readme/ex-wishlist.png)
 
 - **Testimonial:**
   
 - Edit only text testimonial
-- [Product Backlog]()
+- [Product Backlog](/readme/ed-testimonal.png)
 
 - Remove text testimonial 
-- [Product Backlog]()
+- [Product Backlog](/readme/ex-testimonal.png)
 
 - **Rating:**
   
 - Edit product rating
-- [Product Backlog]()
+- [Product Backlog](/readme//ed-review.png)
 
   
 </details>
@@ -218,10 +219,10 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 # Agile Process
 ## User Story Templates
 
-![image]()
+![image](/readme/user-stories.png)
 
 
-- [**LINK TO THE TEMPLATE**]()
+- [**LINK TO THE TEMPLATE**](https://github.com/users/FelipeZanini/projects/10/views/1)
   
 ## Implemented Features 
 ### Features
@@ -231,29 +232,21 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 - **Desktop**
   
-  ![image]()
+  ![image](/readme/nav-desktop.png)
 
 <hr>
   
 - **Tablet**
   
-  ![image]()
+  ![image](/readme/nav-tablet.png)
 
 <hr> 
 
 - **Mobile**
 
-![image]()
+![image](/readme/nav-mob.png)
 
 <hr>
-
-![image]()
-
-<hr>
-
-- **Logged in as regular user**
-
-![image]()
 
 <hr>
 
@@ -268,11 +261,11 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 <details>
 <summary>Sign in/ Sign up Details</summary>
   
-![image]()
+![image](/readme/sign-up.png)
 
 <hr>
 
-![image]()
+![image](/readme/singin-page.png)
 
 <hr>
 
@@ -288,11 +281,11 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 <details>
 <summary>Products Page Details</summary>
 
-![image]()
+![image](/readme/produc-page.png)
 
 <hr>
 
-![image]()
+![image](/readme/product-detail-page.png)
 
 <hr>
 
@@ -308,11 +301,13 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 <details>
 <summary>Bag & Checkout Details</summary>
 
-![image]()
+![image](/readme/shoping-bag.png)
 
 <hr>
 
-![image]()
+![image](/readme/wishlist-page.png)
+
+![image](/readme/checkout-page.png)
 
 <hr>
 
@@ -327,11 +322,9 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 <details>
 <summary>Profile Details</summary>
 
-![image]()
+![image](/readme/profile-page.png)
 
 <hr>
-
-![image]()
 
 <hr>
 
@@ -346,11 +339,8 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 <details>
 <summary>Order Detail</summary>
 
-![image]()
+![image](/readme/order-detail-page.png)
 
-<hr>
-
-![image]()
 
 <hr>
 
@@ -366,11 +356,8 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 <details>
 <summary>News Letters SignUp</summary>
 
-![image]()
+![image](/readme/newsl-singup-page.png)
 
-<hr>
-
-![image]()
 
 <hr>
 
@@ -387,20 +374,20 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 <details>
 <summary>Reviews Details</summary>
 
-![image]()
+![image](/readme/reviews-page.png)
 
 <hr>
 
 - **(Authorized User - Update)**
 
-![image]()
-![image]()
+![image](/readme/ed-testimonal.png)
+![image](/readme/ex-testimonal.png)
 
 <hr>
 
 - **(Authorized User - Delete)**
 
-![image]()
+![image](/readme/ed-review.png)
 
 <hr>
 
@@ -420,42 +407,36 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 <hr>
 
-![image]()
+![image](/readme/signin-msg.png)
 
 - There's a succes message if the user logged in. 
 
-<hr>
-
-![image]()
-
-- There's a succes message if the user added a product to their bag. 
-
-<hr>
-
-![image]()
+![image](/readme/signout-msg.png)
 
 - There's a success message if the user update their bag. 
 
 <hr>
 
-![image]()
+![image](/readme/test-sub-msg.png)
 
 - There's an alert message if the superuser/admin edit a product. 
 
 <hr>
 
-![image]()
+![image](/readme/edt-rating-msg.png)
 
 - There's a success message if the user remove the product from their bag. 
 
 <hr>
 
-![image]()
+![image](/readme/ex-testimonial-msg.png)
 
 - There's a success message if the user like the blog (only authorized user). 
 
 <hr>
+![image](/readme/form-sub-msg.png)
 
+- There's a success message if the user like the blog (only authorized user). 
 <hr>
 
 </details>
@@ -487,11 +468,9 @@ Please refer to the [TESTING.MD](TESTING.md) file for all testing performed
 ## E-commerce Business Model
 ### Facebook Business Page
 
-![image]()
+![image](/readme/fac-page.png)
 
 <hr>
-
-![image]()
 
 
 - **Audience Engagement:** The Facebook Page serves as a platform to engage with our audience directly.
@@ -501,7 +480,7 @@ Please refer to the [TESTING.MD](TESTING.md) file for all testing performed
 
 ### Newsletter Signup
 
-![image]()
+![image](/readme/newsl-singup-page.png)
 
 - **Audience Expansion:** The Newsletter Signup feature expands our reach beyond existing customers and allows us to engage with a wider audience.
 - **Direct Communication:** Subscribers who sign up for the newsletter have explicity shown in our brand. Provide us with a direct and targeted communication channel to becomes a valuable asset for future marketing efforts. 
@@ -619,7 +598,6 @@ To deploy your application on Heroku, follow the steps bellow:
 - Set the necessary enviroment variables required for your aplication. 
 - Click on the "Reveal Config Vars" button to add the key-value pairs for your enviroment variables:
 
-![image]()
 
 e.g.
 
