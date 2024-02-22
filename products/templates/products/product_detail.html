@@ -6,8 +6,7 @@
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
-
-                <a href="">
+                <a>
                     <img class="card-img-top img-fluid" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}" alt="{{ product.name }}">
                 </a>
             </div>
@@ -51,7 +50,6 @@
             </div>
             </form>
         </div>
-
     </div>
 
     <div class="row">
@@ -80,13 +78,12 @@
                 </div>
             </div>
             {% endfor %}
-
+        </div>
         {% if review_permission %}
 
         <h3 class="edit-products-reviews">Leave Your Feeback</h3>
 
-        <form method="post" action="{% url 'testimonial' product.id %}" method="post" name="testimonial_form"
-            id="testimonial_form">
+        <form method="post" action="{% url 'testimonial' product.id %}" method="post" name="testimonial_form" id="testimonial_form">
             {% csrf_token %}
             <label for="testimonial">Feedback:</label><br>
             <textarea id="testimonial" name="testimonial" rows="4" cols="50" required
@@ -109,5 +106,6 @@
         {% else %}
         <p class="text-muted mx-2">Just user that already bought the product are allowed to review!</p>
         {% endif %}
+    </div>
 </section>
 {% endblock %}

@@ -463,8 +463,11 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 - Customer Wishlist and Alerts: Allow customers to create wishlists of their favorite products and set up alerts for price drops or when items come back in stock, improving customer engagement and retention.
 
 ## Testing
+<details>
+<summary>Testing</summary>
 
-I have tested the code by the following methods:
+- **404 Testing Page:**
+  I have tested the code by the following methods:
   - Passed on the Django test built-in function, no issues found.
   - Passed on the validator code PEPE8, no issues found.
   - I manually tested the code, attempting to visit pages forbidden for non-registered users.
@@ -473,6 +476,18 @@ I have tested the code by the following methods:
   - I inserted url to try to hack the site, but my code seems to be safe.
   - I started the secret variables in the protected virtual environment. 
   - The site was tested on the Heroku terminal and the local terminal.
+  
+  - HTML Validator
+  ![image](/readme/html-base.png)
+
+- Products
+  ![image](/readme/html-base.png)
+
+- 
+
+
+</details>
+<hr>
 
 ## E-commerce Business Model
 ### Facebook Business Page
