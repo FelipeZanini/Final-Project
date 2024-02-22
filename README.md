@@ -73,12 +73,14 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
 ## Scope
 <details>
 <summary>Scope Details</summary>
+
 1. **Products Page:** Well-structured product page, allowing users to see each product rating category and price, and functions to add to card or wishlist.
 2. **User Accounts:** This application provides account registration, to secure a checkout and visualize order history.
 3. **Shopping Bag & Wishlist:** Shoppers will be able to add and see bags and wishlists, this feature is implemented using cookies via JavaScript.
 4. **Product Reviews:** A review page will be implemented, enabling customers to provide feedback and ratings for products they have purchased and full CRUD operations for their testimonials.
 5. **User-Friendly & Responsive Design:** The website will be optimized for various devices, ensuring a consistent and user-friendly experience for both desktop and mobile users.
 </details>
+
 ## Design Choices
 <details>
 <summary>Design Choices Details</summary>
@@ -109,6 +111,8 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
 - Decrement and increment buttons are presented on the bag page.
 - Remove product button is also presented, deleting the desired product from the dictionary.
   
+</details>
+
 ## Information Architecture
 <details>
 <summary>Information Architecture Details</summary>
@@ -250,11 +254,8 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 <hr>
 
-<hr>
-
-- Our website incorporates a user-friendly navigation system to enhance the browsing experience and ensure easy access to important actions and content.
-- Fixed Navigation: The navigation bar remain visible at the top of the page even as users scroll down.
-- Standard Burguer Menu for Mobile: On mobile devices, we utilize a "burguer" menu, simplifying navigation and providing a consistent interface for user accessing the site on smaller screens. 
+- To improve browsing and provide quick access to key features and material, our website has an intuitive navigation system.
+- Fixed Navigation: When visitors scroll down the page, the navigation bar stays visible at the top.
 
 </details>
 <hr>
@@ -271,10 +272,9 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 <hr>
 
-- Our website offers a streamline and user-centric sign-in and sign-up process that prioritizes convenience and accessibility.
-- Easy Password Recovery: On the sign-in page, users can easily find a link to the "Forgot Password" feature, allowing them to reset their password without unnecessary hassle.
-- Sign-in: Users can log in via name or email. For new users who aren't registered yet, the sign-in page provides a prominent link to the sign-up process.
-- Sign-up: Sign up page has link to sign in page in case user is already registered, clear error messages if user name or email is already in system, username and emails are unique to the system, so a user cannot hack another user's identity or impersonate another user
+- Users can sign in using their email address or name. The sign-in page offers a clear link to the registration process for new users who haven't signed up yet.
+- Sign-up: If the user's name or email address is already in the system, a clear error message will appear; otherwise, the sign-up page contains a link to the 
+  sign-in page, the user's username and email address are unique to the system.
   
 </details>
 <hr>
@@ -291,17 +291,19 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 <hr>
 
-- Our Products Page provides users with a hassle-free shopping experience, enhancing their journey from browsing to purchasing.
-- Quick Buy Buttons: The product list page showcases "Quick Buy" buttons bellow  each product, allowing users to swiftly add items to their cart without navigations through multiple pages.
-- Product Information: Users can make informed decisions with easily digestible and essential details about each product, ensuring they have the necessary information at a glance.
-- Quantities & Descriptions: The product detail page provides clear information of the product, such as name, prices, rating, category. User can easily select the desired amount of products they want in the quantity section.
+- Simplify the checkout process with quick order processing and user-friendly payment options to deliver a flawless shopping experience.
+- Our Products Page makes shopping easier for visitors by improving their experience from browsing to buying.
+- Product Information: By providing users with concise, vital information on each product, they can make well-informed decisions and ensure they have all the 
+  information they need at a glance.
+- Quantities & Descriptions: The product's name, price, rating, and category are all clearly stated on the product detail page. The quantity area allows users 
+  to easily select how many things they want.
 
 </details>
 <hr>
 
-**Bag, Wishlist & Checkout:**
+**Bag, Wishlist and Checkout:**
 <details>
-<summary>Bag & Checkout Details</summary>
+<summary>Bag, Wishlist and Checkout details</summary>
 
 ![image](/readme/shoping-bag.png)
 
@@ -313,9 +315,12 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 <hr>
 
-- Our Bag & Checkout functionality streamlines the purchase process, ensuring a smooth and efficient transaction for users.
-- Bag Page: On the bag page, users can easily manage their selected products. Each product is displayed with image, name, price, SKU. The user has the convenience of a quantity button to adjust the quantity of items or remove products from the bag, ensuring total control over the order.
-- Checkout Page: Our checkout page is designed for simplicity and security. An easy-to-use checkout form collects essential information, including shipping details and payment card information. The checkout page also features an order summary where users can review their order. This summary increases transparency by helping users confirm their selection before completing their purchase.
+- Simplify the checkout process with quick order processing and user-friendly payment options to deliver a flawless shopping experience.
+- By streamlining the purchasing process, our Bag & Checkout feature guarantees a quick and easy transaction for customers.
+- Bag Page: Users may conveniently manage the products they have chosen on the bag page. Every product has its name, price, SKU, and image displayed. To  
+  provide complete control over the order, the user can easily modify the quantity of things or remove products from the bag using the quantity button.
+- Checkout Page: Security and ease of use are the design features of our checkout page. Important data, such as shipping and credit card information, is 
+  gathered via an intuitive checkout form. Users can review their order on the order summary page located on the checkout page. By assisting customers in verifying their choice prior to finalising their transaction, this synopsis promotes transparency.
 
 </details>
 <hr>
@@ -330,9 +335,10 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 <hr>
 
-- Our profile feature provides users with a personalized hub to manage their account details and track their order history.
-- My Profile Page: In "My Profile Page", users can easily view and modify their default delivery information. This convenient option ensures that users can easily keep their shipping details up to date, eliminating potential hassles during the checkout process.
-- Order History: Users can access a comprehensive list of their past orders, conveniently organized by order number. With a simple click on the order number, the user can revisit the details of their previous purchases, facilitating reordering or tracking.
+- Simplify the checkout process with quick order processing and user-friendly payment options to deliver a flawless shopping experience.
+  With the help of our profile function, users can track their order history and manage account details in a personalised hub.
+- Order History: Customers have easy access to a thorough record of their previous orders arranged by order number. The user may easily monitor or place  
+  another order by just clicking on the order number to view the specifics of their past purchases.
 
 </details>
 <hr>
@@ -346,11 +352,6 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 <hr>
 
-- Our blog feature offers users a wealth of insightful content related to health, wellness, recipes and more.
-- Informative Content: The blog page serves to help the user with health tips, wellness advice and delicious recipes. The user can easily navigate through the blog post and access a wide range of informative articles that cater to their interests and needs.
-- Post Details: Clicking on a post title opens the post detail view. Here, users can read the entire post, interacting with the content in a focused and immersive way. They can also interact with the post by liking it.
-- Related Products: To provide users with a seamless experience that unites content and commerce, I have integrated related products at the end of the blog post (if applicable). These products are carefully selected to complement the blog theme.
-
 </details>
 <hr>
 
@@ -363,10 +364,8 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 <hr>
 
-- Our Contact Nutritionist Page is designed to connect users with professional nutritionist from our partner website, [iHealthy](https://ihealthy.herokuapp.com/). This features offer user personalized guidance and expert advice on their dietary and nutritional needs.
-- Personalized Nutritional Advice: Through a form, users can easily submit their questions and concerns to an experienced nutritionist.
-- Book an Appointment: For users looking for a more in-depth consultation, the "Schedule Now" button provides an easy way to schedule an appointment with the iHealthy nutritionist. Upon clicking the button, users are redirected to the iHealthy website.
-- Appointment Process: For added transparency and clarity, I've included a GIF video on the page that demonstrates the process of booking an appointment with an iHealthy nutritionist. This video provides a visual guide, making the appointment booking process user-friendly and efficient.
+- Subscribers often receive exclusive discounts, promotions, and special offers that are not available to non-subscribers. This can include early access to 
+  sales, limited-time discounts, and subscriber-only promotions, helping customers save money on their clothing purchases.
 
 </details>
 
@@ -393,10 +392,13 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 <hr>
 
-- The reviews page feature allows users to engage with our products and services by sharing their feedback. This feature serves as platform for users to express their thoughts about our products, company and overall experience.
-- User-generated Reviews: This feature lies in the ability for logged-in users to leave reviews. Whether it's about a specific product, our customer service or the overall experience, user can provide detailed feedback to help us improve and assist other potential customers in making informed decisions.
-- Editing and Deletign Reviews: We value autheticity, and to ensure that users have control over their feedback, we allow them to edit or delete their reviews. This user-friendly approach empowers users to modify their reviews if their opinions change over the time.
-- Responsive Design: The reviews page is designed to provide a seamless experience across all devies. Whether users access it from their desktop, tablet or smartphone the page maintains its functionality and readability, ensuring that users can engage with review conveniently.
+- Users can interact with our products and services by providing feedback through the reviews page feature. Users can utilise this tool to voice their opinions 
+  regarding our company, goods, and overall experience.
+- User-generated Reviews: This feature allows users who are signed in and have already bought the spefic product to post reviews. Users can offer thorough 
+  feedback to help us improve and support other.
+- Editing and Deleteing Reviews: We respect authenticity, thus we provide people the option to alter or remove their reviews so they may maintain control over 
+  their input. Users are empowered to edit their reviews if their thoughts alter over time thanks to this strategy that is easy to utilise.
+
 
 </details>
 <hr>
@@ -455,11 +457,37 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 ## Future Features
 
-- BLA BLA BLA BLA
+- As a user of our e-commerce platform, you will have the ability to update your personal information, including your shipping address and password, conveniently within your user profile. This feature aims to provide you with greater control over your account settings and enhance your overall user experience.
+
+- As a shopper on our e-commerce platform, we understand the importance of getting the correct size when purchasing clothing items. To enhance your shopping experience and ensure that you find the perfect fit, we will introduce a size selection feature for all applicable products.
+
+- Customer Wishlist and Alerts: Allow customers to create wishlists of their favorite products and set up alerts for price drops or when items come back in stock, improving customer engagement and retention.
 
 ## Testing
 
-BLA BLA BLA
+- I have tested the code by the following methods:
+  - Passed on the Django test built in function, no issues found.
+  - Passed on the validator code PEPE8, no issues found.
+  - I manually tested the code, attempting to submit invalid inputs and reserve tables without prior registration, and double bookings as well.
+  - The site was tested on Heroku terminal and on the local terminal.
+
+## Validator Testing
+
+  - No errors were returned when passing through the official [PEP8](https://pep8ci.herokuapp.com/) validator, used just in tested in all files, but just 
+    uploaded the models and views for simplicity purpose.
+  
+  - PEP8 Views.py.
+
+  ![PEP8 Views](/img/viewpep.png)
+
+  - PEP8 Model.py.
+
+  ![PEP8 Model](/img/modelpep.png)
+
+ - No errors were returned in Django built tests.
+
+  ![Django Test](/img/testdajngo.png)
+
 
 
 ## E-commerce Business Model
@@ -471,41 +499,36 @@ BLA BLA BLA
 
 
 - **Audience Engagement:** The Facebook Page serves as a platform to engage with our audience directly.
-- **Products Updates:** Keeping our followers informed about new product launches, restocks and upcoming collections.
-- **Educational Content:** Sharing informative and educational content related to our products or industry establishes our brand as an authority in the field.
-- **Feedback & Insights:** The Facebook page can be a valuable source of feedback, understanding what customers like and dislike helps us improve our products and services.
 
 ### Newsletter Signup
 
 ![image](/readme/newsl-singup-page.png)
 
-- **Audience Expansion:** The Newsletter Signup feature expands our reach beyond existing customers and allows us to engage with a wider audience.
-- **Direct Communication:** Subscribers who sign up for the newsletter have explicity shown in our brand. Provide us with a direct and targeted communication channel to becomes a valuable asset for future marketing efforts. 
-- **Product & Updates:** Subscribers stay informed about the latest product releases, company news and updates.
-- **Relationship Building:** Regular newsletter provide an opportunity to establish a relationship with subscribers.
+- **Audience Expansion:** With the Newsletter Signup tool, we can interact with a larger audience and extend beyond our current clientele.
+- **Direct Communication:** Signing up for the newsletter indicates a clear interest in our brand from the subscriber. Give us a clear, focused line of communication so that you can help us with future marketing initiatives.  
 
 
 ## SEO Strategy
-In our SEO strategy, I worked on optimizing our website to increase its visibility in search engines. I took specific steps to refine our keyword selection, optimize descriptions and titles, and intentionally incorporate keywords into our content.
+- I focused on improving our website's search engine exposure as part of our SEO plan. I made a conscious effort to carefully consider our keyword choices, enhance titles and descriptions, and strategically insert keywords into our writing.
 
 ### Keywords
-- I dug deep into our industry to identify the key themes, products, and services that "match" our target audience. 
-- Through a comprehensive analysis of our competitors' websites, we gained insight into the keywords they target, which helped me refine our own keyword list.
-- Our approach covered both short-tailed and long-tailed keywords to cater to varios search queries.
+- To find the major themes, goods, and services that "match" our target market, I conducted extensive research into our sector. 
+- We were able to refine our own keyword list by gaining insight into the terms that our competitors target through a thorough review of their websites.
+- We used a combination of long-tail and short-tail keywords in our strategy to support different types of search queries.
 
 ### Description
-I paid special attention to the description meta tag. These descriptions serve as a concise introduction to our content, incorporating the identified keywords. Additionally, I remain flexible in updating these descriptions whenever the content on a particular page changes.
+- The description meta tag caught my eye in particular. These summaries function as a succinct synopsis of our material and include the designated keywords. Additionally, I remain flexible in updating these descriptions whenever the content on a particular page changes.
 
 ### Title
-Our website's base.html template houses the title tag, allowing us to customize titles for each page. This dynamic approach to titles enhances our SEO efforts.
+- The title tag on our website is located in the base.html template, which gives us the ability to personalise page titles. Our SEO efforts are improved by this creative approach to titles.
 
 
 ### Sitemap
-I've created a sitemap for the website, ensuring that when it's fully prepared, search engines like Google can efficiently crawl and index its content.
+- For the website, I've developed a sitemap so that search engines like Google can effectively crawl and index the material when it's ready.
 - [sitemap.xml file]()
 
 ### Robots.txt
-To restrict pages that are should be searched by google, authentication and others are blocked to only allow relevant pages to be searched by google.
+- Authentication and other pages are restricted in order to limit the pages that Google should search for, allowing it to only find relevant results.
 - [robots.txt file]() 
 
 ## Technologies Used
@@ -528,13 +551,10 @@ Several technologies have been used to enable this website works:
 | Jshint                   | Jshint was used to validate JavaScript Code.                                                                                                         |
 | Coloors                  | Coloors was utilized to generate color palette for the website design.                                                                               |
 | AWS Amazon               | AWS Amazon was utilized to store all of my static files and images.                                                                                  |
-| Stripe                   | Stripe payments was used to host/receive all the payments on the website.                                                                            |
-| Lighthouse               | Lighthouse was used to test the accessibility of the website.                                                                                        |
-| Balsamiq                 | Balsamiq was utilized as a tool for creating wireframes, providing a visual representation of the website layout and structure.                      |
+| Stripe                   | Stripe payments was used to host/receive all the payments on the website.                                                                            |                     |
 | AmIResponsive            | AmIResponsive was used to generate screenshots of the website in various device sizes, allowing for a quick visual assessment of its responsiveness. |
 | Markdown Table Generator | Markdown Table Generator was utilized as a tool to create tables in Markdown format.                                                                 |
-| Gitpod                   | Gitpod was used to write and edit the project code.                                                                                                  |
-| Mermaid                  | Mermaid was used to create all the diagrams.                                                                                                         |                                                                                                                                                                                                 |                                                                                           
+| Gitpod                   | Gitpod was used to write and edit the project code.                                                                                                  |diagrams.                                                                                                         |                                                                                                                                                                                                 |                                                                                           
 ### Languages
 - HTML
 - CSS
@@ -553,21 +573,14 @@ Several technologies have been used to enable this website works:
 - W3 HTML
 - AWS Amazon
 - AmIResponsive
-- Favicon
 - Gitpod
 
 ## Stripe Payments 
 
-- The Stripe Payments is set up as the online payment processing and credit card processing platform for the purchases.
-You will need a stripe account which you can sign up for [here](https://dashboard.stripe.com/register)
+- The platform for processing credit cards and online payments for purchases is called Stripe Payments. [here](https://dashboard.stripe.com/register)
 
 ### Payments
 - To set up stripe payments you can follow their guid [here](https://stripe.com/ie/guides)
-
-### API Keys
-1. Click on 'Developers' in the navbar-side.
-2. Beside 'Overview' click on the API Keys and you will see your 'Publishable key' & 'Secret key'.
-
 
 ## Production Deployment
 To deploy your application on Heroku, follow the steps bellow:
@@ -591,7 +604,6 @@ To deploy your application on Heroku, follow the steps bellow:
 - Set the necessary enviroment variables required for your aplication. 
 - Click on the "Reveal Config Vars" button to add the key-value pairs for your enviroment variables:
 
-
 e.g.
 
 | **KEY**               | **VALUE**    |
@@ -611,7 +623,6 @@ e.g.
 
 
 ## Credits
-Throughout the process of building the PowerProtein website, I would like to acknowledge the following:
 
 **Online Sources:**
 - [Code Institue Template](https://github.com/Code-Institute-Org/ci-full-template)
@@ -630,10 +641,6 @@ Throughout the process of building the PowerProtein website, I would like to ack
 - [Stripe](https://stripe.com/ie)
 - [Git](https://git-scm.com/)
 - [PostgreSQL](https://www.postgresql.org/)
-
-## Content
-
-- I took some inspiration from the [My Protein](https://www.myprotein.ie/) website.
 
 ## Media
 - [Google Fonts](https://fonts.google.com/) - The fonts were sourced using Google Fonts.
