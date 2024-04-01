@@ -36,9 +36,9 @@
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
-
-                    <a href="/products/" data-product="2" data-action="add" class="updateBttns" aria-label="click to add product to bag">
-                        <span class="btn btn-black rounded-0 text-uppercase  add-cart">Add to card</span>
+        
+                    <a href="{% url 'products' %}" data-product="{{product.id}}" data-action="add" class="updateBttns" aria-label="click to add product to bag">
+                        <span class="btn btn-black rounded-0 text-uppercase  add-cart">Add to cart</span>
                     </a>
 
                     <a href="{% url 'product_detail' product.id %}" data-product="{{product.id}}"

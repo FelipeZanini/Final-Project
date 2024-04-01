@@ -11,7 +11,7 @@ SECRET_KEY = "SECRET"
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-felipezanini-zanfe-r7j5eymqep9.ws-eu110.gitpod.io']
+ALLOWED_HOSTS = ['8000-felipezanini-zanfe-yjct4sfukie.ws-eu110.gitpod.io']
 
 
 INSTALLED_APPS = [
