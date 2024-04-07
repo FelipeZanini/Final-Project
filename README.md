@@ -185,37 +185,37 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
 <summary>Wireframes Details</summary>
   
 - Home Page:
-- ![image](/readme/HOME-PAGE-WIREFRAME.png)
+ ![image](/readme/HOME-PAGE-WIREFRAME.png)
 
 - Product Page:
-- ![image](/readme/Product_Page_Wireframe.png) 
+ ![image](/readme/Product_Page_Wireframe.png) 
 
 - Product Detail Page:
-- ![image](/readme/PRODUCT_DETAIL_WIREFRAME.png)
+ ![image](/readme/PRODUCT_DETAIL_WIREFRAME.png)
 
 - Profile Page:
-- ![image](/readme/PROFILE_WIREFRAME.png) 
+ ![image](/readme/PROFILE_WIREFRAME.png) 
 
 - Wishlist Page:
-- ![image](/readme/WISHLIST_WIREFRAME.png)
+ ![image](/readme/WISHLIST_WIREFRAME.png)
 
 - Newsletter Page:
-- ![image](/readme/NEWSLETTERS_WIREFRAME.png)
+ ![image](/readme/NEWSLETTERS_WIREFRAME.png)
 
 - Reviews Page:
-- ![image](/readme/ADD_REVIEW_WIREFRAME.png)
+ ![image](/readme/ADD_REVIEW_WIREFRAME.png)
 
 - Edit Your Product Rating Page:
-- ![image](/readme/EDIT_YOUR_RATING_WIREFRAME.png)
+ ![image](/readme/EDIT_YOUR_RATING_WIREFRAME.png)
 
 - Edit Your Product Testimonial Page:
-- ![image](/readme/EDIT_TESTIMONIAL_WIREFRAME.png)
+ ![image](/readme/EDIT_TESTIMONIAL_WIREFRAME.png)
 
 - Reviews Page (Mobile View):
-- ![image](/readme/IPHONE_WIREFRAME_VIEW.png)
+ ![image](/readme/IPHONE_WIREFRAME_VIEW.png)
 
 - Product List (Tablet View):
-- ![image](/readme/TABLET_WIREFRAME_VIEW.png)
+ ![image](/readme/TABLET_WIREFRAME_VIEW.png)
 
 </details>
 <hr>
