@@ -212,9 +212,11 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
  ![image](/readme/EDIT_TESTIMONIAL_WIREFRAME.png)
 
 - Reviews Page (Mobile View):
+
  ![image](/readme/IPHONE_WIREFRAME_VIEW.png)
 
 - Product List (Tablet View):
+
  ![image](/readme/TABLET_WIREFRAME_VIEW.png)
 
 </details>
