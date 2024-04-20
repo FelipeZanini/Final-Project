@@ -4,21 +4,31 @@
 {% block content %}
 <section class="py-5 container-fluid">
     <h2 class="mt-4 mb-1 text-center">Products</h2>
-    
-    <li class="nav-item dropdown dropdown-menu-end mb-4" style="list-style: none;">
-        <a class="nav-link dropdown-toggle px-3 text-dark text-end" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="sort items by price, rating, category and name" id="sort-toggle">Sort by</a>
-        <div class="dropdown-menu" aria-labelledby="clothing-link">
-          <a class="dropdown-item" href="{% url 'products' %}?sort=price_asc" aria-label="sort price, lower to higher">Price: Low to high</a>
-          <a class="dropdown-item" href="{% url 'products' %}?sort=price_des" aria-label="sort price, higher to lower">Price: Hight to low</a>
-          <a class="dropdown-item" href="{% url 'products' %}?sort=rating_asc" aria-label="sort rating, higher to lower">Rating: High to low</a>
-          <a class="dropdown-item" href="{% url 'products' %}?sort=rating_des" aria-label="sort rating, lower to higher">Rating: Low to high</a>
-          <a class="dropdown-item" href="{% url 'products' %}?sort=name_asc" aria-label="sort name by alphabetical order, a to z">Name: A-Z</a>
-          <a class="dropdown-item" href="{% url 'products' %}?sort=name_des" aria-label="sort name by alphabetical order, z to a">Name: Z-A</a>
-          <a class="dropdown-item" href="{% url 'products' %}?sort=category_asc" aria-label="sort category by alphabetical order, a to z">Category: A-Z</a>
-          <a class="dropdown-item" href="{% url 'products' %}?sort=category_des" aria-label="sort category by alphabetical order, z to a">Category: Z-A</a>
-        </div>
-      </li>
-    
+    <ul>
+        <li class="nav-item dropdown dropdown-menu-end mb-4" style="list-style: none;">
+            <a class="nav-link dropdown-toggle px-3 text-dark text-end" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false" aria-label="sort items by price, rating, category and name" id="sort-toggle">Sort
+                by</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'products' %}?sort=price_asc"
+                    aria-label="sort price, lower to higher">Price: Low to high</a>
+                <a class="dropdown-item" href="{% url 'products' %}?sort=price_des"
+                    aria-label="sort price, higher to lower">Price: Hight to low</a>
+                <a class="dropdown-item" href="{% url 'products' %}?sort=rating_asc"
+                    aria-label="sort rating, higher to lower">Rating: High to low</a>
+                <a class="dropdown-item" href="{% url 'products' %}?sort=rating_des"
+                    aria-label="sort rating, lower to higher">Rating: Low to high</a>
+                <a class="dropdown-item" href="{% url 'products' %}?sort=name_asc"
+                    aria-label="sort name by alphabetical order, a to z">Name: A-Z</a>
+                <a class="dropdown-item" href="{% url 'products' %}?sort=name_des"
+                    aria-label="sort name by alphabetical order, z to a">Name: Z-A</a>
+                <a class="dropdown-item" href="{% url 'products' %}?sort=category_asc"
+                    aria-label="sort category by alphabetical order, a to z">Category: A-Z</a>
+                <a class="dropdown-item" href="{% url 'products' %}?sort=category_des"
+                    aria-label="sort category by alphabetical order, z to a">Category: Z-A</a>
+            </div>
+        </li>
+    </ul>
     <div class="row">
         <div class="col-10 offset-1">
             <div class="row">
@@ -28,13 +38,17 @@
                     <div class="card">
                         <div class="product-header">
                             <p class="product-category"><i class="fa fa-tag"></i> {{product.category}}</p>
-                            <a href="{% url 'products' %}" data-product="{{product.id}}" data-action="addWishlist" class="updateBttns" aria-label="Add to your wishlist"><i
+                            <a href="{% url 'products' %}" data-product="{{product.id}}" data-action="addWishlist"
+                                class="updateBttns" aria-label="Add to your wishlist"><i
                                     class="wishlist-icon fa fa-heart float-end"></i></a>
                         </div>
-                        
-                        <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}" class="products-image mx-auto" />
-                        <a class="overlay" href="{% url 'product_detail' product.id %}" aria-label="click to check the products details">
-                            <span class="inspec-item text-white">Inspect Item <i class="fa-solid fa-magnifying-glass"></i></span>
+
+                        <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}"
+                            class="products-image mx-auto" alt="product image load from amazon server">
+                        <a class="overlay" href="{% url 'product_detail' product.id %}"
+                            aria-label="click to check the products details">
+                            <span class="inspec-item text-white">Inspect Item <i
+                                    class="fa-solid fa-magnifying-glass"></i></span>
                         </a>
 
                         <div class="card-body">
@@ -49,7 +63,9 @@
                                         {% if product.half_start == True %}
                                         <li><span class="fa fa-star-half-alt"></span></li>
                                         {% endif %}
-                                        <p class="mx-1">{{product.rating}}</p>
+                                        <li>
+                                            <p class="mx-1">{{product.rating}}</p>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -58,7 +74,8 @@
                                     <p class="mb-0 float-start product-price">{{product.price}} €</p>
                                 </div>
                                 <div class="col-6 mb-0 p-0">
-                                    <a  href="{% url 'products' %}" data-product="{{product.id}}" data-action="add" class="updateBttns" aria-label="click to add product to bag">
+                                    <a href="{% url 'products' %}" data-product="{{product.id}}" data-action="add"
+                                        class="updateBttns" aria-label="click to add product to bag">
                                         <span class="add-cart float-end">Add to cart</span>
                                     </a>
                                 </div>

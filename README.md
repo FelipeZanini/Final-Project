@@ -558,33 +558,31 @@ I found an issue if invalid HTML was entered in the WYSIWYG blog entries. This h
   - I started the secret variables in the protected virtual environment. 
   - The site was tested on the Heroku terminal and the local terminal.
 
+# HTML Validator
 
-- Base Template
-![image](/static/assets/img/portfolio/thumbnails/base-html-errors.png)
+<details>
 
 - Home
-![image](/static/assets/img/portfolio/thumbnails/index-base-html-errors.png)
+![image](/readme/HOME_HTML_VALIDATOR.png)
 
-- Menu
-![image](/static/assets/img/portfolio/thumbnails/menu-errors-html.png)
+- Product Page
+![image](/readme/PRODUCTS_HTML_VALIDATOR.png)
 
-- Menu Items
-![image](/static/assets/img/portfolio/thumbnails/menu-items-html-errors.png)
+- Product Detail Page
+![image](/readme/PRODUCT_DETAIL_HTML_VALIDATOR.png)
 
-- User Page
-![image](/static/assets/img/portfolio/thumbnails/user-page-html-errors.png)
+- News Letter Page
+![image](/readme/NEWS_LETTER_HTML_VALIDATOR.png)
 
-- Booking Page
-![image](/static/assets/img/portfolio/thumbnails/book-table-html-errors.png)
+- Cart
+![image](/readme/CART_HTML_VALIDATOR.png)
 
-- Booking Page
-![image](/static/assets/img/portfolio/thumbnails/book-table-html-errors.png)
+- Wishlist
+![image](/readme/WISHLIST_HTML_VALIDATOR.png)
 
-- Login 
-![image](/static/assets/img/portfolio/thumbnails/login-html-errors.png)
+- Profile
+![image](/readme/PROFILE_HTML_VALIDATOR.png)
 
-- Register
-![image](/static/assets/img/portfolio/thumbnails/register-page-html-errors.png)
 
 </details>
 

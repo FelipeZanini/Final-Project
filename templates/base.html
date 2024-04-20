@@ -171,7 +171,7 @@
         <div class="col-lg-8 my-2 d-none d-lg-block mx-auto" id="search-bar" aria-label="search" role="searchbox">
           <form role="search" action="{% url 'products' %}" method="get" name="search-input">
             <div class="input-group">
-              <input type="search" name="search-input" placeholder="Search your product" class="form-control search-input"/>
+              <input type="search" name="search-input" placeholder="Search your product" class="form-control search-input">
               <button class="btn bg-white" type="submit" id="search-button">
                 <i class="fa fa-search"></i>
               </button>
@@ -197,7 +197,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="open a list of clothings">Clothing</a>
-            <div class="dropdown-menu" aria-label="clothing-link">
+            <div class="dropdown-menu">
               <a class="dropdown-item" href="{% url 'products' %}?category=activewear,essentials" aria-label="explore activewear and essentials">Activewear &amp; Essentials</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=jeans" aria-label="explore jeans">Jeans</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=shirts" aria-label="explore shirts">Shirts</a>
@@ -207,7 +207,7 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="open a list of homeware">Homeware</a>
-            <div class="dropdown-menu" aria-label="homeware link">
+            <div class="dropdown-menu">
               <a class="dropdown-item" href="{% url 'products' %}?category=bed_bath" aria-label="explore bed and bath">Bed &amp; Bath</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=kitchen_dining" aria-label="explore kitchen and dining">Kitchen &amp; Dining</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=bed_bath,kitchen_dining" aria-label="explore all homeware">All Homeware</a>
@@ -216,7 +216,7 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="check special offers">Special Offers</a>
-            <div class="dropdown-menu" aria-label="Special offers link">
+            <div class="dropdown-menu">
               <a class="dropdown-item" href="{% url 'products' %}?category=new_arrivals" aria-label="explore new arrivals">New Arrivals</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=deals" aria-label="explore deals">Deals</a>
               <a class="dropdown-item" href="{% url 'products' %}?category=clearance" aria-label="explore clearance">Clearance</a>
