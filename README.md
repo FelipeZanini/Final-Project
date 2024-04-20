@@ -601,7 +601,7 @@ I found an issue if invalid HTML was entered in the WYSIWYG blog entries. This h
 <details>
 - JavaScript Validator
 
-![image](/static/assets/img/portfolio/thumbnails/JavaScript-validator.png)
+![image](/readme/JS_HINT_VALIDATOR.png)
 
 </details>
 
@@ -609,16 +609,21 @@ I found an issue if invalid HTML was entered in the WYSIWYG blog entries. This h
 
 <details>
 
+- __Cart APP__
+
 - PEP8 Views
 ![image](/static/assets/img/portfolio/thumbnails/Python%20test%20views.png)
 
 - PEP8 Models
 ![image](/static/assets/img/portfolio/thumbnails/Python%20model%20test.png)
 
-- PEP8 Tests
+- PEP8 Urls
 ![image](/static/assets/img/portfolio/thumbnails/tests%20python%20test.png)
 
 - PEP8 Forms
+![image](/static/assets/img/portfolio/thumbnails/test%20form%20python.png)
+
+- PEP8 Admin
 ![image](/static/assets/img/portfolio/thumbnails/test%20form%20python.png)
 
 </details>
