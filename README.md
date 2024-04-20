@@ -4,7 +4,7 @@ This e-commerce platform is a haven for fashion enthusiasts and home decor afici
 
 
 
-  ![Mock Up](/img/mockup.png)
+  ![Mock Up](/readme//MOCKUP.png)
 
   - The live link can be found here: [Zanfe](https://zanfe-009510b2eec0.herokuapp.com/)
 

@@ -11,7 +11,11 @@ SECRET_KEY = "SECRET"
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['8000-felipezanini-zanfe-n1wk3nc4m7s.ws-eu110.gitpod.io']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-felipezanini-zanfe-n1wk3nc4m7s.ws-eu110.gitpod.io'
+]
 
 
 INSTALLED_APPS = [
