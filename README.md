@@ -558,17 +558,72 @@ I found an issue if invalid HTML was entered in the WYSIWYG blog entries. This h
   - I started the secret variables in the protected virtual environment. 
   - The site was tested on the Heroku terminal and the local terminal.
 
+
+- Base Template
+![image](/static/assets/img/portfolio/thumbnails/base-html-errors.png)
+
+- Home
+![image](/static/assets/img/portfolio/thumbnails/index-base-html-errors.png)
+
+- Menu
+![image](/static/assets/img/portfolio/thumbnails/menu-errors-html.png)
+
+- Menu Items
+![image](/static/assets/img/portfolio/thumbnails/menu-items-html-errors.png)
+
+- User Page
+![image](/static/assets/img/portfolio/thumbnails/user-page-html-errors.png)
+
+- Booking Page
+![image](/static/assets/img/portfolio/thumbnails/book-table-html-errors.png)
+
+- Booking Page
+![image](/static/assets/img/portfolio/thumbnails/book-table-html-errors.png)
+
+- Login 
+![image](/static/assets/img/portfolio/thumbnails/login-html-errors.png)
+
+- Register
+![image](/static/assets/img/portfolio/thumbnails/register-page-html-errors.png)
+
+</details>
+
+# CSS Validator
+
+<details>
   - Css validator
+  
   ![image](/readme/css-test-validator.png)
 
-  - HTML Validator
-  ![image](/readme/html-base.png)
 
-- Products
-  ![image](/readme/html-products.png)
+</details>
 
-- Newsletters
-  ![image](/readme/html-products.png)
+# JavaScript Validator
+
+<details>
+- JavaScript Validator
+
+![image](/static/assets/img/portfolio/thumbnails/JavaScript-validator.png)
+
+</details>
+
+# PEP8 Validator
+
+<details>
+
+- PEP8 Views
+![image](/static/assets/img/portfolio/thumbnails/Python%20test%20views.png)
+
+- PEP8 Models
+![image](/static/assets/img/portfolio/thumbnails/Python%20model%20test.png)
+
+- PEP8 Tests
+![image](/static/assets/img/portfolio/thumbnails/tests%20python%20test.png)
+
+- PEP8 Forms
+![image](/static/assets/img/portfolio/thumbnails/test%20form%20python.png)
+
+</details>
 
 
 </details>
