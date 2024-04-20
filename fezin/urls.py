@@ -8,7 +8,10 @@ urlpatterns = [
     path('', include('home.urls')),
     path('products/', include('products.urls')),
     path('cart/', include('cart.urls')),
+    path('testimonials/', include('testimonials.urls')),
     path('profile/', include('myprofile.urls')),
+    path('edit_rating   ', include('userrate.urls')),
+    path('newsletter_signup/', include('contactus.urls')),
 ]
 
 handler404 = 'home.views.error_404'

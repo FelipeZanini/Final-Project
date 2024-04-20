@@ -28,6 +28,9 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'myprofile',
+    'userrate',
+    'testimonials',
+    'contactus',
 
     'storages',
     'mathfilters',

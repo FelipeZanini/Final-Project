@@ -1,52 +1,7 @@
 {% extends "base.html" %}
 {% block title %} <title>Home page </title> {% endblock %}
 {% block content %}
-<nav class="navbar navbar-expand-md secondary-navbar">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <i class="fa fa-bars text-white"></i>
-      </button>
-      <p class="d-md-none my-auto justify-content-end text-white">Same day Delivery</p>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
-          <li class="nav-item">
-            <a class="nav-link px-3" role="button" href="{% url 'products' %}" aria-label="open a list of all products">All Products</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="open a list of clothings">Clothing</a>
-            <div class="dropdown-menu" aria-label="clothing-link">
-              <a class="dropdown-item" href="{% url 'products' %}?category=activewear,essentials" aria-label="explore activewear and essentials">Activewear &amp; Essentials</a>
-              <a class="dropdown-item" href="{% url 'products' %}?category=jeans" aria-label="explore jeans">Jeans</a>
-              <a class="dropdown-item" href="{% url 'products' %}?category=shirts" aria-label="explore shirts">Shirts</a>
-              <a class="dropdown-item" href="{% url 'products' %}?category=jeans,shirts,activewear,essentials" aria-label="explore all clothing">All Clothing</a>
-            </div>
-          </li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="open a list of homeware">Homeware</a>
-            <div class="dropdown-menu" aria-label="homeware link">
-              <a class="dropdown-item" href="{% url 'products' %}?category=bed_bath" aria-label="explore bed and bath">Bed &amp; Bath</a>
-              <a class="dropdown-item" href="{% url 'products' %}?category=kitchen_dining" aria-label="explore kitchen and dining">Kitchen &amp; Dining</a>
-              <a class="dropdown-item" href="{% url 'products' %}?category=bed_bath,kitchen_dining" aria-label="explore all homeware">All Homeware</a>
-            </div>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="check special offers">Special Offers</a>
-            <div class="dropdown-menu" aria-label="Special offers link">
-              <a class="dropdown-item" href="{% url 'products' %}?category=new_arrivals" aria-label="explore new arrivals">New Arrivals</a>
-              <a class="dropdown-item" href="{% url 'products' %}?category=deals" aria-label="explore deals">Deals</a>
-              <a class="dropdown-item" href="{% url 'products' %}?category=clearance" aria-label="explore clearance">Clearance</a>
-              <a class="dropdown-item" href="{% url 'products' %}?category=clearance,deals,new_arrivals" aria-label="explore all specials">All Specials</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-<!-- Introduction section   -->
 <section class="py-5 vh-100 homepage-image">
     <div class="container-fluid">
         <div class="text-white homepage-text mx-sm-3 mx-lg-5">

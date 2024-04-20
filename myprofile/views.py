@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from products.models import Testimonial, UserRate
+from userrate.models import UserRate
+from testimonials.models import Testimonial
 from cart import models
 
 
