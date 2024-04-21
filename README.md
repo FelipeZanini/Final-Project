@@ -599,9 +599,13 @@ I found an issue if invalid HTML was entered in the WYSIWYG blog entries. This h
 # JavaScript Validator
 
 <details>
-- JavaScript Validator
+- JavaScript Validator 
 
 ![image](/readme/JS_HINT_VALIDATOR.png)
+
+- JavaScript Validator, Base Template
+
+![image](/readme/BASE_HTML_JS_VALIDATOR.png)
 
 </details>
 
@@ -710,6 +714,65 @@ I found an issue if invalid HTML was entered in the WYSIWYG blog entries. This h
 
 
 </details>
+
+# Lighthouse Test
+
+<details>
+
+- Home Page
+![image](/readme/HOME_PAGE_LIGHTHOUSE.png)
+
+- Product Page
+![image](/readme/PRODUCTS_LIGHTHOUSE.png)
+
+- Product Detail Page
+![image](/readme/PRODUCT_DETAIL_LIGHTHOUSE.png)
+
+- Sign Up Page
+![image](/readme/SIGN_UP_LIGHTHOUSE.png)
+
+- Log In Page
+![image](/readme/LOG_IN_LIGHTHOUSE.png)
+
+- News Letter Page 
+![image](/readme/NEWSLETTERS_LIGHTHOUSE.png)
+
+- Cart Page
+![image](/readme/CART_LIGHTHOUSE.png)
+
+- Wishlist Page
+![image](/readme/CART_LIGHTHOUSE.png)
+
+</details>
+
+# Wave Accessibillity Tool
+
+<details>
+
+- Contrast Home
+![image]()
+
+- Contrast Menu
+![image]()
+
+- Contrast Menu Items
+![image]()
+
+- Booking Page
+![image]()
+
+- User Page
+![image]()
+
+- Contrast Login
+![image](/)
+
+- Contrast Register
+![image]()
+
+
+</details>
+
 
 
 </details>
