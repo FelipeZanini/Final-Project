@@ -635,19 +635,78 @@ I found an issue if invalid HTML was entered in the WYSIWYG blog entries. This h
 - __Contact Us APP__
 
 - PEP8 Views
-![image](/readme/PEP_VIEWS_CART.png)
+![image](/readme/PEP_VIWS_CONTACT_US.png)
 
 - PEP8 Models
-![image](/readme/PEP_MODELS_CART.png)
+![image](/readme/PEP_MODELS_CONTACT_US.png)
 
 - PEP8 Urls
-![image](/readme/PEP_URLS_CART.png)
-
-- PEP8 Forms
-![image](/readme/PEP_FORM_CART.png)
+![image](/readme/PEP_URLS_CONTACT_US.png)
 
 - PEP8 Admin
-![image](/readme/PEP_ADMIN_CART.png)
+![image](/readme/PEP_ADMIN__CONTACT_US.png)
+
+- __Products APP__
+
+- PEP8 Views
+![image](/readme/PEP_PRODUCTS_VIEWS.png)
+
+- PEP8 Models
+![image](/readme/PEP_%20MODELS_PRODUCT.png)
+
+- PEP8 Urls
+![image](/readme/PEP_URLS_PRODUCT.png)
+
+- PEP8 Admin
+![image](/readme/PEP_ADMIN_PRODUCTS.png)
+
+- __Testimonials APP__
+
+- PEP8 Views
+![image](/readme/PEP_VIEWS_TESTIMONIALS.png)
+
+- PEP8 Models
+![image](/readme/PEP_MODELS_TESTIMONIALS.png)
+
+- PEP8 Urls
+![image](/readme/PEP_URLS_TESTIMONIALS.png)
+
+- PEP8 Admin
+![image](/readme/PEP_ADMIN_TESTIMONIALS.png)
+
+- __User Rate APP__
+
+- PEP8 Views
+![image](/readme/PEP_VIEWES_USERRATE.png)
+
+- PEP8 Models
+![image](/readme/PEP_MODELS_USERRATE.png)
+
+- PEP8 Urls
+![image](/readme/PEP_URLS_USERRATE.png)
+
+- PEP8 Admin
+![image](/readme/PEP_USERRATE_ADMIN.png)
+
+- __My Profile APP__
+
+- PEP8 Views
+![image](/readme/PEP_VIEWS_MY_PROFILE.png)
+
+
+- PEP8 Urls
+![image](/readme/PEP_URLS_MY_PROFILE.png)
+
+
+- __Home APP__
+
+- PEP8 Views
+![image](/readme/PEP_VIEWS_HOME.png)
+
+
+- PEP8 Urls
+![image](/readme/PEP_URLS_HOME.png)
+
 
 
 </details>
