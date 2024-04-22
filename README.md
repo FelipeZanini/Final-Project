@@ -715,6 +715,39 @@ I found an issue if invalid HTML was entered in the WYSIWYG blog entries. This h
 
 </details>
 
+# Wave Test
+
+<details>
+
+- Home Page
+![image](/readme/HOME_WAVE.png)
+
+- Product Page
+![image](/readme/PRODUCTS_WAVE.png)
+
+- Product Detail Page
+![image](/readme/PRODUCT_DETAIL_WAVE.png)
+
+- Sign Up Page
+![image](/readme/SIGNUP_WAVE.png)
+
+- Log In Page
+![image](/readme/LOGIN_WAVE.png)
+
+- News Letter Page 
+![image](/readme/NEWS_LETTER_WAVE.png)
+
+- Cart Page
+![image](/readme/SHOP_BAG_WAVE.png)
+
+- 404 Page
+![image](/readme/404wave.png)
+
+- Wishlist Page
+![image](/readme/CART_LIGHTHOUSE.png)
+
+</details>
+
 # Lighthouse Test
 
 <details>
