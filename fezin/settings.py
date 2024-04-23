@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "SECRET"
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-felipezanini-zanfe-b7i2gcukcza.ws-eu110.gitpod.io']
 
