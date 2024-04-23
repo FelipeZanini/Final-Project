@@ -15,4 +15,4 @@ def newsletter_signup(request):
         )
         contact.save()
         messages.info(request, "Your form was successfully submitted")
-    return render(request, 'home/newsletter_signup.html')
+    return render(request, 'contactus/newsletter_signup.html')
