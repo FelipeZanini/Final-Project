@@ -11,6 +11,8 @@ SECRET_KEY = "SECRET"
 
 DEBUG = False
 
+DISABLE_COLLECTSTATIC=1
+
 ALLOWED_HOSTS = ['8000-felipezanini-zanfe-b7i2gcukcza.ws-eu110.gitpod.io']
 
 INSTALLED_APPS = [
