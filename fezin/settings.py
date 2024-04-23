@@ -11,7 +11,7 @@ SECRET_KEY = "SECRET"
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-felipezanini-zanfe-b7i2gcukcza.ws-eu110.gitpod.io']
+ALLOWED_HOSTS = ['zanfe-009510b2eec0.herokuapp.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
