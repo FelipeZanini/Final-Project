@@ -24,7 +24,7 @@
                     {% for testimonial in testimonials %}
                     {% if testimonial.product_id == item.product.id %}
                     {{ testimonial.testimonial_text }}
-                    <a href="{% url 'remove_review' item.product_id %}?obj=testimonial"
+                    <a href="{% url 'remove_testimonial' item.product_id %}?obj=testimonial"
                         aria-label="remove user testimonial"> <i class="fa fa-trash"></i></a>
                     <a href="{% url 'edit_testimonial' item.product_id %}"> <i class="fa fa-pen"></i></a>
                     {% endif %}
