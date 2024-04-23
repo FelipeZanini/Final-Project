@@ -220,9 +220,9 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
 <hr>
 
 ## Entity–Relationship Model
-
+<details>
  ![image](/readme/graphviz.png)
-
+</details>
 ## Database Choice
 I used PostgreSQL as the database for this project. Hosting the application on Heroku allows for easy deployment and scalability, and PostgreSQL is one of the supported and recommemdede databases on the Heroku platform.
 
@@ -778,40 +778,13 @@ I found an issue if invalid HTML was entered in the WYSIWYG blog entries. This h
 - Cart Page
 ![image](/readme/CART_LIGHTHOUSE.png)
 
+- 404 Page
+![image](/readme/404_PAGELIGHTHOUSE.png)
+
 - Wishlist Page
 ![image](/readme/CART_LIGHTHOUSE.png)
 
 </details>
-
-# Wave Accessibillity Tool
-
-<details>
-
-- Contrast Home
-![image]()
-
-- Contrast Menu
-![image]()
-
-- Contrast Menu Items
-![image]()
-
-- Booking Page
-![image]()
-
-- User Page
-![image]()
-
-- Contrast Login
-![image](/)
-
-- Contrast Register
-![image]()
-
-
-</details>
-
-
 
 </details>
 <hr>
