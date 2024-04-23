@@ -9,14 +9,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "SECRET"
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-felipezanini-zanfe-b7i2gcukcza.ws-eu110.gitpod.io']
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://8000-felipezanini-zanfe-n1wk3nc4m7s.ws-eu110.gitpod.io'
-]
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -107,16 +102,16 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'fezin.wsgi.application'
 
-# DATABASES = {
-#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#     }
-
 DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.sqlite3',
-           'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
-            }
-   }
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+
+# DATABASES = {
+#        'default': {
+#            'ENGINE': 'django.db.backends.sqlite3',
+#            'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+#             }
+#    }
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -163,9 +158,9 @@ STATICFILES_LOCATION = 'static'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 MEDIAFILES_LOCATION = 'media'
 
-# STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-# MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-STATIC_URL = 'static/'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
