@@ -224,6 +224,7 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
 
  ![image](/readme/graphviz.png)
 </details>
+
 ## Database Choice
 I used PostgreSQL as the database for this project. Hosting the application on Heroku allows for easy deployment and scalability, and PostgreSQL is one of the supported and recommemdede databases on the Heroku platform.
 
