@@ -533,35 +533,17 @@ I ensured my site was worked well, and looked nice on a variety of devices & bro
 
 ## Defects
 **DEFECTS** were documented in github using a custom issue template. 
-- Here is my [DEFECT Template]()
+- Here is my [DEFECT Template](https://github.com/FelipeZanini/Zanfe/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)
 
 ### Defects of Note
 
-**Purchase confirmation email not received**
+**Add Product from Product Detail Page**
 - DESCRIBE A BUG
 
-- [Issue Link]()
-
-**Security Vulnerability - Unauthorized Access to User reviews / Order History**
-- DESCRIBE ANOTHER BUG RELATED TO SECURITY AND VULNERABILITY
-
-- [Issue Link]()
+- [Issue Link](https://github.com/FelipeZanini/Zanfe/issues/25)
 
 ### Outstanding Defects
-I found an issue if invalid HTML was entered in the WYSIWYG blog entries. This happens a lot if you copy/paste line returns in bullet lists. Ideally there would be some HTML validation on the text area input to ensure bad HTML isn't entered, but that is beyond the scope of the MVP project. Editors of the blog will be viewing their entries after publishing and can easily fix any issues copy/paste might encounter.
-
-[Back to the README.md]()
-
-- **404 Testing Page:**
-  I have tested the code by the following methods:
-  - Passed on the Django test built-in function, no issues found.
-  - Passed on the validator code PEPE8, no issues found.
-  - I manually tested the code, attempting to visit pages forbidden for non-registered users.
-  - I added a login required decorator in each function that just registered users can access.
-  - I tested each button individually in different screen sizes, and no problems were found.
-  - I inserted url to try to hack the site, but my code seems to be safe.
-  - I started the secret variables in the protected virtual environment. 
-  - The site was tested on the Heroku terminal and the local terminal.
+- No Outstading Defects
 
 # HTML Validator
 
