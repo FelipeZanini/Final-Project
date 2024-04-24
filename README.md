@@ -221,6 +221,7 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
 
 ## Entity–Relationship Model
 <details>
+
  ![image](/readme/graphviz.png)
 </details>
 ## Database Choice
@@ -531,9 +532,13 @@ I ensured my site was worked well, and looked nice on a variety of devices & bro
 - Manual Testing was conducted due to time constrains.
 - The examination of each app's views will be carried out using Django unittest module in the upcoming iteration.
 
+## Manual Testing
+In the Testing section of the README, I extensively conducted manual testing to ensure the functionality and usability of Zanfe Website [CLICK HERE](https://github.com/users/FelipeZanini/projects/13).
+
+
 ## Defects
 **DEFECTS** were documented in github using a custom issue template. 
-- Here is my [DEFECT Template](https://github.com/FelipeZanini/Zanfe/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)
+- Here is my [DEFECT Template](https://github.com/FelipeZanini/Zanfe/blob/main/.github/ISSUE_TEMPLATE/bug_report.md)
 
 ### Defects of Note
 
