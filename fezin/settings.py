@@ -11,7 +11,7 @@ SECRET_KEY = "SECRET"
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://zanfe-009510b2eec0.herokuapp.com/']
+ALLOWED_HOSTS = ['zanfe-009510b2eec0.herokuapp.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
