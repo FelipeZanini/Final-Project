@@ -1,3 +1,4 @@
+
 from pathlib import Path
 import os
 import dj_database_url
@@ -7,11 +8,11 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "Secret"
+SECRET_KEY = "SECRET"
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['zanfe-009510b2eec0.herokuapp.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -102,18 +103,17 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'fezin.wsgi.application'
 
-
-
 DATABASES = {
-        'default': dj_database_url.parse('postgres://vfkdlnlb:S6ztu9lD3EY_yU7fmyxCP5_3QjYQMlLv@trumpet.db.elephantsql.com/vfkdlnlb')
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
 # DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         }
-# }
+#        'default': {
+#            'ENGINE': 'django.db.backends.sqlite3',
+#            'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+#             }
+#    }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
