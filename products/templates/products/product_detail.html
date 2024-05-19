@@ -85,9 +85,8 @@
         </div>
         {% if review_permission %}
 
-        {% if user_has_review %}
+        {% if user_has_review%}
 
-        <p> EDIT YOUR REVIEW!</p>
 
         {% else %}
 
@@ -112,9 +111,9 @@
                 <label for="star1" title="text">1 star</label>
             </div>
             <input type="submit" class="shop-link" value="Submit">
+        {% endif %}
         {% else %}
         <p class="text-muted mx-2">Just user that already bought the product are allowed to review!</p>
-        {% endif %}
         {% endif %}
     </div>
 </section>

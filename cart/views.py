@@ -12,7 +12,6 @@ from . import models
 from .forms import ShippingAddressForm
 from .utils import cart_data
 
-
 @require_POST
 def cache_checkout_data(request):
     """ View for cache checkout data  """
