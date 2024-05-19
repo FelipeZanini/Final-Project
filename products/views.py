@@ -58,8 +58,10 @@ def product_detail(request, product_id):
     testimonials = Testimonial.objects.filter(product_id=product_id).all()
     try:
         review_permission = OrderItem.objects.filter(user=request.user).filter(product_id=product_id).all()
+        user_has_review = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).all()
         context = {'product': product,
                    'testimonials': testimonials,
+                   'user_has_review': user_has_review,
                    'review_permission': review_permission,
                    'range': range(1, 6)}
         return render(request, 'products/product_detail.html', context)

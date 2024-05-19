@@ -10,7 +10,7 @@
                     {% if product.image %}
                     <img class="card-img-top img-fluid" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}" alt="{{ product.name }}">
                     {% else %}
-                    <img class="card-img-top img-fluid" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/no-image-1.jpg"">
+                    <img class="card-img-top img-fluid" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/no-image-1.jpg">
                     {% endif %}
                 </a>
             </div>
@@ -85,6 +85,12 @@
         </div>
         {% if review_permission %}
 
+        {% if user_has_review %}
+
+        <p> EDIT YOUR REVIEW!</p>
+
+        {% else %}
+
         <h3 class="edit-products-reviews">Leave Your Feeback</h3>
 
         <form method="post" action="{% url 'testimonial' product.id %}" method="post" name="testimonial_form" id="testimonial_form">
@@ -108,6 +114,7 @@
             <input type="submit" class="shop-link" value="Submit">
         {% else %}
         <p class="text-muted mx-2">Just user that already bought the product are allowed to review!</p>
+        {% endif %}
         {% endif %}
     </div>
 </section>
