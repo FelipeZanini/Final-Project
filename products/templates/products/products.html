@@ -43,8 +43,13 @@
                                     class="wishlist-icon fa fa-heart float-end"></i></a>
                         </div>
 
+                        {% if product.image %}
                         <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}"
                             class="products-image mx-auto" alt="product image {{product.name}}">
+                        {% else %}
+                        <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/no-image-1.jpg"
+                            class="products-image mx-auto" alt="product image {{product.name}}">
+                        {% endif %}
                         <a class="overlay" href="{% url 'product_detail' product.id %}"
                             aria-label="click to check the products details">
                             <span class="inspec-item text-white">Inspect Item <i
