@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'userrate',
     'testimonials',
     'contactus',
+    'newsletter',
 
     'storages',
     'mathfilters',
