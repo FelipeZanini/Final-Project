@@ -13,7 +13,7 @@ def subscribe_view(request):
             # TODO: use Mailchimp API to subscribe
             return redirect('subscribe-success')
 
-    return render(request, 'subscribe.html', {
+    return render(request, 'newsletter/subscribe.html', {
         'form': EmailForm(),
     })
 
@@ -38,7 +38,7 @@ def unsubscribe_view(request):
         if form.is_valid():
             form_email = form.cleaned_data['email']
             # TODO: use Mailchimp API to unsubscribe
-            return redirect('unsubscribe-success')
+            return redirect('newsletter/unsubscribe-success')
 
     return render(request, 'unsubscribe.html', {
         'form': EmailForm(),
