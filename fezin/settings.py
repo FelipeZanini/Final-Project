@@ -12,7 +12,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = [".fly.dev","https://localhost:8000","https://newsapp27.fly.dev", "localhost", "127.0.0.1",
+ALLOWED_HOSTS = [".fly.dev","https://localhost:8000","https://newsapp27.fly.dev", "localhost", "127.0.0.1", "zanfe-009510b2eec0.herokuapp.com",
 ]
 CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev","https://localhost:8000", "https://newsapp27-db.fly.dev/"]
 
