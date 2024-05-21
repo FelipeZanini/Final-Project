@@ -4,6 +4,22 @@ from django.shortcuts import render, redirect
 from fezin import settings
 from newsletter.forms import EmailForm
 
+from mailchimp_marketing import Client
+
+
+
+
+mailchimp = Client()
+mailchimp.set_config({
+  'api_key': settings.MAILCHIMP_API_KEY,
+  'server': settings.MAILCHIMP_REGION,
+})
+
+
+def mailchimp_ping_view(request):
+    response = mailchimp.ping.get()
+    return JsonResponse(response)
+
 
 def subscribe_view(request):
     if request.method == 'POST':
@@ -40,7 +56,7 @@ def unsubscribe_view(request):
             # TODO: use Mailchimp API to unsubscribe
             return redirect('newsletter/unsubscribe-success')
 
-    return render(request, 'unsubscribe.html', {
+    return render(request, 'newsletter/unsubscribe.html', {
         'form': EmailForm(),
     })
 
