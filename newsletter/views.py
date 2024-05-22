@@ -5,15 +5,12 @@ from fezin import settings
 from newsletter.forms import EmailForm
 
 from mailchimp_marketing import Client
+from mailchimp_marketing.api_client import ApiClientError
+import logging
 
 
 
-
-mailchimp = Client()
-mailchimp.set_config({
-  'api_key': settings.MAILCHIMP_API_KEY,
-  'server': settings.MAILCHIMP_REGION,
-})
+logger = logging.getLogger(__name__)
 
 
 def mailchimp_ping_view(request):
@@ -24,10 +21,35 @@ def mailchimp_ping_view(request):
 def subscribe_view(request):
     if request.method == 'POST':
         form = EmailForm(request.POST)
+
         if form.is_valid():
-            form_email = form.cleaned_data['email']
-            # TODO: use Mailchimp API to subscribe
-            return redirect('subscribe-success')
+            try:
+                form_email = form.cleaned_data['email']
+                mailchimp = Client()
+                mailchimp.set_config({
+                    'api_key': settings.MAILCHIMP_API_KEY,
+                })
+                member_info = {
+                    'email_address': form_email,
+                    'status': 'subscribed',
+                     "merge_fields": {
+                    "FNAME": "firstName",
+                    "LNAME": "lastName"
+            }
+                }
+                
+                response = mailchimp.lists.add_list_member(settings.MAILCHIMP_AUDIENCE_ID, member_info, )
+                logger.info(f'API call successful: {response}')
+                return render(request, 'newsletter/subscribe.html', {
+                'form': EmailForm(),
+    })
+
+            except ApiClientError as error:
+                logger.error(f'An exception occurred: {error.text}')
+                print(error.text)
+                return render(request, 'newsletter/subscribe.html', {
+                'form': EmailForm(),
+    })
 
     return render(request, 'newsletter/subscribe.html', {
         'form': EmailForm(),
