@@ -29,7 +29,7 @@ def subscribe_view(request):
                 mailchimp = Client()
                 mailchimp.set_config({
                     # After I should change to git secret envoriments------
-                    'api_key': "9b1e4c40316a6e7f587dacf80abbfbf3-us22",
+                    'api_key': "28f44b8735c9c227fafcd112aa8375cf-us22",
                 })
                 member_info = {
                     'email_address': form_email,
@@ -42,16 +42,12 @@ def subscribe_view(request):
                 
                 response = mailchimp.lists.add_list_member("b9adfc5597", member_info, )
                 logger.info(f'API call successful: {response}')
-                return render(request, 'newsletter/subscribe.html', {
-                'form': EmailForm(),
-    })
+                return redirect('subscribe_success_view')
 
             except ApiClientError as error:
                 logger.error(f'An exception occurred: {error.text}')
                 print(error.text)
-                return render(request, 'newsletter/subscribe.html', {
-                'form': EmailForm(),
-    })
+                return redirect('subscribe_fail_view')
 
     return render(request, 'newsletter/subscribe.html', {
         'form': EmailForm(),
@@ -59,14 +55,14 @@ def subscribe_view(request):
 
 
 def subscribe_success_view(request):
-    return render(request, 'message.html', {
+    return render(request, 'newsletter/message.html', {
         'title': 'Successfully subscribed',
         'message': 'Yay, you have been successfully subscribed to our mailing list.',
     })
 
 
 def subscribe_fail_view(request):
-    return render(request, 'message.html', {
+    return render(request, 'newsletter/message.html', {
         'title': 'Failed to subscribe',
         'message': 'Oops, something went wrong.',
     })
