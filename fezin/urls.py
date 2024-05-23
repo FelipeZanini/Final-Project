@@ -10,9 +10,9 @@ urlpatterns = [
     path('cart/', include('cart.urls')),
     path('testimonials/', include('testimonials.urls')),
     path('profile/', include('myprofile.urls')),
-    path('edit_rating   ', include('userrate.urls')),
+    path('edit_rating/', include('userrate.urls')),
     path('newsletter_signup/', include('contactus.urls')),
-    path('newsletter', include('newsletter.urls')),
+    path('newsletter/', include('newsletter.urls')),
 ]
 
 handler404 = 'home.views.error_404'
