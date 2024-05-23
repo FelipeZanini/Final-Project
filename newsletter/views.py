@@ -5,6 +5,7 @@ from fezin import settings
 from newsletter.forms import EmailForm
 
 from mailchimp_marketing import Client
+import hashlib
 from mailchimp_marketing.api_client import ApiClientError
 import logging
 import os
@@ -29,7 +30,7 @@ def subscribe_view(request):
                 mailchimp = Client()
                 mailchimp.set_config({
                     # After I should change to git secret envoriments------
-                    'api_key': "28f44b8735c9c227fafcd112aa8375cf-us22",
+                    'api_key': "12224ab58c5e8383c4e170eab85d6b19-us22",
                 })
                 member_info = {
                     'email_address': form_email,
@@ -72,24 +73,42 @@ def unsubscribe_view(request):
     if request.method == 'POST':
         form = EmailForm(request.POST)
         if form.is_valid():
-            form_email = form.cleaned_data['email']
-            # TODO: use Mailchimp API to unsubscribe
-            return redirect('newsletter/unsubscribe-success')
+            mailchimp = Client()
+            mailchimp.set_config({
+                    # After I should change to git secret envoriments------
+                    'api_key': "12224ab58c5e8383c4e170eab85d6b19-us22",
+                })
+            try:
+                form_email = form.cleaned_data['email']
+                form_email_hash = hashlib.md5(form_email.encode('utf-8').lower()).hexdigest()
+                member_update = {
+                    'status': 'unsubscribed',
+                }
+                response = mailchimp.lists.update_list_member(
+                    "b9adfc5597",
+                    form_email_hash,
+                    member_update,
+                )
+                logger.info(f'API call successful: {response}')
+                return redirect('unsubscribe_success_view')
+
+            except ApiClientError as error:
+                logger.error(f'An exception occurred: {error.text}')
+                return redirect('unsubscribe_fail_view')
 
     return render(request, 'newsletter/unsubscribe.html', {
         'form': EmailForm(),
     })
 
-
 def unsubscribe_success_view(request):
-    return render(request, 'message.html', {
+    return render(request, 'newsletter/message.html', {
         'title': 'Successfully unsubscribed',
         'message': 'You have been successfully unsubscribed from our mailing list.',
     })
 
 
 def unsubscribe_fail_view(request):
-    return render(request, 'message.html', {
+    return render(request, 'newsletter/message.html', {
         'title': 'Failed to unsubscribe',
         'message': 'Oops, something went wrong.',
     })
