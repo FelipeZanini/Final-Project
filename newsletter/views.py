@@ -7,6 +7,7 @@ from newsletter.forms import EmailForm
 from mailchimp_marketing import Client
 from mailchimp_marketing.api_client import ApiClientError
 import logging
+import os
 
 
 
@@ -27,7 +28,8 @@ def subscribe_view(request):
                 form_email = form.cleaned_data['email']
                 mailchimp = Client()
                 mailchimp.set_config({
-                    'api_key': settings.MAILCHIMP_API_KEY,
+                    # After I should change to git secret envoriments------
+                    'api_key': os.environ.get('MAILCHIMP_ID'),
                 })
                 member_info = {
                     'email_address': form_email,
@@ -38,7 +40,7 @@ def subscribe_view(request):
             }
                 }
                 
-                response = mailchimp.lists.add_list_member(settings.MAILCHIMP_AUDIENCE_ID, member_info, )
+                response = mailchimp.lists.add_list_member(os.environ.get('AUDIENCE_ID'), member_info, )
                 logger.info(f'API call successful: {response}')
                 return render(request, 'newsletter/subscribe.html', {
                 'form': EmailForm(),
