@@ -29,7 +29,7 @@ def subscribe_view(request):
                 mailchimp = Client()
                 mailchimp.set_config({
                     # After I should change to git secret envoriments------
-                    'api_key': os.environ.get('MAILCHIMP_ID'),
+                    'api_key': "9b1e4c40316a6e7f587dacf80abbfbf3-us22",
                 })
                 member_info = {
                     'email_address': form_email,
@@ -40,7 +40,7 @@ def subscribe_view(request):
             }
                 }
                 
-                response = mailchimp.lists.add_list_member(os.environ.get('AUDIENCE_ID'), member_info, )
+                response = mailchimp.lists.add_list_member("b9adfc5597", member_info, )
                 logger.info(f'API call successful: {response}')
                 return render(request, 'newsletter/subscribe.html', {
                 'form': EmailForm(),
