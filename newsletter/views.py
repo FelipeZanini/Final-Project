@@ -15,11 +15,6 @@ import os
 logger = logging.getLogger(__name__)
 
 
-def mailchimp_ping_view(request):
-    response = mailchimp.ping.get()
-    return JsonResponse(response)
-
-
 def subscribe_view(request):
     if request.method == 'POST':
         form = EmailForm(request.POST)
@@ -30,7 +25,7 @@ def subscribe_view(request):
                 mailchimp = Client()
                 mailchimp.set_config({
                     # After I should change to git secret envoriments------
-                    'api_key': "12224ab58c5e8383c4e170eab85d6b19-us22",
+                    'api_key': "03ffcdbe7160e1dbb9691ad66d7328df-us22",
                 })
                 member_info = {
                     'email_address': form_email,

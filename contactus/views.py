@@ -2,7 +2,7 @@ from django.shortcuts import render
 from contactus.models import ContactUs
 from django.contrib import messages
 
-def newsletter_signup(request):
+def contact_us(request):
     """ Function to render the newsletter signup page"""
     if request.method == 'POST':
         name = request.POST['name']
@@ -15,4 +15,4 @@ def newsletter_signup(request):
         )
         contact.save()
         messages.info(request, "Your form was successfully submitted")
-    return render(request, 'contactus/newsletter_signup.html')
+    return render(request, 'contactus/contact_us.html')
