@@ -26,6 +26,26 @@ def profile(request):
 
 
 @login_required
+def product_review(request):
+    """ Function to render the products order """
+    context = {}
+    try:
+        products = models.OrderItem.objects.filter(user=request.user).all()
+        context = {'products': products}
+        testimonials = Testimonial.objects.filter(user=request.user).all()
+        user_rates = UserRate.objects.filter(user=request.user).all()
+
+        context = {'products': products,
+                   'testimonials': testimonials,
+                   'user_rates': user_rates}
+
+    except TypeError:
+        print("No products")
+
+    return render(request, 'profile/product_review.html', context)
+
+
+@login_required
 def orders_history(request):
     """ Function to render the orders history page """
     context = {}
