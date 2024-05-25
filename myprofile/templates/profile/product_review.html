@@ -133,9 +133,7 @@
                     {% for testimonial in testimonials %}
                     {% if testimonial.product_id == product.product.id %}
                     {{ testimonial.testimonial_text }}
-                    <a href="{% url 'remove_testimonial' product.product_id %}?obj=testimonial"
-                        aria-label="remove user testimonial"> <i class="fa fa-trash"></i></a>
-                    <a href="{% url 'edit_testimonial' product.product_id %}"> <i class="fa fa-pen"></i></a>
+            
                     {% endif %}
                     {% endfor %}
                     <br>
@@ -143,7 +141,7 @@
                     {% if user_rate.product_id == product.product.id %}
                     {% if user_rate.rating %}
                     {{ user_rate.rating }}
-                    <a href="{% url 'edit_rating' product.product_id %}"> <i class="fa fa-pen"></i></a>
+                   
                     {% endif %}
                     {% endif %}
                     {% endfor %}
@@ -152,17 +150,16 @@
                 </div>
                 <div class="align-items-center align-content-center col-md-3 border-left mt-1">
 
-                    <h6 class="text-success">NOT RATTED/ RATTED</h6>
-                    
+
                     <div class="d-flex flex-column mt-4">
 
                         <a class="btn btn-primary btn-sm mt-2 text-white"
                             href="{% url 'edit_testimonial' product.product_id %}?obj=testimonial"
-                            aria-label="edit your testimonial"> Edit Text Testimonial Only <i class="fa fa-pen"></i></a>
+                            aria-label="edit your testimonial">Leave or Edit Text Testimonial Only <i class="fa fa-pen"></i></a>
 
                         <a class="btn btn-primary btn-sm mt-2 text-white"
                             href="{% url 'edit_rating' product.product_id %}?obj=testimonial"
-                            aria-label="edit your rating"> Edit Rating Only <i class="fa fa-pen"></i></a>
+                            aria-label="edit your rating">Leave or Edit Rating Only <i class="fa fa-pen"></i></a>
 
                         <a class="btn btn-danger btn-sm mt-2 text-white"
                             href="{% url 'remove_testimonial' product.product_id %}?obj=testimonial"

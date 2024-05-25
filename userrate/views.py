@@ -16,10 +16,21 @@ def edit_rating(request, product_id):
     prevs_user_rate = UserRate.objects.filter(product_id=product_id).all()
 
     if request.method == 'POST':
+        
         user_rating = Decimal(request.POST['rate'])
-        user_rate = UserRate.objects.filter(product_id=product_id).filter(user=request.user).get()
-        user_rate.rating = user_rating
-        user_rate.save()
+        user_rate_exs = UserRate.objects.filter(user=request.user).filter(product_id=product_id).exists()
+        if not user_rate_exs:
+            product = get_object_or_404(Product, id=product_id)
+            user_rate = UserRate(
+                        user=request.user,
+                        rating=user_rating,
+                        product=product)
+            user_rate.save()
+            Product.update_rating(product, prevs_user_rate)
+        else:
+            user_rate = UserRate.objects.filter(product_id=product_id).filter(user=request.user).get()
+            user_rate.rating = user_rating
+            user_rate.save()
         Product.update_rating(product, prevs_user_rate)
         user_rate.save()
         messages.info(request, "You edited your rating")

@@ -56,10 +56,21 @@ def edit_testimonial(request, product_id):
     testimonials = Testimonial.objects.filter(product_id=product_id).all()
 
     if request.method == 'POST':
-        testimonial_obj = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).get()
-        new_testimonial = request.POST['edit_testimonial_text']
-        testimonial_obj.testimonial_text = new_testimonial
-        testimonial_obj.save()
+        testimonial_exs = Testimonial.objects.filter(user=request.user).filter(product_id=product_id).exists()
+        if not testimonial_exs:
+            new_testimonial = request.POST['edit_testimonial_text']
+            product = get_object_or_404(Product, id=product_id)
+            
+            testimonial_text = Testimonial(
+                            user=request.user,
+                            testimonial_text=new_testimonial,
+                            product=product)
+            testimonial_text.save()
+        else:
+            testimonial_obj = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).get()
+            new_testimonial = request.POST['edit_testimonial_text']
+            testimonial_obj.testimonial_text = new_testimonial
+            testimonial_obj.save()
         messages.info(request, "You edited your testimonial")
         return redirect("product_detail", product_id)
 
@@ -82,5 +93,13 @@ def remove_testimonial(request, product_id):
                 testimonial_obj.delete()
             else:
                 pass
+
+            rating_obj = UserRate.objects.filter(product_id=product_id).filter(user=request.user).exists()
+            if rating_obj:
+                rating_obj  = UserRate.objects.filter(product_id=product_id).filter(user=request.user).get()
+                rating_obj.delete()
+            else:
+                pass
+
     messages.error(request, "You removed your testimonial")
     return redirect("product_detail", product_id)
