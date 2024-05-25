@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from userrate.models import UserRate
 from testimonials.models import Testimonial
 from cart import models
+from django.shortcuts import get_object_or_404
 
 
 @login_required
@@ -34,8 +35,21 @@ def product_review(request):
         context = {'products': products}
         testimonials = Testimonial.objects.filter(user=request.user).all()
         user_rates = UserRate.objects.filter(user=request.user).all()
+        
+        product_review = {}
+        for product in products:
+            product = get_object_or_404(models.Product, pk=product.id)
+            user_rate_exs = UserRate.objects.filter(user=request.user).filter(product_id=product.id).exists()
+            testimonial_exs = Testimonial.objects.filter(user=request.user).filter(product_id=product.id).exists()
+            if user_rate_exs:
+                rate = UserRate.objects.filter(user=request.user).filter(product_id=product.id).get()
+            if testimonial_exs:
+                testimonial = Testimonial.objects.filter(user=request.user).filter(product_id=product.id).get()
+                product_review[product] = rate, testimonial
+        print(product_review)
 
         context = {'products': products,
+                   'range': range(1, 6),
                    'testimonials': testimonials,
                    'user_rates': user_rates}
 

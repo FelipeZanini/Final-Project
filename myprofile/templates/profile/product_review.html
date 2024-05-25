@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load mathfilters %}
 {% block content %}
 
 <!-- 
@@ -125,22 +125,44 @@
     <div class="d-flex justify-content-center row">
         <div class="col-md-10">
             <div class="row p-2 bg-white border rounded">
-                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
-                        src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.product.image}}"></div>
+                <div class="col-md-3 mt-1">
+                    
+                    <a href="{% url 'product_detail' product.product_id %}"
+                            aria-label="click to check the products details">
+                            <img class="img-fluid img-responsive rounded product-image"
+                        src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.product.image}}">
+                        </a>
+                    </div>
+                        
                 <div class="col-md-6 mt-1">
                     <h5>{{product.product.name}}</h5>
 
                     {% for testimonial in testimonials %}
                     {% if testimonial.product_id == product.product.id %}
                     {{ testimonial.testimonial_text }}
-            
                     {% endif %}
                     {% endfor %}
+                    
                     <br>
+
+                    
                     {% for user_rate in user_rates %}
                     {% if user_rate.product_id == product.product.id %}
                     {% if user_rate.rating %}
-                    {{ user_rate.rating }}
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled d-flex product-rating justify-content-start m-0">
+                                {% for n in range %}
+                                {% if user_rate.rating|sub:n >= 0 %}
+                                <li><span class="fas fa-star"></span></li>
+                                {% endif %}
+                                {% endfor %}
+                                <li>
+                                    <p class="mx-1">{{ user_rate.rating }}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                    
                     {% endif %}
                     {% endif %}
@@ -154,12 +176,16 @@
                     <div class="d-flex flex-column mt-4">
 
                         <a class="btn btn-primary btn-sm mt-2 text-white"
+                            href="{% url 'product_detail' product.product_id %}?obj=testimonial"
+                            aria-label="edit your testimonial">Leave Your Review!</a>
+
+                        <a class="btn btn-primary btn-sm mt-2 text-white"
                             href="{% url 'edit_testimonial' product.product_id %}?obj=testimonial"
-                            aria-label="edit your testimonial">Leave or Edit Text Testimonial Only <i class="fa fa-pen"></i></a>
+                            aria-label="edit your testimonial">Leave/Edit Text Testimonial Only <i class="fa fa-pen"></i></a>
 
                         <a class="btn btn-primary btn-sm mt-2 text-white"
                             href="{% url 'edit_rating' product.product_id %}?obj=testimonial"
-                            aria-label="edit your rating">Leave or Edit Rating Only <i class="fa fa-pen"></i></a>
+                            aria-label="edit your rating">Leave/Edit Rating Only <i class="fa fa-pen"></i></a>
 
                         <a class="btn btn-danger btn-sm mt-2 text-white"
                             href="{% url 'remove_testimonial' product.product_id %}?obj=testimonial"
