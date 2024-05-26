@@ -3,6 +3,7 @@
 {% load mathfilters %}
 {% block content %}
 
+
 <!-- 
 <div class="row">
     <div class="col-10 offset-1 mt-5">
@@ -119,54 +120,52 @@
  -->
 
 
-{% if products %}
-{% for product in products %}
+{% if product_review %}
+{% for product, value in product_review.items %}
 <div class="container mt-5 mb-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-10">
             <div class="row p-2 bg-white border rounded">
                 <div class="col-md-3 mt-1">
                     
-                    <a href="{% url 'product_detail' product.product_id %}"
+                    <a href="{% url 'product_detail' product.id %}"
                             aria-label="click to check the products details">
                             <img class="img-fluid img-responsive rounded product-image"
-                        src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.product.image}}">
+                        src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}">
                         </a>
                     </div>
                         
                 <div class="col-md-6 mt-1">
-                    <h5>{{product.product.name}}</h5>
+                    <h5>{{product.name}}</h5>
 
-                    {% for testimonial in testimonials %}
-                    {% if testimonial.product_id == product.product.id %}
-                    {{ testimonial.testimonial_text }}
-                    {% endif %}
-                    {% endfor %}
+                    {% if value.1%}
+                    {{value.1}}
+                    {% else %}
+                    <p>No testimonial text for this product!</p>
+                    {% endif%}
                     
                     <br>
-
                     
-                    {% for user_rate in user_rates %}
-                    {% if user_rate.product_id == product.product.id %}
-                    {% if user_rate.rating %}
+                    {% if value.0%}
                     <div class="row">
                         <div class="col-6">
                             <ul class="list-unstyled d-flex product-rating justify-content-start m-0">
                                 {% for n in range %}
-                                {% if user_rate.rating|sub:n >= 0 %}
+                                {% if value.0|sub:n >= 0 %}
                                 <li><span class="fas fa-star"></span></li>
                                 {% endif %}
                                 {% endfor %}
                                 <li>
-                                    <p class="mx-1">{{ user_rate.rating }}</p>
+                                    <p class="mx-1"> {{value.0}} </p>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                   
-                    {% endif %}
-                    {% endif %}
-                    {% endfor %}
+                    {% else %}
+                    <p>No rating text for this product!</p>
+                    {% endif%}
+                    
+                    
 
 
                 </div>
@@ -176,19 +175,19 @@
                     <div class="d-flex flex-column mt-4">
 
                         <a class="btn btn-primary btn-sm mt-2 text-white"
-                            href="{% url 'product_detail' product.product_id %}?obj=testimonial"
+                            href="{% url 'product_detail' product.id %}?obj=testimonial"
                             aria-label="edit your testimonial">Leave Your Review!</a>
 
                         <a class="btn btn-primary btn-sm mt-2 text-white"
-                            href="{% url 'edit_testimonial' product.product_id %}?obj=testimonial"
+                            href="{% url 'edit_testimonial' product.id %}?obj=testimonial"
                             aria-label="edit your testimonial">Leave/Edit Text Testimonial Only <i class="fa fa-pen"></i></a>
 
                         <a class="btn btn-primary btn-sm mt-2 text-white"
-                            href="{% url 'edit_rating' product.product_id %}?obj=testimonial"
+                            href="{% url 'edit_rating' product.id %}?obj=testimonial"
                             aria-label="edit your rating">Leave/Edit Rating Only <i class="fa fa-pen"></i></a>
 
                         <a class="btn btn-danger btn-sm mt-2 text-white"
-                            href="{% url 'remove_testimonial' product.product_id %}?obj=testimonial"
+                            href="{% url 'remove_testimonial' product.id %}?obj=testimonial"
                             aria-label="remove user testimonial"> Delete Tesmonial <i class="fa fa-trash"></i></a>
 
                     </div>
