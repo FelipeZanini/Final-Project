@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from userrate.models import UserRate
 from testimonials.models import Testimonial
+from django.contrib import messages
 from cart import models
 from .models import AddressProfile
 from django.shortcuts import get_object_or_404
@@ -12,25 +13,44 @@ def profile(request):
     """ Function to render the profile page """
     context = {}
     try:
+        user_address = []
         if request.method == 'POST':
-            address_line = request.POST['address-profile']
-            city = request.POST['city-address-profile']
-            eircode = request.POST['eircode-profile']
-            county = request.POST['county-profile']
-            phone = request.POST['phone-profile']
+            user_address_exists = AddressProfile.objects.filter(user=request.user).exists()
+            if not user_address_exists:
+                address_line = request.POST['address-profile']
+                city = request.POST['city-address-profile']
+                eircode = request.POST['eircode-profile']
+                county = request.POST['county-profile']
+                phone = request.POST['phone-profile']
             
-            address = AddressProfile(
-            user = request.user,
-            address_line=address_line,
-            city=city,
-            eircode=eircode,
-            county =county,
-            phone=phone,)
-            address.save()
-        
-        user_address = AddressProfile.objects.filter(user=request.user).all()
-        messages.info(request, "Your address was successfully submitted")
-        
+                address = AddressProfile(
+                user = request.user,
+                address_line=address_line,
+                city=city,
+                eircode=eircode,
+                county =county,
+                phone=phone,)
+                address.save()
+                user_address = AddressProfile.objects.filter(user=request.user).get()
+                messages.info(request, "Your address was successfully submitted")
+            else:
+                address_line = request.POST['address-profile']
+                city = request.POST['city-address-profile']
+                eircode = request.POST['eircode-profile']
+                county = request.POST['county-profile']
+                phone = request.POST['phone-profile']
+                
+                update_address = get_object_or_404(AddressProfile, user=request.user)
+                update_address.user = request.user
+                update_address.address_line=address_line
+                update_address.city=city
+                update_address.eircode=eircode
+                update_address.county =county
+                update_address.phone=phone
+                update_address.save()
+                
+                messages.info(request, "Your address was successfully updated")
+
         context = {'user_address': user_address}
 
     except TypeError:

@@ -3,41 +3,101 @@
 
 {% block content %}
 <section class="py-5 container-fluid vh-100">
-<div class="container rounded bg-white mt-2 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{request.user}}</span><span class="text-black-50">{{request.user.email}}</span><span> </span></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-1">
-                <div class="d-flex mb-3">
-                    <h4 class="text-right">Proffile Page</h4>
-                </div>
-            
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels" for="address-profile">Address Line:</label><input id="address-profile" name="address-profile" type="text" class="form-control" placeholder="enter address" value=""></div>
-                    <div class="col-md-12"><label class="labels" for="city-address-profile">City:</label><input id="city-address-profile" name="city-address-profile" type="text" class="form-control" placeholder="city" value=""></div>
-                    <div class="col-md-12"><label class="labels" for="eircode-profile">Eircode:</label><input id="eircode-profile" name="eircode-profile" type="text" class="form-control" placeholder="city" value=""></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels" for="county-profile">County:</label><input id="county-profile" name="county-profile" type="text" class="form-control" placeholder="county" value=""></div>
-                    <div class="col-md-6"><label class="labels" for="phone-profile">Phone:</label><input type="text" id="phone-profile" name="phone-profile" class="form-control" value="" placeholder="phone"></div>
-                </div>
-                <div class="mt-5"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+    <div class="container rounded bg-white mt-2 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center"><img class="rounded-circle mt-5"
+                        width="150px"
+                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+                        class="font-weight-bold">{{request.user}}</span><span
+                        class="text-black-50">{{request.user.email}}</span><span> </span></div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"></div><br>
-                <div class="col-md-12 mb-4"><a href="{% url 'product_review' %}" type="button">Please Leave a review!</a></div>
-                <div class="col-md-12"><label class="labels">Order ....</label></div> <br>
-                <div class="col-md-12"><label class="labels">Order ....</label></div>
+            <div class="col-md-5 border-right">
+                <div class="p-1">
+                    <div class="d-flex mb-3">
+                        <h4 class="text-right">Profile Page</h4>
+                    </div>
+                    <form action="{% url 'profile' %}" method="post" name="profile_address">
+                        {% csrf_token %}
+
+                        {% if user_address %}
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels" for="address-profile">Address
+                                    Line:</label><input id="address-profile" name="address-profile" type="text"
+                                    class="form-control text-muted" placeholder="enter address"
+                                    value="{{user_address.address_line}}"></div>
+                            <div class="col-md-12"><label class="labels" for="city-address-profile">City:</label><input
+                                    id="city-address-profile" name="city-address-profile" type="text"
+                                    class="form-control text-muted" placeholder="city" value="{{user_address.city}}">
+                            </div>
+                            <div class="col-md-12"><label class="labels" for="eircode-profile">Eircode:</label><input
+                                    id="eircode-profile" name="eircode-profile" type="text"
+                                    class="form-control text-muted" placeholder="eircode" value="{{user_address.eircode}}">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6"><label class="labels" for="county-profile">County:</label><input
+                                    id="county-profile" name="county-profile" type="text"
+                                    class="form-control text-muted" placeholder="county"
+                                    value="{{user_address.county}}"></div>
+                            <div class="col-md-6"><label class="labels" for="phone-profile">Phone:</label><input
+                                    type="text" id="phone-profile" name="phone-profile" class="form-control text-muted"
+                                    value="{{user_address.phone}}" placeholder="phone"></div>
+                        </div>
+                        <div class="mt-5"><button class="btn btn-primary profile-button" type="submit">Save
+                                Profile</button></div>
+
+
+                        {% else %}
+
+                        <form action="{% url 'profile' %}" method="post" name="profile_address">
+                            {% csrf_token %}
+    
+                            <div class="row mt-3">
+                                <div class="col-md-12"><label class="labels" for="address-profile">Address
+                                        Line:</label><input id="address-profile" name="address-profile" type="text"
+                                        class="form-control" placeholder="enter address"
+                                        value=""></div>
+                                <div class="col-md-12"><label class="labels" for="city-address-profile">City:</label><input
+                                        id="city-address-profile" name="city-address-profile" type="text"
+                                        class="form-control" placeholder="city" value="">
+                                </div>
+                                <div class="col-md-12"><label class="labels" for="eircode-profile">Eircode:</label><input
+                                        id="eircode-profile" name="eircode-profile" type="text"
+                                        class="form-control" placeholder="eircode" value="">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6"><label class="labels" for="county-profile">County:</label><input
+                                        id="county-profile" name="county-profile" type="text"
+                                        class="form-control" placeholder="county"
+                                        value=""></div>
+                                <div class="col-md-6"><label class="labels" for="phone-profile">Phone:</label><input
+                                        type="text" id="phone-profile" name="phone-profile" class="form-control"
+                                        value="" placeholder="phone"></div>
+                            </div>
+                            <div class="mt-5"><button class="btn btn-primary profile-button" type="submit">Save
+                                    Profile</button></div>
+
+                        
+                        {% endif %}
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center experience"></div><br>
+                    <div class="col-md-12 mb-4"><a href="{% url 'product_review' %}" type="button">Please Leave a
+                            review!</a></div>
+                    <div class="col-md-12"><label class="labels">Order ....</label></div> <br>
+                    <div class="col-md-12"><label class="labels">Order ....</label></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-</div>
-</div>
+    </div>
+    </div>
 </section>
 
 
