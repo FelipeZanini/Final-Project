@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from userrate.models import UserRate
 from testimonials.models import Testimonial
 from cart import models
+from .models import AddressProfile
 from django.shortcuts import get_object_or_404
 
 
@@ -11,17 +12,29 @@ def profile(request):
     """ Function to render the profile page """
     context = {}
     try:
-        products = models.OrderItem.objects.filter(user=request.user).all()
-        context = {'products': products}
-        testimonials = Testimonial.objects.filter(user=request.user).all()
-        user_rates = UserRate.objects.filter(user=request.user).all()
-
-        context = {'products': products,
-                   'testimonials': testimonials,
-                   'user_rates': user_rates}
+        if request.method == 'POST':
+            address_line = request.POST['address-profile']
+            city = request.POST['city-address-profile']
+            eircode = request.POST['eircode-profile']
+            county = request.POST['county-profile']
+            phone = request.POST['phone-profile']
+            
+            address = AddressProfile(
+            user = request.user,
+            address_line=address_line,
+            city=city,
+            eircode=eircode,
+            county =county,
+            phone=phone,)
+            address.save()
+        
+        user_address = AddressProfile.objects.filter(user=request.user).all()
+        messages.info(request, "Your address was successfully submitted")
+        
+        context = {'user_address': user_address}
 
     except TypeError:
-        print("No products")
+        messages.info(request, "Sorry, a error has occured!")
 
     return render(request, 'profile/profile.html', context)
 
