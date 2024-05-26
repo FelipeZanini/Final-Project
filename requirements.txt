@@ -71,8 +71,7 @@ jupyterlab_git==0.50.0
 jupyterlab_pygments==0.3.0
 jupyterlab_server==2.25.4
 kiwisolver==1.4.5
-mailchimp-marketing==3.0.75
-MarkupSafe==2.1.5
+
 matplotlib==3.8.3
 matplotlib-inline==0.1.6
 mccabe==0.7.0
