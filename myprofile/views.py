@@ -43,6 +43,7 @@ def product_review(request):
             if previous_product == product:
                 break
             product = get_object_or_404(models.Product, pk=product.id)
+            product_review[product] = []
             previous_product = product
             user_rate_exs = UserRate.objects.filter(user=request.user).filter(product_id=product.id).exists()
             testimonial_exs = Testimonial.objects.filter(user=request.user).filter(product_id=product.id).exists()
@@ -56,7 +57,6 @@ def product_review(request):
                 testimonial = Testimonial.objects.filter(user=request.user).filter(product_id=product.id).get()
                 rate = UserRate.objects.filter(user=request.user).filter(product_id=product.id).get()
                 product_review[product] = [rate.rating, testimonial.testimonial_text]
-            product_review[product] = []
         print(product_review)
         context = {'products': products,
                    'product_review': product_review,
