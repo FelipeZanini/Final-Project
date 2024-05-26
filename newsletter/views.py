@@ -24,8 +24,7 @@ def subscribe_view(request):
                 form_email = form.cleaned_data['email']
                 mailchimp = Client()
                 mailchimp.set_config({
-                    # After I should change to git secret envoriments------
-                    'api_key': "03ffcdbe7160e1dbb9691ad66d7328df-us22",
+                    'api_key': settings.MAILCHIMP_API_KEY,
                 })
                 member_info = {
                     'email_address': form_email,
@@ -36,7 +35,7 @@ def subscribe_view(request):
             }
                 }
                 
-                response = mailchimp.lists.add_list_member("b9adfc5597", member_info, )
+                response = mailchimp.lists.add_list_member(settings.MAILCHIMP_AUDIENCE_ID, member_info, )
                 logger.info(f'API call successful: {response}')
                 return redirect('subscribe_success_view')
 
@@ -70,8 +69,7 @@ def unsubscribe_view(request):
         if form.is_valid():
             mailchimp = Client()
             mailchimp.set_config({
-                    # After I should change to git secret envoriments------
-                    'api_key': "12224ab58c5e8383c4e170eab85d6b19-us22",
+                    'api_key':  settings.MAILCHIMP_API_KEY,
                 })
             try:
                 form_email = form.cleaned_data['email']
@@ -80,7 +78,7 @@ def unsubscribe_view(request):
                     'status': 'unsubscribed',
                 }
                 response = mailchimp.lists.update_list_member(
-                    "b9adfc5597",
+                    settings.MAILCHIMP_AUDIENCE_ID,
                     form_email_hash,
                     member_update,
                 )

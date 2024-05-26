@@ -14,6 +14,7 @@ def profile(request):
     context = {}
     try:
         user_address = []
+        user_address_exists = AddressProfile.objects.filter(user=request.user).exists()
         if request.method == 'POST':
             user_address_exists = AddressProfile.objects.filter(user=request.user).exists()
             if not user_address_exists:
@@ -50,8 +51,25 @@ def profile(request):
                 update_address.save()
                 
                 messages.info(request, "Your address was successfully updated")
+                
+        if user_address_exists:
+            user_address = AddressProfile.objects.filter(user=request.user).get()
 
         context = {'user_address': user_address}
+
+    except TypeError:
+        messages.info(request, "Sorry, a error has occured!")
+
+    return render(request, 'profile/profile.html', context)
+
+@login_required
+def delete_profile_address(request):
+    """ Function to delete profile address """
+    context = {}
+    try:
+        address = get_object_or_404(AddressProfile, user=request.user)
+        address.delete()
+        messages.info(request, "Your address was successfully deleted")
 
     except TypeError:
         messages.info(request, "Sorry, a error has occured!")

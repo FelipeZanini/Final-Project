@@ -32,7 +32,8 @@
                             </div>
                             <div class="col-md-12"><label class="labels" for="eircode-profile">Eircode:</label><input
                                     id="eircode-profile" name="eircode-profile" type="text"
-                                    class="form-control text-muted" placeholder="eircode" value="{{user_address.eircode}}">
+                                    class="form-control text-muted" placeholder="eircode"
+                                    value="{{user_address.eircode}}">
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -46,32 +47,32 @@
                         </div>
                         <div class="mt-5"><button class="btn btn-primary profile-button" type="submit">Save
                                 Profile</button></div>
-
-
+                        
+                                <div class="mt-5"><a href="{%url 'delete_profile_address'%}" class="btn btn-primary profile-button text-white"> Delete Address</a></div>
                         {% else %}
 
                         <form action="{% url 'profile' %}" method="post" name="profile_address">
                             {% csrf_token %}
-    
+
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels" for="address-profile">Address
                                         Line:</label><input id="address-profile" name="address-profile" type="text"
-                                        class="form-control" placeholder="enter address"
-                                        value=""></div>
-                                <div class="col-md-12"><label class="labels" for="city-address-profile">City:</label><input
-                                        id="city-address-profile" name="city-address-profile" type="text"
-                                        class="form-control" placeholder="city" value="">
+                                        class="form-control" placeholder="enter address" value=""></div>
+                                <div class="col-md-12"><label class="labels"
+                                        for="city-address-profile">City:</label><input id="city-address-profile"
+                                        name="city-address-profile" type="text" class="form-control" placeholder="city"
+                                        value="">
                                 </div>
-                                <div class="col-md-12"><label class="labels" for="eircode-profile">Eircode:</label><input
-                                        id="eircode-profile" name="eircode-profile" type="text"
-                                        class="form-control" placeholder="eircode" value="">
+                                <div class="col-md-12"><label class="labels"
+                                        for="eircode-profile">Eircode:</label><input id="eircode-profile"
+                                        name="eircode-profile" type="text" class="form-control" placeholder="eircode"
+                                        value="">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-6"><label class="labels" for="county-profile">County:</label><input
-                                        id="county-profile" name="county-profile" type="text"
-                                        class="form-control" placeholder="county"
-                                        value=""></div>
+                                        id="county-profile" name="county-profile" type="text" class="form-control"
+                                        placeholder="county" value=""></div>
                                 <div class="col-md-6"><label class="labels" for="phone-profile">Phone:</label><input
                                         type="text" id="phone-profile" name="phone-profile" class="form-control"
                                         value="" placeholder="phone"></div>
@@ -79,10 +80,10 @@
                             <div class="mt-5"><button class="btn btn-primary profile-button" type="submit">Save
                                     Profile</button></div>
 
-                        
-                        {% endif %}
 
-                    </form>
+                            {% endif %}
+
+                        </form>
                 </div>
             </div>
             <div class="col-md-4">

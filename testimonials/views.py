@@ -102,4 +102,4 @@ def remove_testimonial(request, product_id):
                 pass
 
     messages.error(request, "You removed your testimonial")
-    return redirect("product_detail", product_id)
+    return redirect("product_review")
