@@ -12,6 +12,7 @@ urlpatterns = [
     path('testimonials/', include('testimonials.urls')),
     path('profile/', include('myprofile.urls')),
     path('edit_rating/', include('userrate.urls')),
+    path('edit_review/', include('testimonials.urls')),
     path('contact_us/', include('contactus.urls')),
 ]
 

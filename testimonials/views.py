@@ -37,16 +37,51 @@ def testimonial(request, product_id):
                             product=product)
             testimonial_text.save()
 
-            if user_rate_exs:
-                user_rate = UserRate.objects.filter(user=request.user).filter(product_id=product_id).get()
-                user_rate.rating=user_rating
-                user_rate.save()
-                Product.update_rating(product, prevs_user_rate)
+            # if user_rate_exs:
+            #     user_rate = UserRate.objects.filter(user=request.user).filter(product_id=product_id).get()
+            #     user_rate.rating=user_rating
+            #     user_rate.save()
+            #     Product.update_rating(product, prevs_user_rate)
+        
+        
         messages.info(request, "Your testimonial was submitted")
         return redirect("product_detail", product_id)
 
     messages.info(request, "Your testimonial was submitted")
     return redirect("product_detail", product_id)
+
+
+@login_required
+def edit_review(request, product_id):
+    """ Function to render the edit testimonial"""
+    product = get_object_or_404(Product, id=product_id)
+    testimonials = Testimonial.objects.filter(product_id=product_id).all()
+    user_has_review = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).all()
+
+    if request.method == 'POST':
+        testimonial_exs = Testimonial.objects.filter(user=request.user).filter(product_id=product_id).exists()
+        if not testimonial_exs:
+            new_testimonial = request.POST['edit_testimonial_text']
+            product = get_object_or_404(Product, id=product_id)
+            
+            testimonial_text = Testimonial(
+                            user=request.user,
+                            testimonial_text=new_testimonial,
+                            product=product)
+            testimonial_text.save()
+        else:
+            testimonial_obj = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).get()
+            new_testimonial = request.POST['edit_testimonial_text']
+            testimonial_obj.testimonial_text = new_testimonial
+            testimonial_obj.save()
+        messages.info(request, "You edited your testimonial")
+        return redirect("product_detail", product_id)
+
+    context = {"product": product,
+               'user_has_review': user_has_review,
+               'range': range(1, 6)}
+
+    return render(request, 'products/product_detail.html', context)
 
 
 @login_required

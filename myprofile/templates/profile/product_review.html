@@ -23,7 +23,7 @@
                     {% if value.1%}
                     {{value.1}}
                     {% else %}
-                    <p>No testimonial text for this product!</p>
+                    <p>Please write a review for this product!</p>
                     {% endif%}
 
                     <br>
@@ -43,8 +43,7 @@
                             </ul>
                         </div>
                     </div>
-                    {% else %}
-                    <p>No rating text for this product!</p>
+                    
                     {% endif%}
 
 
@@ -67,13 +66,13 @@
 
                     <div class="d-flex flex-column">
                         <div class="dropdown">
-                            <button class="btn btn-info btn-sm mt-2 dropdown-toggle text-white" type="button"
+                            <button class="btn btn-info btn-sm mt-2 dropdown-toggle text-white w-100 testimonial-button" type="button"
                                 id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Manage Your Review! <i class="fa fa-pen"></i>
+                                Manage Review!</i>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="btn btn-primary btn-sm mt-2 dropdown-item"
-                                        href="{% url 'product_detail' product.id %}?obj=testimonial"
+                                        href="{% url 'edit_review' product.id %}?obj=testimonial"
                                         aria-label="edit your testimonial">Edit Review! </a></li>
 
                                 <li><a class="btn btn-primary btn-sm mt-2 dropdown-item"
@@ -86,12 +85,14 @@
                                         Rating Only </a></li>
 
                             </ul>
+                            
                         </div>
-
-
+                        
                         <a class="btn btn-danger btn-sm mt-2 text-white"
-                            href="{% url 'remove_testimonial' product.id %}?obj=testimonial"
-                            aria-label="remove user testimonial"> Delete Tesmonial <i class="fa fa-trash"></i></a>
+                        href="{% url 'remove_testimonial' product.id %}?obj=testimonial"
+                        aria-label="remove user testimonial"> Delete Tesmonial</a>
+                        
+
                         {% endif %}
                     </div>
                 </div>

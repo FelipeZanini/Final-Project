@@ -23,32 +23,44 @@
                         {% if user_address %}
                         <div class="row mt-3">
                             <div class="col-md-12"><label class="labels" for="address-profile">Address
-                                    Line:</label><input id="address-profile" name="address-profile" type="text"
+                                    Line:</label><input required id="address-profile" name="address-profile" type="text"
                                     class="form-control text-muted" placeholder="enter address"
                                     value="{{user_address.address_line}}"></div>
-                            <div class="col-md-12"><label class="labels" for="city-address-profile">City:</label><input
+                            <div class="col-md-12"><label class="labels" for="city-address-profile">City:</label><input required
                                     id="city-address-profile" name="city-address-profile" type="text"
                                     class="form-control text-muted" placeholder="city" value="{{user_address.city}}">
                             </div>
-                            <div class="col-md-12"><label class="labels" for="eircode-profile">Eircode:</label><input
+                            <div class="col-md-12"><label class="labels" for="eircode-profile">Eircode:</label><input required
                                     id="eircode-profile" name="eircode-profile" type="text"
                                     class="form-control text-muted" placeholder="eircode"
                                     value="{{user_address.eircode}}">
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels" for="county-profile">County:</label><input
+                            <div class="col-md-6"><label class="labels" for="county-profile">County:</label><input required
                                     id="county-profile" name="county-profile" type="text"
                                     class="form-control text-muted" placeholder="county"
                                     value="{{user_address.county}}"></div>
-                            <div class="col-md-6"><label class="labels" for="phone-profile">Phone:</label><input
+                            <div class="col-md-6"><label class="labels" for="phone-profile">Phone:</label><input required
                                     type="text" id="phone-profile" name="phone-profile" class="form-control text-muted"
                                     value="{{user_address.phone}}" placeholder="phone"></div>
                         </div>
-                        <div class="mt-5"><button class="btn btn-primary profile-button" type="submit">Save
-                                Profile</button></div>
-                        
-                                <div class="mt-5"><a href="{%url 'delete_profile_address'%}" class="btn btn-primary profile-button text-white"> Delete Address</a></div>
+
+
+                        <div class="row mt-3">
+
+
+                            <div class="mt-4 col-md-6"><button class="btn btn-primary profile-button" type="submit">Save
+                                    Address</button></div>
+
+                            <div class="mt-4 col-md-6" >
+                                <a href="{%url 'delete_profile_address'%}"
+                                    class="btn btn-danger profile-button text-white">Delete Address </a>
+                            </div>
+
+                        </div>
+
+
                         {% else %}
 
                         <form action="{% url 'profile' %}" method="post" name="profile_address">
@@ -56,27 +68,29 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels" for="address-profile">Address
-                                        Line:</label><input id="address-profile" name="address-profile" type="text"
+                                        Line:</label><input required id="address-profile" name="address-profile" type="text"
                                         class="form-control" placeholder="enter address" value=""></div>
                                 <div class="col-md-12"><label class="labels"
-                                        for="city-address-profile">City:</label><input id="city-address-profile"
+                                        for="city-address-profile">City:</label><input required id="city-address-profile"
                                         name="city-address-profile" type="text" class="form-control" placeholder="city"
                                         value="">
                                 </div>
                                 <div class="col-md-12"><label class="labels"
-                                        for="eircode-profile">Eircode:</label><input id="eircode-profile"
+                                        for="eircode-profile">Eircode:</label><input required id="eircode-profile"
                                         name="eircode-profile" type="text" class="form-control" placeholder="eircode"
                                         value="">
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-6"><label class="labels" for="county-profile">County:</label><input
+                                <div class="col-md-6"><label class="labels" for="county-profile">County:</label><input required
                                         id="county-profile" name="county-profile" type="text" class="form-control"
                                         placeholder="county" value=""></div>
-                                <div class="col-md-6"><label class="labels" for="phone-profile">Phone:</label><input
+                                <div class="col-md-6"><label class="labels" for="phone-profile">Phone:</label><input required
                                         type="text" id="phone-profile" name="phone-profile" class="form-control"
                                         value="" placeholder="phone"></div>
                             </div>
+
+
                             <div class="mt-5"><button class="btn btn-primary profile-button" type="submit">Save
                                     Profile</button></div>
 
@@ -87,12 +101,13 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center experience"></div><br>
-                    <div class="col-md-12 mb-4"><a href="{% url 'product_review' %}" type="button">Please Leave a
-                            review!</a></div>
-                    <div class="col-md-12"><label class="labels">Order ....</label></div> <br>
-                    <div class="col-md-12"><label class="labels">Order ....</label></div>
+                <div class="pt-5">
+                    <div class="d-flex justify-content-between align-items-center experience">
+                        <p>Please leave a review for your purchase!</p>
+                        <div class=" mb-4"><a href="{% url 'product_review' %}" class="add-cart text-white btn-md"
+                                type="button">Leave a
+                                Review!</a></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,65 +117,4 @@
 </section>
 
 
-<!-- 
-
-<section class="py-5 container-fluid vh-100">
-    <div class="row">
-        <div class="col">
-            <h2 class="logo-font mb-3 mx-2">Welcome {{ request.user}},</h2>
-        </div>
-    </div>
-    
-    {% if products %}
-    <p class="mb-5 mx-2"><strong>Edit or leave a review bellow!</strong></p>
-    <div class="row">
-        {% for item in products %}
-        <div class="row  mt-3">
-            <div class="col-md-2 mb-2">
-                <a href="{% url 'product_detail' item.product.id %}">
-                    <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{item.product.image}}" class="products-image w-100 mx-auto">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                <p class="my-0">
-                    {% for testimonial in testimonials %}
-                    {% if testimonial.product_id == item.product.id %}
-                    {{ testimonial.testimonial_text }}
-                    <a href="{% url 'remove_testimonial' item.product_id %}?obj=testimonial"
-                        aria-label="remove user testimonial"> <i class="fa fa-trash"></i></a>
-                    <a href="{% url 'edit_testimonial' item.product_id %}"> <i class="fa fa-pen"></i></a>
-                    {% endif %}
-                    {% endfor %}
-                </p>
-            </div>
-            <div class="col-md-3 text-right">
-                <p class="my-0 small text-muted">
-                    {% for user_rate in user_rates %}
-                    {% if user_rate.product_id == item.product.id %}
-                    {% if user_rate.rating %}
-                    {{ user_rate.rating }}
-                    <a href="{% url 'edit_rating' item.product_id %}"> <i class="fa fa-pen"></i></a>
-                    {% endif %}
-                    {% endif %}
-                    {% endfor %}
-
-                    {% if not user_rates %}
-                <p class="text-muted">Not rated yet</p>
-                {% endif %}
-                </p>
-            </div>
-        </div>
-        {% endfor %}
-        {% else %}
-        <p class="lead mx-2">Your don't have any testimonails.</p>
-        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-            <span class="icon">
-                <i class="fas fa-chevron-left"></i>
-            </span>
-            <span class="text-uppercase">Keep Shopping</span>
-        </a>
-        {% endif %}
-    </div>
-</section> -->
 {% endblock %}
