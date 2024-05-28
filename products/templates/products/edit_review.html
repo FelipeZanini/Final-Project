@@ -8,9 +8,12 @@
             <div class="image-container my-5">
                 <a>
                     {% if product.image %}
-                    <img class="card-img-top img-fluid" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid"
+                        src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}"
+                        alt="{{ product.name }}">
                     {% else %}
-                    <img class="card-img-top img-fluid" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/no-image-1.jpg">
+                    <img class="card-img-top img-fluid"
+                        src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/no-image-1.jpg">
                     {% endif %}
                 </a>
             </div>
@@ -41,7 +44,8 @@
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
 
-                    <a href="/products/" data-product="{{product.id}}" data-action="add" class="updateBttns" aria-label="click to add product to bag">
+                    <a href="/products/" data-product="{{product.id}}" data-action="add" class="updateBttns"
+                        aria-label="click to add product to bag">
                         <span class="btn btn-black rounded-0 text-uppercase  add-cart">Add to cart</span>
                     </a>
 
@@ -60,12 +64,13 @@
             <h2 class="mb-4 edit-products-reviews">Reviews</h2>
         </div>
         <div class="row g-2 mb-5">
-            
+
             {% for text in testimonials %}
             <div class="col-md-4">
                 <div class="card p-3 text-center px-4">
                     <div class="user-image">
-                        <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/user1.png" class="rounded-circle" width="80">
+                        <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/user1.png"
+                            class="rounded-circle" width="80">
                     </div>
                     <div class="user-content">
                         <h5 class="mb-0">{{text.user}}</h5>
@@ -83,14 +88,13 @@
             </div>
             {% endfor %}
         </div>
-        
-        {% if review_permission %}
 
-        {% if not user_has_review %}
 
-        <h3 class="edit-products-reviews">Leave Your Feeback</h3>
+        {% if manage_review %}
+        <h3 class="edit-products-reviews">Edit Your Feeback</h3>
 
-        <form method="post" action="{% url 'testimonial' product.id %}" method="post" name="testimonial_form" id="testimonial_form">
+        <form method="post" action="{% url 'edit_review' product.id %}" method="post" name="testimonial_form"
+            id="testimonial_form">
             {% csrf_token %}
             <label for="testimonial">Feedback:</label><br>
             <textarea id="testimonial" name="testimonial" rows="4" cols="50" required
@@ -109,11 +113,8 @@
                 <label for="star1" title="text">1 star</label>
             </div>
             <input type="submit" class="shop-link" value="Submit">
-        {% endif %}
+            {% endif %}
 
-        {% endif %}
-        
-        
     </div>
 
 
