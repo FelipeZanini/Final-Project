@@ -43,7 +43,10 @@ def subscribe_view(request):
             except ApiClientError as error:
                 logger.error(f'An exception occurred: {error.text}')
                 print(error.text)
-                return redirect('subscribe_fail_view')
+                return render(request, 'newsletter/message.html', {
+                            'title': 'Failed to subscribe',
+                            'message': error.text,
+    })
 
     return render(request, 'newsletter/subscribe.html', {
         'form': EmailForm(),
