@@ -106,13 +106,13 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'fezin.wsgi.application'
 
-# DATABASES = {
-#         'default': dj_database_url.parse('postgres://vfkdlnlb:S6ztu9lD3EY_yU7fmyxCP5_3QjYQMlLv@trumpet.db.elephantsql.com/vfkdlnlb')
-#     }
-
 DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse('postgres://vfkdlnlb:S6ztu9lD3EY_yU7fmyxCP5_3QjYQMlLv@trumpet.db.elephantsql.com/vfkdlnlb')
     }
+
+# DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#     }
 
 
 # DATABASES = {
@@ -181,5 +181,5 @@ STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET')
 
 MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_SECRET')
-MAILCHIMP_REGION = 'US'
+MAILCHIMP_DATA_CENTER = os.environ.get('MAILCHIMP_DATA_CENTER')
 MAILCHIMP_AUDIENCE_ID = os.environ.get('MAILCHIMP_AUDIENCE_ID')

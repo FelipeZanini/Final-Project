@@ -25,6 +25,7 @@ def subscribe_view(request):
                 mailchimp = Client()
                 mailchimp.set_config({
                     'api_key': settings.MAILCHIMP_API_KEY,
+                    'server': settings.MAILCHIMP_DATA_CENTER,
                 })
                 member_info = {
                     'email_address': form_email,
@@ -70,6 +71,7 @@ def unsubscribe_view(request):
             mailchimp = Client()
             mailchimp.set_config({
                     'api_key':  settings.MAILCHIMP_API_KEY,
+                    'server': settings.MAILCHIMP_DATA_CENTER,
                 })
             try:
                 form_email = form.cleaned_data['email']
