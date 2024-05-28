@@ -11,10 +11,17 @@
             <div class="row p-2 bg-white border rounded">
                 <div class="col-md-3 mt-1">
 
+                    {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}" aria-label="click to check the products details">
                         <img class="img-fluid img-responsive rounded product-image"
                             src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}">
                     </a>
+                        {% else %}
+                        <img class="img-fluid img-responsive rounded product-image"
+                            src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/no-image-1.jpg">
+                    </a>
+                        {% endif %}
+
                 </div>
 
                 <div class="col-md-6 mt-1">

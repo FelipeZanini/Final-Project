@@ -580,6 +580,10 @@ In the Testing section of the README, I extensively conducted manual testing to 
 ![image](/readme/PROFILE_HTML_VALIDATOR.png)
 
 
+- Product Review Page
+![image](/readme/HTML_VALIDATOR_PRODUCT_REVIEW.png)
+
+
 </details>
 
 # CSS Validator
