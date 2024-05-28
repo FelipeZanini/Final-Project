@@ -63,9 +63,10 @@
                     <div class="d-flex flex-column">
 
                         {% if not value %}
-                        <a style="pointer-events: none;" class="btn btn-success btn-sm mt-2 text-white"
+                        <a class="btn btn-success btn-sm mt-2 text-white"
                             href="{% url 'product_detail' product.id %}?obj=testimonial"
                             aria-label="edit your testimonial">Leave Your Review! </a>
+                            
                         {% endif %}
 
                         {% if value %}
