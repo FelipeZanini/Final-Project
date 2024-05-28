@@ -10,6 +10,14 @@ from mailchimp_marketing.api_client import ApiClientError
 import logging
 import os
 
+import urllib3, socket
+from urllib3.connection import HTTPConnection
+    
+HTTPConnection.default_socket_options = ( 
+        HTTPConnection.default_socket_options + [
+        (socket.SOL_SOCKET, socket.SO_SNDBUF, 1000000), #1MB in byte
+        (socket.SOL_SOCKET, socket.SO_RCVBUF, 1000000)])
+
 
 
 logger = logging.getLogger(__name__)
