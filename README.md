@@ -191,13 +191,16 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
  ![image](/readme/PRODUCT_DETAIL_WIREFRAME.png)
 
 - Profile Page:
- ![image](/readme/PROFILE_WIREFRAME.png) 
+ ![image](/readme/Profile_update_wireframe.png) 
 
 - Wishlist Page:
  ![image](/readme/WISHLIST_WIREFRAME.png)
 
-- Newsletter Page:
- ![image](/readme/NEWSLETTERS_WIREFRAME.png)
+ - Newsletter Page:
+ ![image](/readme/newsletter_wireframe.png)
+
+- Contact Us Page:
+ ![image](/readme/contact_us_wireframe_update.png)
 
 - Reviews Page:
  ![image](/readme/ADD_REVIEW_WIREFRAME.png)
