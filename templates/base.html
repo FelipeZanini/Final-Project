@@ -127,7 +127,7 @@
                       class="fa fa-envelope-open"></i>Newsletter</a></li>
                 <li>
                 <li><a class="dropdown-item" href="{% url 'contact_us' %}" aria-label="contact_us"><i
-                      class="fa fa-envelope-open"></i>Contact Us</a></li>
+                      class="fa fa-comment"></i>Contact Us</a></li>
                 <li>
                   <form method="post" action="{% url 'account_logout' %}">
                     {% csrf_token %}
@@ -145,7 +145,7 @@
                 <li>
 
                 <li><a class="dropdown-item" href="{% url 'contact_us' %}" aria-label="contact_us"><i
-                      class="fa fa-envelope-open"></i>Contact Us</a></li>
+                      class="fa fa-comment"></i>Contact Us</a></li>
                 <li>
                   {% endif %}
               </ul>

@@ -25,9 +25,17 @@
                     </div>
 
                     <div class="row">
+                        
+                        {% if item.image %}
                         <div class="col-12 col-sm-6 mb-2">
-                            <img class="img-fluid rounded" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{item.image}}" alt="{{ item.name }}">
+                        <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{item.image}}" class="img-fluid rounded" />
                         </div>
+                        {% else %}
+                        <div class="col-12 col-sm-6 mb-2">
+                            <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/no-image-1.jpg" class="img-fluid rounded" />
+                        </div>
+                        {% endif %} 
+
                         <div class="col-12 col-sm-6 mb-2">
                             <p class="my-0"><strong>{{ item.name }}</strong></p>
                             <p class="my-0 small text-muted">SKU: {{ item.sku|upper }}</p>
@@ -102,7 +110,14 @@
                         {{item.image.url}}
                         <tr>
                             <td class="p-3 w-25">
-                                <img class="img-fluid rounded" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{item.image}}" alt="{{ item.name }}">
+                                {% if item.image %}
+            
+                        <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{item.image}}" class="img-fluid rounded" />
+                        {% else %}
+    
+                            <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/no-image-1.jpg" class="img-fluid rounded" />
+        
+                        {% endif %} 
                             </td>
                             <td class="py-3">
                                 <p class="my-0"><strong>{{ item.name }}</strong></p>
