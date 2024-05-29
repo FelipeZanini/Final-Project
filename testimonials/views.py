@@ -19,7 +19,7 @@ def testimonial(request, product_id):
         user_rate_exs = UserRate.objects.filter(user=request.user).filter(product_id=product_id).exists()
         testimonial_exs = Testimonial.objects.filter(user=request.user).filter(product_id=product_id).exists()
         prevs_user_rate = UserRate.objects.filter(product_id=product_id).all()
-
+    
         if not user_rate_exs:
             user_rate = UserRate(
                         user=request.user,
@@ -65,6 +65,20 @@ def edit_review(request, product_id):
         Product.update_rating(product, prevs_user_rate)
         messages.info(request, "You updated your review!")
         return redirect("product_detail", product_id)
+
+    else:
+        testimonial_exs = Testimonial.objects.filter(user=request.user).filter(product_id=product_id).exists()
+        if testimonial_exs:
+            testimonial_obj = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).get()
+        else:
+            messages.warning(request, "You can only update your own reviews.")
+            return redirect("product_detail", product_id)
+
+    context = {"product": product,
+               'manage_review': manage_review,
+               "testimonial_obj": testimonial_obj,
+               'range': range(1, 6)}
+
 
     context = {"product": product,
                'manage_review': manage_review,

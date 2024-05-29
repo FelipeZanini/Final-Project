@@ -98,19 +98,19 @@
             {% csrf_token %}
             <label for="testimonial">Feedback:</label><br>
             <textarea id="testimonial" name="testimonial" rows="4" cols="50" required
-                maxlength="100"></textarea><br><br>
-
-            <div class="rate">
-                <input required type="radio" id="star5" name="rate" value="5" />
-                <label for="star5" title="text">5 stars</label>
-                <input required type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">4 stars</label>
-                <input required type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">3 stars</label>
-                <input required type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">2 stars</label>
-                <input required type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">1 star</label>
+            maxlength="100" >{{ testimonial_obj.testimonial_text }}</textarea><br><br>
+        
+        <div class="rate">
+            <input required type="radio" id="star5" name="rate" value="5" {% if testimonial_obj and testimonial_obj.user_rating|stringformat:"s" == "5.00" %} checked{% endif %}/>
+            <label for="star5" title="text">5 stars</label>
+            <input required type="radio" id="star4" name="rate" value="4" {% if testimonial_obj and testimonial_obj.user_rating|stringformat:"s" == "4.00" %} checked{% endif %}/>
+            <label for="star4" title="text">4 stars</label>
+            <input required type="radio" id="star3" name="rate" value="3" {% if testimonial_obj and testimonial_obj.user_rating|stringformat:"s" == "3.00" %} checked{% endif %}/>
+            <label for="star3" title="text">3 stars</label>
+            <input required type="radio" id="star2" name="rate" value="2" {% if testimonial_obj and testimonial_obj.user_rating|stringformat:"s" == "2.00" %} checked{% endif %}/>
+            <label for="star2" title="text">2 stars</label>
+            <input required type="radio" id="star1" name="rate" value="1" {% if testimonial_obj and testimonial_obj.user_rating|stringformat:"s" == "1.00" %} checked{% endif %}/>
+            <label for="star1" title="text">1 star</label>
             </div>
             <input type="submit" class="shop-link" value="Submit">
             {% endif %}
