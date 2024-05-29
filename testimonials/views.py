@@ -81,22 +81,13 @@ def edit_testimonial(request, product_id):
 
     if request.method == 'POST':
         testimonial_exs = Testimonial.objects.filter(user=request.user).filter(product_id=product_id).exists()
-        if not testimonial_exs:
-            new_testimonial = request.POST['edit_testimonial_text']
-            product = get_object_or_404(Product, id=product_id)
-            
-            testimonial_text = Testimonial(
-                            user=request.user,
-                            testimonial_text=new_testimonial,
-                            product=product)
-            testimonial_text.save()
-        else:
+        if testimonial_exs:
             testimonial_obj = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).get()
             new_testimonial = request.POST['edit_testimonial_text']
             testimonial_obj.testimonial_text = new_testimonial
             testimonial_obj.save()
-        messages.info(request, "You edited your testimonial")
-        return redirect("product_detail", product_id)
+            messages.info(request, "You edited your testimonial")
+            return redirect("product_detail", product_id)
 
     context = {"product": product,
                'edit_review': edit_review,
