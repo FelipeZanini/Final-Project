@@ -37,6 +37,14 @@ def cart(request):
 
 def wishlist(request):
     """ View to render wishlist template  """
+    send_mail(
+        "Order:",
+        "Thank you for your purchase, we are glad to have you shopping with us.",
+        'felipezanini71@gmail.com',
+        ['felipe_zanini@hotmail.com']
+        )
+
+
     context = {}
     try:
         wishlist_data = json.loads(request.COOKIES['wishlist'])
