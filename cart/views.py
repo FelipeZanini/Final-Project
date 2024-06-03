@@ -128,10 +128,9 @@ def checkout_success(request, order_number):
                                          order__order_number=order_number)
     order_item = models.OrderItem.objects.filter(order=order).all()
     order_total = False
-    context = {'order': order, 'shipping_address': shipping_address,
-               'order_item': order_item, 'order_total': order_total}
+
     try:
-        email = order.email
+        email = request.user.email
         send_mail(
             subject= "Order:",
             message= "Thank you for your purchase, we are glad to have you shopping with us.",
@@ -139,5 +138,8 @@ def checkout_success(request, order_number):
             recipient_list= email)
     except:
         print("Email not sent!")
+
+    context = {'order': order, 'shipping_address': shipping_address,
+               'order_item': order_item, 'order_total': order_total} 
 
     return render(request, 'cart/checkout_success.html', context)
