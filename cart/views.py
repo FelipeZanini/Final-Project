@@ -37,7 +37,6 @@ def cart(request):
 
 def wishlist(request):
     """ View to render wishlist template  """
-    email = models.User.objects.filter(user=request.user).get()
     context = {}
     try:
         wishlist_data = json.loads(request.COOKIES['wishlist'])
@@ -132,10 +131,10 @@ def checkout_success(request, order_number):
     context = {'order': order, 'shipping_address': shipping_address,
                'order_item': order_item, 'order_total': order_total}
     try:
-        email = models.User.objects.filter(user=request.user).get()
+        email = order.email
         send_mail(
-            subject= "Order:" + str(order.number),
-            message= "Thank you for your purchase, we are glad to have you shopping with us. Delivery Cost:" + str(order.delivery_cost) + "," + str(order.grand_total).
+            subject= "Order:",
+            message= "Thank you for your purchase, we are glad to have you shopping with us.",
             from_email= settings.EMAIL_HOST_USER,
             recipient_list= email)
     except:
