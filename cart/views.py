@@ -37,14 +37,6 @@ def cart(request):
 
 def wishlist(request):
     """ View to render wishlist template  """
-    send_mail(
-        "Order:",
-        "Thank you for your purchase, we are glad to have you shopping with us.",
-        'felipezanini71@gmail.com',
-        ['felipe_zanini@hotmail.com']
-        )
-
-
     context = {}
     try:
         wishlist_data = json.loads(request.COOKIES['wishlist'])
@@ -138,14 +130,15 @@ def checkout_success(request, order_number):
     order_total = False
 
     try:
-        email = request.user.email
         send_mail(
-            subject= "Order:",
-            message= "Thank you for your purchase, we are glad to have you shopping with us.",
-            from_email= settings.EMAIL_HOST_USER,
-            recipient_list= email)
+        f"Order: {order_number.order_number}",
+        f"Thank you for your purchase, we are glad to have you shopping with us. Grand Total:{order.grant_total} $,{order.date_ordered}",
+        settings.DEFAULT_FROM_EMAIL,
+        [request.user.email]
+        )
     except:
         print("Email not sent!")
+    
 
     context = {'order': order, 'shipping_address': shipping_address,
                'order_item': order_item, 'order_total': order_total} 
