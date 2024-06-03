@@ -129,15 +129,14 @@ def checkout_success(request, order_number):
     order_item = models.OrderItem.objects.filter(order=order).all()
     order_total = False
 
-    try:
-        send_mail(
+
+    send_mail(
         f"Order: {order_number.order_number}",
         f"Thank you for your purchase, we are glad to have you shopping with us. Grand Total:{order.grant_total} $,{order.date_ordered}",
         settings.DEFAULT_FROM_EMAIL,
         [request.user.email]
         )
-    except:
-        print("Email not sent!")
+
     
 
     context = {'order': order, 'shipping_address': shipping_address,
