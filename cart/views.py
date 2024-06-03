@@ -48,6 +48,7 @@ def wishlist(request):
         unit_price = get_object_or_404(Product, id=items_id).price
         wishlist_items += Product.objects.filter(id=items_id).all()
         context = {'wishlist_items': wishlist_items, 'unit_price': unit_price}
+    
     return render(request, 'cart/wishlist.html', context)
 
 
@@ -131,8 +132,8 @@ def checkout_success(request, order_number):
 
 
     send_mail(
-        f"Order: {order_number.order_number}",
-        f"Thank you for your purchase, we are glad to have you shopping with us. Grand Total:{order.grant_total} $,{order.date_ordered}",
+        "Order:" + str(order_number.order_number),
+        "Thank you for your purchase, we are glad to have you shopping with us. Grand Total:" + str(order.grant_total),
         settings.DEFAULT_FROM_EMAIL,
         [request.user.email]
         )
