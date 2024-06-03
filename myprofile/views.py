@@ -57,6 +57,7 @@ def profile(request):
 
         context = {'user_address': user_address}
 
+    
     except TypeError:
         messages.info(request, "Sorry, a error has occured!")
 

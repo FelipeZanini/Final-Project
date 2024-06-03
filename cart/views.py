@@ -132,8 +132,8 @@ def checkout_success(request, order_number):
 
 
     send_mail(
-        "Order:" + str(order.order_number),
-        "Thank you for your purchase, we are glad to have you shopping with us. Grand Total:" + str(order.grand_total),
+        "Order: " + str(order.order_number) +" " +str(order.date_ordered),
+        "Thank you for your purchase, we are glad to have you shopping with us.",
         settings.DEFAULT_FROM_EMAIL,
         [request.user.email]
         )
