@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<section class="py-5 container-fluid vh-100">
+<section class="py-4 container-fluid vh-100">
     <div class="container rounded bg-white mt-2 mb-5">
         <div class="row">
             <div class="col-md-3 border-right">
@@ -95,7 +95,7 @@
                             </div>
 
 
-                            <div class="mt-5"><button class="btn btn-primary profile-button" type="submit">Save
+                            <div class="mt-3"><button class="btn btn-primary profile-button" type="submit">Save
                                     Profile</button></div>
 
 
@@ -110,44 +110,26 @@
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
-                                <th>Order Details</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
+                                <th style="font-size: 15px;">
+                                    Please review these products:</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for order in orders %}
+                            {% for product in products %}
                             <tr>
-                                <td>
-                                    <a href="{% url 'checkout_success' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                        {{ order.order_number|truncatechars:6 }}
-                                    </a>
-                                </td>
-                                <td>{{ order.date_ordered }}</td>
-                                <td>
-                                    <ul class="list-unstyled">
-                                        {% for item in order.orderitem_set.all %}
-                                        <li class="small">
-                                            {{item.product}}
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
-                                </td>
-                                <td>${{ order.grand_total }}</td>
+                                <td class="text-muted" style="font-size: 13px;">{{ product }}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>
 
-                <div class="pt-5">
+                <div class="pt-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <p>Please leave a review for your purchase!</p>
-                        <div class=" mb-4"><a href="{% url 'product_review' %}" class="add-cart text-white btn-md"
-                                >Leave a
-                                Review!</a></div>
+                        <div class=" mb-4">
+                    <a href="{% url 'product_review' %}" class="add-cart text-white btn-md">
+                            Leave a Review!
+                            </a></div>
                     </div>
                 </div>
             </div>

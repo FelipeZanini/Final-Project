@@ -14,6 +14,11 @@ def profile(request):
     context = {}
     try:
         user_address = []
+        products = models.OrderItem.objects.filter(user=request.user).all()
+        unique_products = []
+        for product in products:
+            if product.product.name not in unique_products:
+                unique_products.append(product.product.name)
         user_address_exists = AddressProfile.objects.filter(user=request.user).exists()
         if request.method == 'POST':
             user_address_exists = AddressProfile.objects.filter(user=request.user).exists()
@@ -55,12 +60,14 @@ def profile(request):
         if user_address_exists:
             user_address = AddressProfile.objects.filter(user=request.user).get()
 
-        context = {'user_address': user_address}
+        
+        context = {'user_address': user_address,
+                    'products': unique_products}
 
     
     except TypeError:
         messages.info(request, "Sorry, a error has occured!")
-
+    
     return render(request, 'profile/profile.html', context)
 
 @login_required

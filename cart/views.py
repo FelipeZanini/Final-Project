@@ -8,6 +8,7 @@ from django.views.decorators.http import require_POST
 import stripe
 
 from products.models import Product
+from myprofile.models import AddressProfile
 from fezin import settings
 from . import models
 from .forms import ShippingAddressForm
@@ -37,6 +38,7 @@ def cart(request):
 
 def wishlist(request):
     """ View to render wishlist template  """
+
     context = {}
     try:
         wishlist_data = json.loads(request.COOKIES['wishlist'])
@@ -61,6 +63,11 @@ def checkout(request):
     form = ShippingAddressForm()
     context['form'] = form
     context['stripe_public_key'] = stripe_public_key
+
+    address_profile = AddressProfile.objects.filter(user=request.user).all()    
+    if address_profile: 
+        context['address_profile'] = address_profile
+        
 
     if request.method == 'POST':
         form = ShippingAddressForm(request.POST)

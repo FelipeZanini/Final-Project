@@ -28,6 +28,10 @@ a {
     text-decoration: none;
 }
 
+a:hover > span {
+    color: #000000;
+}
+
 a:hover,
 a:active,
 a:focus {
