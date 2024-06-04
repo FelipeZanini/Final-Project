@@ -60,20 +60,22 @@ def checkout(request):
     context = cart_data(request)
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    form = ShippingAddressForm()
-    context['form'] = form
     context['stripe_public_key'] = stripe_public_key
 
     try:
         address_profile = AddressProfile.objects.filter(user=request.user).all()    
-        if address_profile: 
-            form.fields['address'].initial = address_profile.address_line
-            form.fields['city'].initial = address_profile.city
-            form.fields['county'].initial = address_profile.county
-            form.fields['eircode'].initial = address_profile.eircode
+        if address_profile:
+            initial_dict = {
+                'address' : address_profile.address_line,
+                'city' : address_profile.city,
+                'county' : address_profile.county,
+                'eircode' : address_profile.eircode
+            } 
     except:
         print("No saved address info!")
-        
+    
+    form = ShippingAddressForm(request.POST or None, initial = initial_dict)
+    context['form'] = form
 
     if request.method == 'POST':
         form = ShippingAddressForm(request.POST)
