@@ -64,9 +64,15 @@ def checkout(request):
     context['form'] = form
     context['stripe_public_key'] = stripe_public_key
 
-    address_profile = AddressProfile.objects.filter(user=request.user).all()    
-    if address_profile: 
-        context['address_profile'] = address_profile
+    try:
+        address_profile = AddressProfile.objects.filter(user=request.user).all()    
+        if address_profile: 
+            form.fields['address'].initial = address_profile.address_line
+            form.fields['city'].initial = address_profile.city
+            form.fields['county'].initial = address_profile.county
+            form.fields['eircode'].initial = address_profile.eircode
+    except:
+        print("No saved address info!")
         
 
     if request.method == 'POST':
