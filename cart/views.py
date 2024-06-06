@@ -62,8 +62,9 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     context['stripe_public_key'] = stripe_public_key
 
+    initial_dict = {}
     try:
-        address_profile = AddressProfile.objects.filter(user=request.user).all()    
+        address_profile = AddressProfile.objects.filter(user=request.user).get()    
         if address_profile:
             initial_dict = {
                 'address' : address_profile.address_line,
