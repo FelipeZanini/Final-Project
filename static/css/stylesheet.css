@@ -28,14 +28,14 @@ a {
     text-decoration: none;
 }
 
-a:hover > span {
-    color: #000000;
+a:hover  span {
+    color: #00000000!important;
 }
 
 a:hover,
 a:active,
 a:focus {
-    color: #6f051a !important;
+    color: none !important;
     text-decoration: none;
     cursor: pointer;
 }
