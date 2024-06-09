@@ -67,18 +67,17 @@ def edit_review(request, product_id):
         return redirect("product_detail", product_id)
 
     else:
-        testimonial_exs = Testimonial.objects.filter(user=request.user).filter(product_id=product_id).exists()
-        if testimonial_exs:
+        try:
             testimonial_obj = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).get()
-        else:
-            messages.warning(request, "You can only update your own reviews.")
-            return redirect("product_detail", product_id)
-
-        context = {"product": product,
+            context = {"product": product,
                    "manage_review": manage_review,
                    "testimonial_obj": testimonial_obj,
                    "range": range(1, 6)}
-        return render(request, 'products/edit_review.html', context)
+            return render(request, 'products/edit_review.html', context)
+        except:
+            messages.warning(request, "You can only update your own reviews.")
+            return redirect("product_detail", product_id)
+
 
     context = {"product": product,
                'manage_review': manage_review,
@@ -91,22 +90,24 @@ def edit_review(request, product_id):
 def edit_testimonial(request, product_id):
     """ Function to render the edit testimonial"""
     product = get_object_or_404(Product, id=product_id)
-    testimonials = Testimonial.objects.filter(product_id=product_id).all()
-
+    
     if request.method == 'POST':
-        testimonial_exs = Testimonial.objects.filter(user=request.user).filter(product_id=product_id).exists()
-        if testimonial_exs:
-            testimonial_obj = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).get()
-            new_testimonial = request.POST['edit_testimonial_text']
-            testimonial_obj.testimonial_text = new_testimonial
-            testimonial_obj.save()
-            messages.info(request, "You edited your testimonial")
-            return redirect("product_detail", product_id)
+        testimonial_obj = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).get()
+        new_testimonial = request.POST['edit_testimonial_text']
+        testimonial_obj.testimonial_text = new_testimonial
+        testimonial_obj.save()
+        messages.info(request, "You edited your testimonial")
+        return redirect("product_detail", product_id)
+    try:
+        testimonial_obj = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).get()
+        context = {"product": product,
+                'testimonial_obj' : testimonial_obj}
+        return render(request, 'products/edit_testimonial.html', context)
+    except:
+        messages.warning(request, "You can only update your own testimonials.")
+        return redirect("product_detail", product_id)
 
-    context = {"product": product,
-               'edit_review': edit_review,
-               'testimonials': testimonials,
-               'range': range(1, 6)}
+    context = {"product": product}
 
     return render(request, 'products/edit_testimonial.html', context)
 

@@ -58,35 +58,10 @@
             {% csrf_token %}
             <label for="edit_testimonial_text">Testimonial:</label><br>
             <textarea id="edit_testimonial_text" name="edit_testimonial_text" rows="4" cols="50" required
-                maxlength="100"></textarea><br><br>
+                maxlength="100"
+                >{% if testimonial_obj %}{{testimonial_obj.testimonial_text}}{% endif %}</textarea><br><br>
             <input type="submit" class="shop-link" value="Submit">
         </form>
 
-        <div class="col-12">
-            <h2 class="mb-2 mt-4 edit-products-reviews">Reviews</h2>
-        </div>
-
-        <div class="row g-2 mb-5">
-            {% for text in testimonials %}
-            <div class="col-md-4">
-                <div class="card p-3 text-center px-4">
-                    <div class="user-image">
-                        <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/user1.png" class="rounded-circle" width="80">
-                    </div>
-                    <div class="user-content">
-                        <h5 class="mb-0">{{text.user}}</h5>
-                        <p>{{text.testimonial_text}}</p>
-                        <ul class="list-unstyled d-flex product-rating justify-content-center m-0">
-                            {% for n in range %}
-                            {% if text.user_rating.rating|sub:n >= 0 %}
-                            <li><span class="fas fa-star"></span></li>
-                            {% endif %}
-                            {% endfor %}
-                            <p class="mx-1">{{text.user_rating.rating}}</p>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
 </section>
 {% endblock %}
