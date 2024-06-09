@@ -102,13 +102,8 @@ LOGIN_REDIRECT_URL = '/'
 WSGI_APPLICATION = 'fezin.wsgi.application'
 
 
-# DATABASES = {
-#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#     }
-
-    
 DATABASES = {
-        'default': dj_database_url.parse('postgres://vfkdlnlb:S6ztu9lD3EY_yU7fmyxCP5_3QjYQMlLv@trumpet.db.elephantsql.com/vfkdlnlb')
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
 
