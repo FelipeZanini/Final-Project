@@ -225,7 +225,7 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
 ## Entity–Relationship Model
 <details>
 
- ![image](/readme/graphviz.png)
+ ![image](/readme/new_diagram.png)
 </details>
 
 ## Database Choice
