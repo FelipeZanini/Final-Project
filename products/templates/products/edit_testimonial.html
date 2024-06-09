@@ -6,7 +6,11 @@
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
-                <img class="card-img-top img-fluid" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}" alt="{{ product.name }}">
+                {% if product.image %}
+                    <img class="card-img-top img-fluid" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}" alt="{{ product.name }}">
+                    {% else %}
+                    <img class="card-img-top img-fluid" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/no-image-1.jpg">
+                    {% endif %}
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
