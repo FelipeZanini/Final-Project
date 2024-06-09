@@ -74,11 +74,11 @@ def edit_review(request, product_id):
             messages.warning(request, "You can only update your own reviews.")
             return redirect("product_detail", product_id)
 
-    context = {"product": product,
-               'manage_review': manage_review,
-               "testimonial_obj": testimonial_obj,
-               'range': range(1, 6)}
-
+        context = {"product": product,
+                   "manage_review": manage_review,
+                   "testimonial_obj": testimonial_obj,
+                   "range": range(1, 6)}
+        return render(request, 'products/edit_review.html', context)
 
     context = {"product": product,
                'manage_review': manage_review,
