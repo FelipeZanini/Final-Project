@@ -12,21 +12,28 @@ from cart.models import Product
 def edit_rating(request, product_id):
     """ Function to render the edit rating page"""
     product = get_object_or_404(Product, id=product_id)
-    testimonials = Testimonial.objects.filter(product_id=product_id).all()
     prevs_user_rate = UserRate.objects.filter(product_id=product_id).all()
 
     if request.method == 'POST':
-        user_rate_exs = UserRate.objects.filter(user=request.user).filter(product_id=product_id).exists()
-        if user_rate_exs:
-            user_rate = UserRate.objects.filter(product_id=product_id).filter(user=request.user).get()
-            user_rate.rating = user_rating
-            user_rate.save()
-            Product.update_rating(product, prevs_user_rate)
-            messages.info(request, "You edited your rating")
-            return redirect("product_detail", product_id)
+        user_rate = UserRate.objects.filter(product_id=product_id).filter(user=request.user).get()
+        user_rating = Decimal(request.POST['rate'])
+        user_rate.rating = user_rating
+        user_rate.save()
+        Product.update_rating(product, prevs_user_rate)
+        messages.info(request, "You edited your rating")
+        return redirect("product_detail", product_id)
+    
+    try:
+        testimonial_obj = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).get()
+        context = {"product": product,
+                   "testimonial_obj": testimonial_obj,
+                   }
+        return render(request, 'products/edit_rating.html', context)
+    except:
+        messages.warning(request, "You can only update your own rating.")
+        return redirect("product_detail", product_id)
 
-    context = {"product": product,
-               'testimonials': testimonials,
-               'range': range(1, 6)}
+
+    context = {"product": product}
 
     return render(request, 'products/edit_rating.html', context)

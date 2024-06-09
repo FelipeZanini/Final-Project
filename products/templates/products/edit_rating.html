@@ -9,90 +9,67 @@
             id="edit_rating">
             {% csrf_token %}
             <div class="rate">
-                <input required type="radio" id="star5" name="rate" value="5" />
+                <input required type="radio" id="star5" name="rate" value="5" {% if testimonial_obj and testimonial_obj.user_rating|stringformat:"s" == "5.00" %} checked{% endif %}/>
                 <label for="star5" title="text">5 stars</label>
-                <input required type="radio" id="star4" name="rate" value="4" />
+                <input required type="radio" id="star4" name="rate" value="4" {% if testimonial_obj and testimonial_obj.user_rating|stringformat:"s" == "4.00" %} checked{% endif %}/>
                 <label for="star4" title="text">4 stars</label>
-                <input required type="radio" id="star3" name="rate" value="3" />
+                <input required type="radio" id="star3" name="rate" value="3" {% if testimonial_obj and testimonial_obj.user_rating|stringformat:"s" == "3.00" %} checked{% endif %}/>
                 <label for="star3" title="text">3 stars</label>
-                <input required type="radio" id="star2" name="rate" value="2" />
+                <input required type="radio" id="star2" name="rate" value="2" {% if testimonial_obj and testimonial_obj.user_rating|stringformat:"s" == "2.00" %} checked{% endif %}/>
                 <label for="star2" title="text">2 stars</label>
-                <input required type="radio" id="star1" name="rate" value="1" />
+                <input required type="radio" id="star1" name="rate" value="1" {% if testimonial_obj and testimonial_obj.user_rating|stringformat:"s" == "1.00" %} checked{% endif %}/>
                 <label for="star1" title="text">1 star</label>
-            </div>
-            <input class="shop-link" type="submit" value="Submit">
-        </form>
-
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-            <div class="image-container my-5">
-                <img class="card-img-top img-fluid" src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}" alt="{{ product.name }}">
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="product-details-container mb-5 mt-md-5">
-                <p class="mb-0">{{ product.name }}</p>
-                <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-                {% if product.category %}
-                <p class="small mt-1 mb-0">
-                    <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                    </a>
-                </p>
-                {% endif %}
-                {% if product.rating %}
-                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                {% else %}
-                <small class="text-muted">No Rating</small>
-                {% endif %}
-                <p class="mt-3">{{ product.description }}</p>
-
-                <div class="col{% if s %}-12 mt-2{% endif %}">
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Keep Shopping</span>
-                    </a>
-                    <a href="/products/" data-product="2" data-action="add" class="updateBttns"
-                        aria-label="click to add product to bag">
-                        <span class="btn btn-black rounded-0 text-uppercase mt-5 add-cart">Add to card</span>
-                    </a>
-                    <a href="{% url 'product_detail' product.id %}" data-product="{{product.id}}"
-                        data-action="addWishlist" class="btn btn-outline-black rounded-0 mt-5 updateBttns p-0"
-                        aria-label="Add to your wishlist"><i class="fa fa-heart "></i>
-                    </a>
                 </div>
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-            </div>
-            </form>
-        </div>
-
+                <input type="submit" class="shop-link" value="Submit">
     </div>
-    <div class="col-12">
-        <h2 class="mb-4 edit-products-reviews">Reviews</h2>
-    </div>
-    <div class="row g-2 mb-5">
-    {% for text in testimonials %}
-    <div class="col-md-4">
-        <div class="card p-3 text-center px-4">
-            <div class="user-image">
-                <img src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/user1.png" class="rounded-circle" width="80">
-            </div>
-            <div class="user-content">
-                <h5 class="mb-0">{{text.user}}</h5>
-                <p>{{text.testimonial_text}}</p>
-                <ul class="list-unstyled d-flex product-rating justify-content-center m-0">
-                    {% for n in range %}
-                    {% if text.user_rating.rating|sub:n >= 0 %}
-                    <li><span class="fas fa-star"></span></li>
-                    {% endif %}
-                    {% endfor %}
-                    <p class="mx-1">{{text.user_rating.rating}}</p>
-                </ul>
-            </div>
+    </form>
+    <div class="row">
+    <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+        <div class="image-container my-5">
+            <img class="card-img-top img-fluid"
+                src="https://zanfe.s3.eu-north-1.amazonaws.com/static/media/{{product.image}}" alt="{{ product.name }}">
         </div>
     </div>
-    {% endfor %}
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="product-details-container mb-5 mt-md-5">
+            <p class="mb-0">{{ product.name }}</p>
+            <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+            {% if product.category %}
+            <p class="small mt-1 mb-0">
+                <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                    <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                </a>
+            </p>
+            {% endif %}
+            {% if product.rating %}
+            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+            {% else %}
+            <small class="text-muted">No Rating</small>
+            {% endif %}
+            <p class="mt-3">{{ product.description }}</p>
 
+            <div class="col{% if s %}-12 mt-2{% endif %}">
+                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
+                <a href="/products/" data-product="2" data-action="add" class="updateBttns"
+                    aria-label="click to add product to bag">
+                    <span class="btn btn-black rounded-0 text-uppercase mt-5 add-cart">Add to card</span>
+                </a>
+                <a href="{% url 'product_detail' product.id %}" data-product="{{product.id}}" data-action="addWishlist"
+                    class="btn btn-outline-black rounded-0 mt-5 updateBttns p-0" aria-label="Add to your wishlist"><i
+                        class="fa fa-heart "></i>
+                </a>
+            </div>
+            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+        </div>
+        </form>
+    </div>
+    </div>
+
+    </div>
 </section>
 {% endblock %}
