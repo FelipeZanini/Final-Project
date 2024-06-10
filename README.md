@@ -275,7 +275,6 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 - **Testimonial:**
   
 - Edit testimonial
-  
 -![image](/readme/EDIT_TESTIMONIAL_NEW.png)
 
 - Remove text testimonial 
@@ -285,7 +284,6 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 - **Rating:**
   
 - Edit product rating
-  
 -![image](/readme/EDIT_RATING_NEW.png)
 
 </details>
