@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [".fly.dev","https://localhost:8000","https://newsapp27.fly.dev", "localhost", "127.0.0.1", "zanfe-009510b2eec0.herokuapp.com",
 ]

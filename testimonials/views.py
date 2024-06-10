@@ -123,7 +123,8 @@ def remove_testimonial(request, product_id):
                 testimonial_obj = Testimonial.objects.filter(product_id=product_id).filter(user=request.user).get()
                 testimonial_obj.delete()
             else:
-                pass
+                messages.error(request, "You can only delete your own reviews")
+                return redirect("product_review")
 
             rating_obj = UserRate.objects.filter(product_id=product_id).filter(user=request.user).exists()
             if rating_obj:

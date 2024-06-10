@@ -539,6 +539,9 @@ I ensured my site was worked well, and looked nice on a variety of devices & bro
 ## Manual Testing
 In the Testing section of the README, I extensively conducted manual testing to ensure the functionality and usability of Zanfe Website [CLICK HERE](https://github.com/users/FelipeZanini/projects/13).
 
+## Hacker Proof Testing
+ I carefully tested the Zanfe website myself to make sure it works well and is not hackable. [CLICK HERE](https://github.com/users/FelipeZanini/projects/14).
+
 
 ## Defects
 **DEFECTS** were documented in github using a custom issue template. 
