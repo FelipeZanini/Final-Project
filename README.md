@@ -174,6 +174,16 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
    - Product(Foreingkey to Product Model): The product associated with the order item.
    - Date added(DateTimeField): The date and time when the order item was added.
 
+9. **Address Profile:**
+   - User(Foreingkey to AUTH_USER): The user associated with the order.
+   - Address_line(CharField): Indicates the address line one.
+   - City(CharField): Indicates the city of shipping.
+   - Eircode(CharField): Indicates the eircode of shipping.
+   - County(CharField): Indicates the county of shipping.
+   - Phone(CharField): Indicates the eircode of shipping.
+   - Date added(DateTimeField): The date and time when the order item was added.
+
+
 </details>
 <hr>
 
@@ -545,7 +555,7 @@ In the Testing section of the README, I extensively conducted manual testing to 
 
 ## Defects
 **DEFECTS** were documented in github using a custom issue template. 
-- Here is my [DEFECT Template](https://github.com/FelipeZanini/Zanfe/blob/main/.github/ISSUE_TEMPLATE/bug_report.md)
+- Here is my [DEFECT Template](https://github.com/FelipeZanini/Zanfe/issues/33)
 
 ### Defects of Note
 
