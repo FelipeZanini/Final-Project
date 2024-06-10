@@ -201,7 +201,10 @@ The target audience for our e-commerce that offers home goods. Convenience, qual
  ![image](/readme/PRODUCT_DETAIL_WIREFRAME.png)
 
 - Profile Page:
- ![image](/readme/Profile_update_wireframe.png) 
+ ![image](/readme/Profile_update_wireframe.png)
+
+ - Product Review Page:
+ ![image](/readme/review_page_WIREFRAME_NEW.png)
 
 - Wishlist Page:
  ![image](/readme/WISHLIST_WIREFRAME.png)
@@ -251,32 +254,32 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 - **Bag:**
   
 - Increase item quantity
-- ![image](/readme/in-bag.png)
+![image](/readme/in-bag.png)
 
 - Decrease item quantity
-- ![image](/readme/ds-bag.png)
+![image](/readme/ds-bag.png)
 
 - Remove item from bag
-- ![image](/readme/ex-bag.png)
+![image](/readme/ex-bag.png)
 
 
 - **Wishlist:**
   
 - Remove item from wishlist
-- ![image](/readme/ex-wishlist.png)
+![image](/readme/ex-wishlist.png)
 
 - **Testimonial:**
   
 - Edit testimonial
-- ![image](/readme/ed-testimonal.png)
+![image](/readme/EDIT_TESTIMONIAL_NEW.png)
 
 - Remove text testimonial 
-- ![image](/readme/ex-testimonal.png)
+![image](/readme/DELETE_REVIEW_NEW.png)
 
 - **Rating:**
   
 - Edit product rating
-- ![image](/readme//ed-review.png)
+![image](/readme/EDIT_RATING_NEW.png)
 
 </details>
 <hr>
@@ -388,9 +391,7 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 <details>
 <summary>Profile Details</summary>
 
-![image](/readme/profile-page.png)
-
-<hr>
+![image](/readme/PROFILE_PAGE_NEW.png)
 
 <hr>
 
@@ -407,6 +408,18 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 <summary>Order Detail</summary>
 
 ![image](/readme/order-detail-page.png)
+
+
+<hr>
+
+</details>
+<hr>
+
+**Product Review:**
+<details>
+<summary>Product Review</summary>
+
+![image](/readme/PRODUCT_REVIEW_NEW.png)
 
 
 <hr>
