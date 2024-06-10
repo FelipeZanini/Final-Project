@@ -254,32 +254,39 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 - **Bag:**
   
 - Increase item quantity
-  - ![image](/readme/in-bag.png)
+
+- ![image](/readme/in-bag.png)
 
 - Decrease item quantity
-  - ![image](/readme/ds-bag.png)
+
+- ![image](/readme/ds-bag.png)
 
 - Remove item from bag
-  -![image](/readme/ex-bag.png)
+
+-![image](/readme/ex-bag.png)
 
 
 - **Wishlist:**
   
 - Remove item from wishlist
-  -![image](/readme/ex-wishlist.png)
+
+-![image](/readme/ex-wishlist.png)
 
 - **Testimonial:**
   
 - Edit testimonial
-  -![image](/readme/EDIT_TESTIMONIAL_NEW.png)
+  
+-![image](/readme/EDIT_TESTIMONIAL_NEW.png)
 
 - Remove text testimonial 
-  -![image](/readme/DELETE_REVIEW_NEW.png)
+  
+-![image](/readme/DELETE_REVIEW_NEW.png)
 
 - **Rating:**
   
 - Edit product rating
-  -![image](/readme/EDIT_RATING_NEW.png)
+  
+-![image](/readme/EDIT_RATING_NEW.png)
 
 </details>
 <hr>
@@ -427,14 +434,13 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 </details>
 
 <hr>
+
 **Contact Us:**
 <details>
 <summary>Contact Us</summary>
 
 ![image](/readme/CONTACT_US.png)
 
-
-<hr>
 
 </details>
 <hr>
@@ -465,14 +471,15 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 - **(Authorized User - Update)**
 
-![image](/readme/ed-testimonal.png)
-![image](/readme/ed-review.png)
+![image](/readme/DELETE_REVIEW_NEW.png)
+![image](/readme/EDIT_RATING_NEW.png)
+![image](/readme/EDIT_TESTIMONIAL_NEW.png)
 
 <hr>
 
 - **(Authorized User - Delete)**
 
-![image](/readme/ex-testimonal.png)
+![image](/readme/DELETE_REVIEW_NEW.png)
 
 <hr>
 
@@ -520,7 +527,6 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 - There's a success message if the user submit a newsletters forms. 
 ![image](/readme/form-sub-msg.png)
 
-<hr>
 
 </details>
 <hr>
@@ -607,6 +613,9 @@ In the Testing section of the README, I extensively conducted manual testing to 
 
 - News Letter Page
 ![image](/readme/NEWS_LETTER_HTML_VALIDATOR.png)
+
+- Contact Us page
+![image](/readme/HTML_VALIDATOR_PRODUCT_REVIEW.png)
 
 - Cart
 ![image](/readme/CART_HTML_VALIDATOR.png)
