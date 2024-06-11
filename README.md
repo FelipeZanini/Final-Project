@@ -253,32 +253,32 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 - **Bag:**
   
-- Increase item quantity
+- Increase item quantity <br />
 ![image](/readme/in-bag.png)
 
-- Decrease item quantity
+- Decrease item quantity <br />
 ![image](/readme/ds-bag.png)
 
-- Remove item from bag
+- Remove item from bag <br />
 ![image](/readme/ex-bag.png)
 
 
 - **Wishlist:**
   
-- Remove item from wishlist
+- Remove item from wishlist <br />
 ![image](/readme/ex-wishlist.png)
 
 - **Testimonial:**
   
-- Edit testimonial
+- Edit testimonial <br />
 ![image](/readme/EDIT_TESTIMONIAL_NEW.png)
 
-- Remove text testimonial 
+- Remove text testimonial <br /> 
 ![image](/readme/DELETE_REVIEW_NEW.png)
 
 - **Rating:**
   
-- Edit product rating
+- Edit product rating <br />
 ![image](/readme/EDIT_RATING_NEW.png)
 
 </details>
