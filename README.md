@@ -317,7 +317,7 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 - **Mobile**
 
-![image](/readme/nav-mob.png)
+  ![image](/readme/nav-mob.png)
 
 <hr>
 
@@ -473,13 +473,9 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 ![image](/readme/EDIT_RATING_NEW.png)
 ![image](/readme/EDIT_TESTIMONIAL_NEW.png)
 
-<hr>
-
 - **(Authorized User - Delete)**
 
 ![image](/readme/DELETE_REVIEW_NEW.png)
-
-<hr>
 
 - Users can interact with our products and services by providing feedback through the reviews page feature. Users can utilise this tool to voice their opinions 
   regarding our company, goods, and overall experience.
@@ -487,7 +483,6 @@ I used PostgreSQL as the database for this project. Hosting the application on H
   feedback to help us improve and support other.
 - Editing and Deleteing Reviews: We respect authenticity, thus we provide people the option to alter or remove their reviews so they may maintain control over 
   their input. Users are empowered to edit their reviews if their thoughts alter over time thanks to this strategy that is easy to utilise.
-
 
 </details>
 <hr>
@@ -501,6 +496,8 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 - There's a succes message if the user logged in. 
 ![image](/readme/signin-msg.png)
 
+<hr>
+
 - There's a succes message if the user logged out. 
 ![image](/readme/signout-msg.png)
 
@@ -511,20 +508,49 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 
 <hr>
 
+- There's a info message if the user saved his profile address. 
+![image](/readme/adress_save_message.png)
+
+
+<hr>
+
+- There's a info message if the user updated his profile address. 
+![image](/readme/update_profile_message.png)
+
+<hr>
+
+- There's a info message if the user delete his profile address. 
+![image](/readme/delete_user_address_message.png)
+
+<hr>
+
 - There's a info message if the user edit a product rating.
 ![image](/readme/edt-rating-msg.png) 
+
+<hr>
+
+- There's a warning message if the user try to enter another id product to edit the review.
+![image](/readme/UPDATE_OWN_REVIEW.png) 
+
+<hr>
+
+- There's a warning message if the user try to enter another id product to edit the testimonial.
+![image](/readme/TEST_EDIT_MESSAGE.png) 
+
+<hr>
+
+- There's a warning message if the user try to enter another id product to edit the rating.
+![image](/readme/UPDATE_OWN_RATING_MESSAGE.png) 
 
 <hr>
 
 - There's a danger message if the user remove a testimonial.
 ![image](/readme/ex-testimonial-msg.png)
 
-
 <hr>
 
 - There's a success message if the user submit a newsletters forms. 
 ![image](/readme/form-sub-msg.png)
-
 
 </details>
 <hr>
