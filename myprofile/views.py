@@ -87,7 +87,7 @@ def delete_profile_address(request):
 
 @login_required
 def product_review(request):
-    """ Function to render the products order """
+    """ Function to render the products review page """
     context = {}
     try:
         products = models.OrderItem.objects.filter(user=request.user).all()
