@@ -254,37 +254,32 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 - **Bag:**
   
 - Increase item quantity
-
-- ![image](/readme/in-bag.png)
+![image](/readme/in-bag.png)
 
 - Decrease item quantity
-
-- ![image](/readme/ds-bag.png)
+![image](/readme/ds-bag.png)
 
 - Remove item from bag
-
--![image](/readme/ex-bag.png)
+![image](/readme/ex-bag.png)
 
 
 - **Wishlist:**
   
 - Remove item from wishlist
-
--![image](/readme/ex-wishlist.png)
+![image](/readme/ex-wishlist.png)
 
 - **Testimonial:**
   
 - Edit testimonial
--![image](/readme/EDIT_TESTIMONIAL_NEW.png)
+![image](/readme/EDIT_TESTIMONIAL_NEW.png)
 
 - Remove text testimonial 
-  
--![image](/readme/DELETE_REVIEW_NEW.png)
+![image](/readme/DELETE_REVIEW_NEW.png)
 
 - **Rating:**
   
 - Edit product rating
--![image](/readme/EDIT_RATING_NEW.png)
+![image](/readme/EDIT_RATING_NEW.png)
 
 </details>
 <hr>
@@ -418,7 +413,6 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 <hr>
 
 </details>
-<hr>
 
 **Product Review:**
 <details>
@@ -430,8 +424,6 @@ I used PostgreSQL as the database for this project. Hosting the application on H
 <hr>
 
 </details>
-
-<hr>
 
 **Contact Us:**
 <details>
