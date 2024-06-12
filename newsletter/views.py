@@ -4,6 +4,6 @@ from django.shortcuts import render, redirect
 from fezin import settings
 
 
-def subscribe_view(request):
+def newsletter_subscribe(request):
 
     return render(request, 'newsletter/subscribe.html')
