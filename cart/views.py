@@ -108,6 +108,13 @@ def checkout(request):
                         eircode=eircode,
                         )
                 order.save()
+                send_mail(
+                "Order: " + str(order.order_number) +" " +str(order.date_ordered),
+                "Thank you for your purchase, we are glad to have you shopping with us.",
+                settings.DEFAULT_FROM_EMAIL,
+                [request.user.email]
+                )
+
                 shipping_address.save()
 
                 for item in context['items']:
@@ -145,16 +152,6 @@ def checkout_success(request, order_number):
                                          order__order_number=order_number)
     order_item = models.OrderItem.objects.filter(order=order).all()
     order_total = False
-
-
-    send_mail(
-        "Order: " + str(order.order_number) +" " +str(order.date_ordered),
-        "Thank you for your purchase, we are glad to have you shopping with us.",
-        settings.DEFAULT_FROM_EMAIL,
-        [request.user.email]
-        )
-
-    
 
     context = {'order': order, 'shipping_address': shipping_address,
                'order_item': order_item, 'order_total': order_total} 
