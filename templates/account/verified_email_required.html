@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load allauth %}
+<section class="mt-5 vh-100">
 {% block head_title %}
     {% trans "Verify Your Email Address" %}
 {% endblock head_title %}
@@ -23,3 +24,4 @@ contact us if you do not receive it within a few minutes.{% endblocktrans %}
         {% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your email address</a>.{% endblocktrans %}
     </p>
 {% endblock content %}
+</section>
